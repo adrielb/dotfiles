@@ -1,0 +1,5 @@
+uninstall 
+turn off screensaver
+apt-get remove virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms
+sh VBoxLinuxAdditions.run
+sudo dpkg --get-selections|less
