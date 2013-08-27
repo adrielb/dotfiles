@@ -47,7 +47,7 @@ export LESSOPEN="|src-hilite-lesspipe.sh %s"
 #export PATH=/share/apps/InsightToolkit-3.16.0/bin:$PATH
 #export PYTHONPATH=/share/apps/InsightToolkit-3.16.0/Wrapping/CSwig/Python:/share/apps/InsightToolkit-3.16.0/bin:$PYTHONPATH
 
-alias tmux="TERM=screen-256color; tmux"
+alias tmux="export TERM=screen-256color; tmux"
 alias lx="ls -XshF"
 alias du1="du --max-depth=1|sort -n"
-
+alias xclip="xclip -selection clipboard"

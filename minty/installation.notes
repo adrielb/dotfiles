@@ -13,4 +13,4 @@ projects /media/projects vboxsf defaults 0 0
 mkdir /apps
 chown abergman:abergman /apps
 
-
+apt-get install xclip tmux mercurial git git-core source-highlight ack ag
