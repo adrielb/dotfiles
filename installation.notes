@@ -1,0 +1,2 @@
+
+yum install lua lua-devel tcl tcl-devel ruby ruby-devel

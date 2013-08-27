@@ -1,5 +1,16 @@
-uninstall 
+uninstall
 turn off screensaver
 apt-get remove virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms
 sh VBoxLinuxAdditions.run
+Enable 3D Acceleration
+Disable Auto-mount of shared folders
 sudo dpkg --get-selections|less
+
+in /etc/fstab
+projects /media/projects vboxsf defaults 0 0
+
+
+mkdir /apps
+chown abergman:abergman /apps
+
+
