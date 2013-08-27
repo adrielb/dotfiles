@@ -3,53 +3,76 @@
 set nocompatible
 
 let mapleader = "\<Space>"
-
 " Installed Plugins {{{
+
+function! LoadBundles()
+  Bundle 'gmarik/vundle'
+  Bundle 'altercation/vim-colors-solarized'
+  Bundle 'mileszs/ack.vim'
+  Bundle 'rking/ag.vim'
+  Bundle 'godlygeek/tabular'
+  Bundle 'bling/vim-airline'
+  "Bundle 'nathanaelkane/vim-indent-guides'
+  Bundle 'SirVer/ultisnips'
+  Bundle 'kien/ctrlp.vim'
+  "Bundle 'Valloric/YouCompleteMe'
+  "Bundle 'klen/python-mode'
+  "Bundle 'jcf/vim-latex'
+  Bundle 'vim-scripts/vimwiki'
+  Bundle 'scrooloose/syntastic'
+  Bundle 'scrooloose/nerdcommenter'
+  Bundle 'scrooloose/nerdtree'
+  "Bundle 'mattn/calendar-vim'
+  Bundle 'tpope/vim-fugitive'
+  Bundle 'tpope/vim-markdown'
+  Bundle 'tpope/vim-surround'
+  Bundle 'tpope/vim-unimpaired'
+  Bundle 'tpope/vim-git'
+  Bundle 'tpope/vim-dispatch'
+  Bundle 'sjl/gundo.vim'
+  "Bundle 'a.vim'
+  Bundle 'dbakker/vim-lint'
+  Bundle 'rsmenon/vim-mathematica'
+  Bundle 'christoomey/vim-tmux-navigator'
+  "new plugins
+  "Bundle 'Lokaltog/vim-easymotion'
+  Bundle 'LaTeX-Box-Team/LaTeX-Box'
+  "Bundle 'kana/vim-altr'
+  "Bundle 'kana/vim-textobj-user'
+  "Bundle 'rbonvall/vim-textobj-latex'
+  "Bundle 'b4winckler/vim-angry'
+  "Bundle repeat
+  "Bundle vim-sigify
+  " runtime macros/matchit.vim
+  "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+  "Bundle 'Lokaltog/powerline'
+endfunction
+
+" Install Vundle {{{
+" https://github.com/docwhat/homedir-vim/blob/master/vimrc/.vimrc#L355
+" Only install vundle and bundles if git exists...
 " required for Vundle:
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-" My bundles
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'bling/vim-airline'
-"Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'SirVer/ultisnips'
-Bundle 'kien/ctrlp.vim'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'klen/python-mode'
-"Bundle 'jcf/vim-latex'
-Bundle 'vim-scripts/vimwiki'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'mattn/calendar-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-dispatch'
-Bundle 'sjl/gundo.vim'
-"Bundle 'a.vim'
-Bundle 'dbakker/vim-lint'
-Bundle 'rsmenon/vim-mathematica'
-Bundle 'christoomey/vim-tmux-navigator'
-"new plugins
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-"Bundle 'kana/vim-altr'
-"Bundle 'kana/vim-textobj-user'
-"Bundle 'rbonvall/vim-textobj-latex'
-"Bundle 'b4winckler/vim-angry'
-"Bundle repeat
-"Bundle vim-sigify
-" runtime macros/matchit.vim
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"Bundle 'Lokaltog/powerline'
+if executable("git")
+  if !isdirectory(expand("~/.vim/bundle/vundle"))
+    echomsg "******************************"
+    echomsg "Installing Vundler..."
+    echomsg "******************************"
+    !mkdir -p ~/.vim/bundle && git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    let s:bootstrap=1
+  endif
+
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+  call LoadBundles()
+
+  if exists("s:bootstrap") && s:bootstrap
+    unlet s:bootstrap
+    BundleInstall
+    quit
+  endif
+endif
+"}}}
 " }}}
 
 " Basic Vim settings {{{
@@ -225,7 +248,7 @@ autocmd FileType help wincmd L
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+    \ | wincmd p | diffthis
 endif
 
 " Put these in an autocmd group, so that we can delete them easily.
