@@ -49,5 +49,38 @@ export LESSOPEN="|src-hilite-lesspipe.sh %s"
 
 alias tmux="export TERM=screen-256color; tmux"
 alias lx="ls -XshF"
+alias lt="ll -rt"
 alias du1="du --max-depth=1|sort -n"
 alias xclip="xclip -selection clipboard"
+alias g="git"
+alias v="vim"
+
+
+function cl () {
+  if [ $# = 0 ]; then
+    cd && ll
+  else
+    cd "$*" && ll
+  fi
+}
+
+NORMAL=$( tput sgr0 )
+RED=$( tput setaf 1 )
+GREEN=$(tput setaf 2; tput bold)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+
+function red() {
+  echo -e "$RED$*$NORMAL"
+}
+
+function green() {
+  echo -e "$GREEN$*$NORMAL"
+}
+
+function yellow() {
+  echo -e "$YELLOW$*$NORMAL"
+}
+
+
+debug() { [ "$DEBUG" ] && echo ">>> $*"; }
