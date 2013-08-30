@@ -1,2 +1,11 @@
 
 yum install lua lua-devel tcl tcl-devel ruby ruby-devel
+
+
+
+Installing libevent
+git clone https://github.com/nmathewson/Libevent.git
+cd Libevent
+./autogen.sh
+./configure --prefix=/share/apps
+make && make install

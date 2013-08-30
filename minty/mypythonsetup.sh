@@ -9,6 +9,7 @@ apt-get install -y libpng-dev libfreetype6 libfreetype6-dev \
   lua5.2-dev ruby-dev tcl-dev lua5.2 ruby tcl \
   python-dev python-pip
 easy_install -U distribute
+argparse
 pip install numpy
 pip install matplotlib
 pip install scipy

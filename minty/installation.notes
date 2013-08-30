@@ -13,4 +13,14 @@ projects /media/projects vboxsf defaults 0 0
 mkdir /apps
 chown abergman:abergman /apps
 
-apt-get install xclip tmux mercurial git git-core source-highlight ack ag
+apt-get install xclip tmux mercurial git git-core source-highlight ack
+
+Installing Ag The Silver Searcher
+apt-get install python-software-properties
+apt-add-repository ppa:mizuno-as/silversearcher-ag
+apt-get update
+apt-get install silversearcher-ag
+
+sudo apt-get install xfce4 xfce4-goodies ncurses-term
+sudo mdmsetup > General > Default session > change 'xclient script' to xfce
+Xfce-terminal > Preferences > Colors > Presets > solarized
