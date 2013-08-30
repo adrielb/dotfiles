@@ -16,7 +16,7 @@ function! LoadBundles()
   Bundle 'SirVer/ultisnips'
   Bundle 'kien/ctrlp.vim'
   "Bundle 'Valloric/YouCompleteMe'
-  "Bundle 'klen/python-mode'
+  Bundle 'klen/python-mode'
   "Bundle 'jcf/vim-latex'
   Bundle 'vim-scripts/vimwiki'
   Bundle 'scrooloose/syntastic'
@@ -34,6 +34,9 @@ function! LoadBundles()
   Bundle 'dbakker/vim-lint'
   Bundle 'rsmenon/vim-mathematica'
   Bundle 'christoomey/vim-tmux-navigator'
+  Bundle 'Shougo/unite.vim'
+  Bundle 'Shougo/vimproc.vim'
+  Bundle 'jpalardy/vim-slime'
   "new plugins
   "Bundle 'Lokaltog/vim-easymotion'
   Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -85,7 +88,7 @@ let g:solarized_hitrail=1
 colorscheme solarized
 "colorscheme SolarizedDark_modified
 set t_Co=256
-set history=10000 
+set history=10000
 set nowrap
 set wildmenu 
 set wildmode=list:longest:full
@@ -104,6 +107,7 @@ set shiftround
 set smarttab
                      " searching
 set ignorecase
+set nowrapscan " don't loop to beginning
 set smartcase
 set incsearch        " do incremental searching
 set hlsearch
@@ -123,7 +127,7 @@ set foldmethod=marker
 set spelllang=en_us
 set wildignore+=.git
 set wildignore+=*.so,*.a,*.la,*.o
-set wildignore+=*.swp,*.pyc,*.class
+set wildignore+=*.swp,*.un~,*.pyc,*.class
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.aux,*.dvi,*.toc,*.pdf,*.ps
 set wildignore+=*.mp3,*.m4a,*.wav,*.flac
@@ -142,7 +146,7 @@ nmap <F5> :NERDTreeFind<CR>
 " CTRL-U in insert mode deletes a lot.
 " Use CTRL-G u to first break undo,  so that you
 " can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>  
+inoremap <C-U> <C-G>u<C-U>
 inoremap jk <esc>
 inoremap kj <esc>
 nnoremap Y y$
@@ -164,7 +168,7 @@ nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gg :Ggrep 
 nnoremap <leader>/  :Ag 
-nnoremap <leader>m  :wall\|make\|redraw!\|cc<CR>
+nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
 nnoremap <leader>s  :call MySpell()<CR>
 nnoremap <leader>b  :CtrlPBuffer<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
@@ -206,6 +210,17 @@ nnoremap <right>    :cnext<CR>
 " }}}
 
 " Plugin Options {{{ 
+
+" vim-slime {{{
+let g:slime_target="tmux"
+let g:slime_paste_file="/tmp/slime-paste"
+"let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
+"}}}
+
+" Python-mode {{{
+let g:pymode_rope=0
+let g:pymode_folding=0
+" }}}
 
 " Airline {{{
 let g:airline_theme='light'
