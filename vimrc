@@ -85,6 +85,7 @@ set background=dark
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_hitrail=1
+"let g:solarized_termcolors=256
 colorscheme solarized
 "colorscheme SolarizedDark_modified
 set t_Co=256
@@ -127,7 +128,7 @@ set foldmethod=marker
 set spelllang=en_us
 set wildignore+=.git
 set wildignore+=*.so,*.a,*.la,*.o
-set wildignore+=*.swp,*.un~,*.pyc,*.class
+set wildignore+=*.sw?,*.un~,*.pyc,*.class
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.aux,*.dvi,*.toc,*.pdf,*.ps
 set wildignore+=*.mp3,*.m4a,*.wav,*.flac
@@ -161,7 +162,7 @@ nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
-nnoremap <leader>a\<Space> :Tabularize / <CR>
+nnoremap <leader>a\<Space> :Tabularize / /r0<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gl :Glog<CR>
@@ -227,6 +228,8 @@ let g:airline_theme='light'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_linecolumn_prefix = '␊ '
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 "}}}
 
 " LaTex {{{
@@ -360,6 +363,7 @@ endif
 "let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]levlabnas$' }
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_root_markers = ['.ctrlp']
 "}}}
 
 " vimwiki {{{
