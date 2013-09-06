@@ -84,3 +84,11 @@ function yellow() {
 
 
 debug() { [ "$DEBUG" ] && echo ">>> $*"; }
+
+_path_add() {
+  # Adds a directory to $PATH, but only if it isn't already present.
+  # http://superuser.com/questions/39751/add-directory-to-path-if-its-not-already-there/39995#39995
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="$1:${PATH:+"$PATH:"}"
+  fi
+}
