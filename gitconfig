@@ -7,7 +7,7 @@
 	tool = meld
 [alias]
 	st = status
-  ci = commit
+  ci = commit --verbose
   co = checkout
   unstage =  reset HEAD --
 	undo = reset --hard
