@@ -8,6 +8,7 @@ let mapleader = "\<Space>"
 function! LoadBundles()
   Bundle 'gmarik/vundle'
   Bundle 'altercation/vim-colors-solarized'
+  Bundle 'tomasr/molokai'
   Bundle 'mileszs/ack.vim'
   Bundle 'rking/ag.vim'
   Bundle 'godlygeek/tabular'
@@ -86,8 +87,10 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_hitrail=1
 "let g:solarized_termcolors=256
-colorscheme solarized
-"colorscheme SolarizedDark_modified
+"colorscheme solarized
+colorscheme molokai
+"let g:molokai_original=1
+"let g:rehash256=1
 set t_Co=256
 set history=10000
 set nowrap
@@ -115,6 +118,7 @@ set hlsearch
 set title
 set number           " show line numbers
 set colorcolumn=+1
+set cursorline
 set winwidth=82
 set showmatch        " Show matching brackets
 set scrolloff=3
