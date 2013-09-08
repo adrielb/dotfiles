@@ -9,6 +9,7 @@ function! LoadBundles()
   Bundle 'gmarik/vundle'
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'tomasr/molokai'
+  Bundle 'joedicastro/vim-molokai256'
   Bundle 'mileszs/ack.vim'
   Bundle 'rking/ag.vim'
   Bundle 'godlygeek/tabular'
@@ -46,7 +47,7 @@ function! LoadBundles()
   "Bundle 'rbonvall/vim-textobj-latex'
   "Bundle 'b4winckler/vim-angry'
   "Bundle repeat
-  "Bundle vim-sigify
+  Bundle 'mhinz/vim-signify'
   " runtime macros/matchit.vim
   "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   "Bundle 'Lokaltog/powerline'
@@ -88,7 +89,7 @@ let g:solarized_visibility="high"
 let g:solarized_hitrail=1
 "let g:solarized_termcolors=256
 "colorscheme solarized
-colorscheme molokai
+colorscheme molokai256
 "let g:molokai_original=1
 "let g:rehash256=1
 set t_Co=256
@@ -273,13 +274,16 @@ if !exists(":DiffOrig")
     \ | wincmd p | diffthis
 endif
 
+" auto-save after 'updatetime'
+augroup autoSave
+  au!
+  "autocmd CursorHold  * :silent! update
+  "autocmd CursorHoldI * :silent! update
+augroup END
+
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
-  " auto-save after 'updatetime'
-  autocmd CursorHold  * :silent! update
-  autocmd CursorHoldI * :silent! update
-
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
