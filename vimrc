@@ -18,7 +18,8 @@ function! LoadBundles()
   Bundle 'SirVer/ultisnips'
   Bundle 'kien/ctrlp.vim'
   "Bundle 'Valloric/YouCompleteMe'
-  Bundle 'klen/python-mode'
+  "Bundle 'klen/python-mode'
+  Bundle 'Python-mode-klen'
   "Bundle 'jcf/vim-latex'
   Bundle 'vim-scripts/vimwiki'
   Bundle 'scrooloose/syntastic'
@@ -226,6 +227,7 @@ let g:slime_paste_file="/tmp/slime-paste"
 " Python-mode {{{
 let g:pymode_rope=0
 let g:pymode_folding=0
+let g:pymode_lint=0
 " }}}
 
 " Airline {{{
