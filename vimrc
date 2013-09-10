@@ -17,9 +17,11 @@ function! LoadBundles()
   "Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'SirVer/ultisnips'
   Bundle 'kien/ctrlp.vim'
+  Bundle 'davidhalter/jedi-vim'
+  Bundle 'ervandew/supertab'
   "Bundle 'Valloric/YouCompleteMe'
   "Bundle 'klen/python-mode'
-  Bundle 'Python-mode-klen'
+  "Bundle 'Python-mode-klen'
   "Bundle 'jcf/vim-latex'
   Bundle 'vim-scripts/vimwiki'
   Bundle 'scrooloose/syntastic'
@@ -164,7 +166,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <leader>l  :nohlsearch<CR><C-L>
-nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
@@ -267,6 +269,7 @@ augroup END " }
 autocmd FileType vim set keywordprg=":help"
 autocmd FileType help nnoremap <silent><buffer> q :q<CR>
 autocmd FileType help wincmd L
+autocmd FileType qf   nnoremap <silent><buffer> q :q<CR> 
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -332,6 +335,29 @@ function! MySpell()
     nunmap <buffer> w
   endif
 endfunction
+
+" Syntax colors duplicate lines
+" http://stackoverflow.com/questions/1268032/marking-duplicate-lines
+function! HighlightRepeats() range
+  let lineCounts = {}
+  let lineNum = a:firstline
+  while lineNum <= a:lastline
+    let lineText = getline(lineNum)
+    if lineText != ""
+      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+    endif
+    let lineNum = lineNum + 1
+  endwhile
+  exe 'syn clear Repeat'
+  for lineText in keys(lineCounts)
+    if lineCounts[lineText] >= 2
+      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+    endif
+  endfor
+endfunction
+
+command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
 "}}}
 
 " Syntastic {{{
