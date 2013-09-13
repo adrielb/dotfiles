@@ -11,6 +11,7 @@ apt-get install -y libpng-dev libfreetype6 libfreetype6-dev \
 easy_install -U distribute
 argparse
 pip install jedi
+pip install pyzmq
 pip install numpy
 pip install matplotlib
 pip install scipy

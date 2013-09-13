@@ -33,7 +33,7 @@ export LD_LIBRARY_PATH=${DCELL_DIR}/lib:$LD_LIBRARY_PATH
 
 export ACK_OPTIONS="-A 5 --nohtml"
 export ACK_PAGER_COLOR="less -R"
-export LESS="-R"
+export LESS="-RF"
 export LESSOPEN="|src-hilite-lesspipe.sh %s"
 
 #module load openmpi-i386
@@ -52,9 +52,10 @@ alias lx="ls -XshF"
 alias lt="ll -rt"
 alias du1="du --max-depth=1|sort -n"
 alias xclip="xclip -selection clipboard"
-alias g="git"
+alias gst="git st"
 alias v="vim"
-
+alias vimc='cd /home/abergman/projects/codebank/; vim +CtrlP'
+alias vimt='tmux new vim \; split-window'
 
 function cl () {
   if [ $# = 0 ]; then

@@ -9,3 +9,6 @@ cd Libevent
 ./autogen.sh
 ./configure --prefix=/share/apps
 make && make install
+
+
+https://github.com/thewtex/tmux-mem-cpu-load

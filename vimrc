@@ -15,7 +15,7 @@ function! LoadBundles()
   Bundle 'godlygeek/tabular'
   Bundle 'bling/vim-airline'
   "Bundle 'nathanaelkane/vim-indent-guides'
-  Bundle 'SirVer/ultisnips'
+  "Bundle 'SirVer/ultisnips'
   Bundle 'kien/ctrlp.vim'
   Bundle 'davidhalter/jedi-vim'
   Bundle 'ervandew/supertab'
@@ -38,10 +38,11 @@ function! LoadBundles()
   "Bundle 'a.vim'
   Bundle 'dbakker/vim-lint'
   Bundle 'rsmenon/vim-mathematica'
-  Bundle 'christoomey/vim-tmux-navigator'
+  "Bundle 'christoomey/vim-tmux-navigator'
   Bundle 'Shougo/unite.vim'
   Bundle 'Shougo/vimproc.vim'
   Bundle 'jpalardy/vim-slime'
+  "Bundle 'ivanov/vim-ipython'
   "new plugins
   "Bundle 'Lokaltog/vim-easymotion'
   Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -170,30 +171,35 @@ nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
-nnoremap <leader>a\<Space> :Tabularize / /r0<CR>
+nnoremap <leader>a<Space> :Tabularize / /r0<CR>
+xnoremap <leader>a<Space> :Tabularize / /r0<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gg :Ggrep 
-nnoremap <leader>/  :Ag 
+nnoremap <leader>gg :Ggrep<Space>
+nnoremap <leader>/  :Ag<Space>
+nnoremap <leader>/c :tabnew<CR>:AgCB<Space>
+nnoremap <leader>q  :bd<CR>
 nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
 nnoremap <leader>s  :call MySpell()<CR>
 nnoremap <leader>b  :CtrlPBuffer<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
 nnoremap <leader>y "+y
-vnoremap <leader>y "+y
+xnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
-vnoremap <leader>Y "+Y
+xnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
-vnoremap <leader>p "+p
+xnoremap <leader>p "+p
 nnoremap <leader>P "+P
-vnoremap <leader>P "+P
+xnoremap <leader>P "+P
 nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
 nnoremap <right>    :cnext<CR>
+nmap     <leader><CR>  <Plug>SlimeParagraphSend
+xmap     <leader><CR>  <Plug>SlimeRegionSend
 "These mappings dont work :(
 "nnoremap <C-1> 1gt
 "nnoremap <C-2> 2gt
@@ -201,9 +207,6 @@ nnoremap <right>    :cnext<CR>
 "nnoremap <C-4> 4gt
 "nnoremap <C-5> 5gt
 
-
-" output all currently defined mappings
-"redir! > /tmp/vim.map | map | redir END | vsplit /tmp/vim.map 
 
 " http://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
 " window
@@ -219,6 +222,9 @@ nnoremap <right>    :cnext<CR>
 " }}}
 
 " Plugin Options {{{ 
+
+command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
+      \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
 
 " vim-slime {{{
 let g:slime_target="tmux"
@@ -239,6 +245,7 @@ let g:airline_right_sep = '◀'
 let g:airline_linecolumn_prefix = '␊ '
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#whitespace#enabled = 0
 "}}}
 
 " LaTex {{{
@@ -307,6 +314,14 @@ augroup localvimrc
   autocmd!
   autocmd BufNewFile,BufReadPost * nested call ReadLocalVimrc()
 augroup END
+
+" output all currently defined mappings
+function! PrintMappings()
+  execute "redir! > /tmp/map.vim"
+  execute "silent verbose map"
+  execute "redir END"
+  execute "tabnew /tmp/map.vim"
+endfunction
 
 function! ReadLocalVimrc()
   let mylocalvimrc = expand( "%:p:h" ) . "/local.vimrc"
