@@ -310,11 +310,6 @@ augroup vimrcEx
     \ endif
 augroup END
 
-augroup localvimrc
-  autocmd!
-  autocmd BufNewFile,BufReadPost * nested call ReadLocalVimrc()
-augroup END
-
 " output all currently defined mappings
 function! PrintMappings()
   execute "redir! > /tmp/map.vim"
@@ -322,6 +317,12 @@ function! PrintMappings()
   execute "redir END"
   execute "tabnew /tmp/map.vim"
 endfunction
+
+augroup localvimrc
+  autocmd!
+  autocmd BufNewFile,BufReadPost * nested call ReadLocalVimrc()
+  autocmd BufWritePost local.vimrc nested :bufdo call ReadLocalVimrc()
+augroup END
 
 function! ReadLocalVimrc()
   let mylocalvimrc = expand( "%:p:h" ) . "/local.vimrc"
