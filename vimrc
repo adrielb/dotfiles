@@ -322,6 +322,19 @@ function! PrintMappings()
   execute "tabnew /tmp/map.vim"
 endfunction
 
+"http://vim.wikia.com/wiki/Capture_ex_command_output
+function! PrintMessage(cmd)
+  redir => mymessage
+  silent execute a:cmd
+  redir END
+  tabnew
+  silent put=mymessage
+  setlocal nomodifiable
+  setlocal filetype=vim
+  setlocal buftype=nofile
+endfunction
+command! -nargs=+ -complete=command PrintMessage call PrintMessage(<q-args>)
+
 augroup localvimrc
   autocmd!
   autocmd BufNewFile,BufReadPost * nested call ReadLocalVimrc()
