@@ -26,7 +26,7 @@ function! LoadBundles()
   Bundle 'vim-scripts/vimwiki'
   Bundle 'scrooloose/syntastic'
   Bundle 'scrooloose/nerdcommenter'
-  Bundle 'scrooloose/nerdtree'
+  "Bundle 'scrooloose/nerdtree'
   "Bundle 'mattn/calendar-vim'
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-markdown'
@@ -152,7 +152,7 @@ set report=0
 " Mappings {{{
 nmap Q gqip " Formats current paragraph
 vmap Q gq
-nmap <F5> :NERDTreeFind<CR>
+"nmap <F5> :NERDTreeFind<CR>
 " CTRL-U in insert mode deletes a lot.
 " Use CTRL-G u to first break undo,  so that you
 " can undo CTRL-U after inserting a line break.
@@ -395,7 +395,7 @@ let g:syntastic_warning_symbol = '⚠'
 let NERDTreeIgnore = ['\.o$', '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "}}}
 
 " CScope {{{
