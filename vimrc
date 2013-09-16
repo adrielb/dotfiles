@@ -20,7 +20,7 @@ function! LoadBundles()
   Bundle 'davidhalter/jedi-vim'
   Bundle 'ervandew/supertab'
   "Bundle 'Valloric/YouCompleteMe'
-  "Bundle 'klen/python-mode'
+  Bundle 'klen/python-mode'
   "Bundle 'Python-mode-klen'
   "Bundle 'jcf/vim-latex'
   Bundle 'vim-scripts/vimwiki'
@@ -236,6 +236,10 @@ let g:slime_paste_file="/tmp/slime-paste"
 let g:pymode_rope=0
 let g:pymode_folding=0
 let g:pymode_lint=0
+let g:pymode_doc=0
+let g:pymode_run=0
+let g:pymode_breakpoint=1
+
 " }}}
 
 " Airline {{{

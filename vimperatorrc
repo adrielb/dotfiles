@@ -3,6 +3,18 @@
 noremap j 3j
 noremap k 3k
 set hintchars=fjdkslghtyrueiwovncm
+
+hi Hint -append font-size:125%;background-color:#0007FF; color: #FFBE00
+hi HintElem             background-color: #FFDE80
+
+" https://github.com/nbarrientos/dotfiles/blob/master/vimperator/vimperatorrc
+" Clear special hint filters for everything else
+autocmd LocationChange '.*' :set hinttags&
+" Restrict link hints in Google search result list
+autocmd LocationChange 'www.google.com' :set hinttags='//h3[@class="r"]/a'
+" Reddit
+autocmd LocationChange 'www.reddit.com' :set hinttags='//p[@class="title"]/a | //div[contains(@class, "expando-button")]'
+
 source! /home/abergman/.vimperatorrc.local
 
 " vim: set ft=vimperator:

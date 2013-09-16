@@ -56,6 +56,8 @@ alias gst="git st"
 alias v="vim"
 alias vimc='cd /home/abergman/projects/codebank/; vim +CtrlP'
 alias vimt='tmux new vim \; split-window'
+alias vimdot='cd /home/abergman/projects/dotfiles; vim +CtrlP'
+alias vimless='vim -c "set nomodifiable" '
 
 function cl () {
   if [ $# = 0 ]; then
