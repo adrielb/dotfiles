@@ -1,0 +1,3 @@
+0 4 * * * /home/abergman/Research/configurations/syncHome.sh 
+0 0 * * * /home/abergman/vimwiki/diary.ro.sh &> /dev/null
+*/15 * * * * /home/abergman/projects/dotfiles/bin/current_ip.sh &> /dev/null
