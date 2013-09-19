@@ -64,7 +64,8 @@ function vimdot() {
   if tmux has-session -t $SESSION; then
     tmux attach -t $SESSION
   else
-    tmux new-session -s $SESSION 'vim +CtrlP' \; \
+    tmux new-session -s $SESSION \; \
+         send-keys 'vim +CtrlP' C-m \; \
          split-window -v -p 30 \; \
          select-pane -t 0
   fi
