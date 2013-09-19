@@ -104,7 +104,7 @@ set wildmode=list:longest:full
 set backspace=indent,eol,start
 set ruler            " show the cursor position all the time
 set showcmd          " display incomplete commands
-set mouse=a
+set mouse=nichr
 set laststatus=2
                      " tabs
 set autoindent
@@ -159,6 +159,8 @@ vmap Q gq
 inoremap <C-U> <C-G>u<C-U>
 inoremap jk <esc>
 inoremap kj <esc>
+inoremap kk <esc>
+inoremap jj <esc>
 nnoremap Y y$
 nnoremap n nzz
 nnoremap N Nzz
@@ -180,7 +182,7 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gg :Ggrep<Space>
 nnoremap <leader>/  :Ag<Space>
 nnoremap <leader>/c :tabnew<CR>:AgCB<Space>
-nnoremap <leader>q  :bd<CR>
+nnoremap <leader>q  :bp\|bd #<CR>
 nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
 nnoremap <leader>s  :call MySpell()<CR>
 nnoremap <leader>b  :CtrlPBuffer<CR>
@@ -226,10 +228,14 @@ xmap     <leader><CR>  <Plug>SlimeRegionSend
 command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
       \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
 
+" SuperTab {{{
+  let g:SuperTabDefaultCompletionType="context"
+" }}}
+
 " vim-slime {{{
 let g:slime_target="tmux"
 let g:slime_paste_file="/tmp/slime-paste"
-"let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": "1.1"}
 "}}}
 
 " Python-mode {{{
