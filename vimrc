@@ -417,6 +417,12 @@ let NERDTreeChDirMode=2
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "}}}
 
+" netrw {{{
+let g:netrw_liststyle = 1
+let g:netrw_list_hide ='.swp$,.*\.un~,^\.git/$'
+let g:netrw_banner    = 0
+" }}}
+
 " CScope {{{
 if has("cscope")
   "set csprg=/usr/local/bin/cscope
