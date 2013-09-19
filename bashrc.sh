@@ -56,8 +56,31 @@ alias gst="git st"
 alias v="vim"
 alias vimc='cd /home/abergman/projects/codebank/; vim +CtrlP'
 alias vimt='tmux new vim \; split-window'
-alias vimdot='cd /home/abergman/projects/dotfiles; vim +CtrlP'
 alias vimless='vim -c "set nomodifiable" '
+
+function vimdot() {
+  SESSION="dotfiles"
+  cd ~/projects/dotfiles/
+  if tmux has-session -t $SESSION; then
+    tmux attach -t $SESSION
+  else
+    tmux new-session -s $SESSION 'vim +CtrlP' \; \
+         split-window -v -p 30 \; \
+         select-pane -t 0
+  fi
+}
+
+function vimbarr() {
+  SESSION="barrestin"
+  cd ~/projects/barrestin/python/
+  if tmux has-session -t $SESSION; then
+    tmux attach -t $SESSION
+  else
+  tmux new-session -s barrestin 'vim equ.py' \; \
+       split-window -v -p 30 ipython \; \
+       select-pane -t 0
+  fi
+}
 
 function cl () {
   if [ $# = 0 ]; then
