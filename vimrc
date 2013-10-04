@@ -188,6 +188,7 @@ nnoremap <leader>s  :call MySpell()<CR>
 nnoremap <leader>b  :CtrlPBuffer<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
+nnoremap <leader>k  :Unite history/yank<CR>
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
@@ -227,6 +228,10 @@ xmap     <leader><CR>  <Plug>SlimeRegionSend
 
 command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
       \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
+
+" Unite {{{
+let g:unite_source_history_yank_enable=1
+"}}}
 
 " SuperTab {{{
   let g:SuperTabDefaultCompletionType="context"
