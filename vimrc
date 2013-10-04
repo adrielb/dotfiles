@@ -400,6 +400,9 @@ command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
 "}}}
 
 " Syntastic {{{
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': [] }
 " https://github.com/jdavis/dotfiles/blob/master/.vimrc#L320
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
