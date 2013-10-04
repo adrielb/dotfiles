@@ -17,3 +17,4 @@ pip install matplotlib
 pip install scipy
 pip install scikit-learn
 pip install pylint pandas ipython
+pip install sympy
