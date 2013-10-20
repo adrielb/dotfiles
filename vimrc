@@ -202,6 +202,7 @@ nnoremap <left>     :cprev<CR>
 nnoremap <right>    :cnext<CR>
 nmap     <leader><CR>  <Plug>SlimeParagraphSend
 xmap     <leader><CR>  <Plug>SlimeRegionSend
+nmap     <leader><leader><CR>  <Plug>SlimeLineSend
 "These mappings dont work :(
 "nnoremap <C-1> 1gt
 "nnoremap <C-2> 2gt

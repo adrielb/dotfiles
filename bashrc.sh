@@ -24,6 +24,7 @@ export PATH=/usr/lib64/openmpi/bin:$PATH
 export LD_LIBRARY_PATH=/usr/lib64/openmpi/lib:$LD_LIBRARY_PATH
 export PATH=/share/apps/bin:$PATH
 export PATH=/usr/local/texlive/2012/bin/x86_64-linux:$PATH
+export PATH=~/projects/dotfiles/bin:$PATH
 
 export DCELL_DIR=/home/abergman/Research/DCell
 export PETSC_TMP=/data/scratch
@@ -91,11 +92,15 @@ function cl () {
   fi
 }
 
-NORMAL=$( tput sgr0 )
-RED=$( tput setaf 1 )
-GREEN=$(tput setaf 2; tput bold)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
+tty -s
+if [[ $? == 0 ]]
+then
+  NORMAL=$( tput sgr0 )
+  RED=$( tput setaf 1 )
+  GREEN=$(tput setaf 2; tput bold)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+fi
 
 function red() {
   echo -e "$RED$*$NORMAL"
