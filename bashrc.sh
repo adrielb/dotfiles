@@ -53,6 +53,7 @@ alias lt="ll -rt"
 alias du1="du --max-depth=1|sort -n"
 alias xclip="xclip -selection clipboard"
 alias gst="git st"
+alias gitroot="cd $(git rev-parse --show-toplevel)"
 alias v="vim"
 alias vimc='cd /home/abergman/projects/codebank/; vim +CtrlP'
 alias vimt='tmux new vim \; split-window'

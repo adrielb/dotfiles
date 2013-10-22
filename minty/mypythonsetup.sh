@@ -18,3 +18,7 @@ pip install scipy
 pip install scikit-learn
 pip install pylint pandas ipython
 pip install sympy
+pip install numexpr
+pip install cython
+pip install tables
+pip install h5py
