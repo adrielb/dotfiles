@@ -23,7 +23,7 @@ function! LoadBundles()
   Bundle 'klen/python-mode'
   "Bundle 'Python-mode-klen'
   "Bundle 'jcf/vim-latex'
-  Bundle 'vim-scripts/vimwiki'
+  "Bundle 'vim-scripts/vimwiki'
   Bundle 'scrooloose/syntastic'
   Bundle 'scrooloose/nerdcommenter'
   "Bundle 'scrooloose/nerdtree'
@@ -94,6 +94,7 @@ let g:solarized_hitrail=1
 "let g:solarized_termcolors=256
 "colorscheme solarized
 colorscheme molokai256
+hi MatchParen ctermfg=231
 "let g:molokai_original=1
 "let g:rehash256=1
 set t_Co=256
@@ -122,8 +123,9 @@ set incsearch        " do incremental searching
 set hlsearch
 set title
 set number           " show line numbers
+set relativenumber
 set colorcolumn=+1
-set cursorline
+"set cursorline
 set winwidth=82
 set showmatch        " Show matching brackets
 set scrolloff=3
@@ -162,8 +164,8 @@ inoremap kj <esc>
 inoremap kk <esc>
 inoremap jj <esc>
 nnoremap Y y$
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nzvzz
+nnoremap N Nzvzz
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -188,6 +190,7 @@ nnoremap <leader>s  :call MySpell()<CR>
 nnoremap <leader>b  :CtrlPBuffer<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
+nnoremap <leader>k  :Unite history/yank<CR>
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
@@ -229,13 +232,17 @@ nmap     <leader><leader><CR>  <Plug>SlimeLineSend
 command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
       \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
 
+" Unite {{{
+let g:unite_source_history_yank_enable=1
+"}}}
+
 " SuperTab {{{
   let g:SuperTabDefaultCompletionType="context"
 " }}}
 
 " vim-slime {{{
 let g:slime_target="tmux"
-let g:slime_paste_file="/tmp/slime-paste"
+let g:slime_paste_file="/dev/shm/slime-paste"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "1.1"}
 "}}}
 
@@ -401,6 +408,9 @@ command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
 "}}}
 
 " Syntastic {{{
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': [] }
 " https://github.com/jdavis/dotfiles/blob/master/.vimrc#L320
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
