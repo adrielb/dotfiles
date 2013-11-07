@@ -132,3 +132,24 @@ man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
 }
+
+
+function o()
+{
+  #TODO: invert this test 
+  if [ -f $1 ]
+  then
+    echo "opening $1"
+  else
+    echo "'$1' dose not exist or is not a regular file"
+    return 1
+  fi
+
+  case $1 in 
+    *.tar.bz2) tar xvf $1 ;;
+    *.tar.gz)  tar xvf $1 ;;
+    *.zip)     unzip   $1 ;;
+    *.pdf)     evince  $1 ;;
+    *)         vim     $1 ;;
+  esac
+}
