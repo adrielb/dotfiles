@@ -7,4 +7,4 @@ find . -iname '*.png' -print0 | \
   xargs -0 -P16 -I{} convert {} -fuzz $FUZZ% \
   -transparent white {}.t.png
 
-rename 'png.t.png' 't.png' ./*
+rename '.png.t.png' '_t.png' ./*

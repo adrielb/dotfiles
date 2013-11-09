@@ -17,8 +17,8 @@ function! LoadBundles()
   "Bundle 'nathanaelkane/vim-indent-guides'
   "Bundle 'SirVer/ultisnips'
   Bundle 'kien/ctrlp.vim'
-  Bundle 'davidhalter/jedi-vim'
-  Bundle 'ervandew/supertab'
+  "Bundle 'davidhalter/jedi-vim'
+  "Bundle 'ervandew/supertab'
   "Bundle 'Valloric/YouCompleteMe'
   Bundle 'klen/python-mode'
   "Bundle 'Python-mode-klen'
@@ -41,6 +41,7 @@ function! LoadBundles()
   "Bundle 'christoomey/vim-tmux-navigator'
   Bundle 'Shougo/unite.vim'
   Bundle 'Shougo/vimproc.vim'
+  Bundle 'Shougo/neocomplete.vim'
   Bundle 'jpalardy/vim-slime'
   "Bundle 'ivanov/vim-ipython'
   "new plugins
@@ -149,6 +150,7 @@ set guioptions-=L " no left scrollbar
 set guioptions-=r " no right scrollbar
 set clipboard+=unnamedplus
 set report=0
+set noesckeys
 " }}}
 
 " Mappings {{{
@@ -159,10 +161,11 @@ vmap Q gq
 " Use CTRL-G u to first break undo,  so that you
 " can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-inoremap jk <esc>
-inoremap kj <esc>
-inoremap kk <esc>
-inoremap jj <esc>
+"using xcape now
+"inoremap jk <esc>
+"inoremap kj <esc>
+"inoremap kk <esc>
+"inoremap jj <esc>
 nnoremap Y y$
 nnoremap n nzvzz
 nnoremap N Nzvzz
@@ -231,6 +234,14 @@ nmap     <leader><leader><CR>  <Plug>SlimeLineSend
 
 command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
       \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
+
+" Neocomplete {{{
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"}}}
 
 " Unite {{{
 let g:unite_source_history_yank_enable=1
@@ -351,7 +362,7 @@ command! -nargs=+ -complete=command PrintMessage call PrintMessage(<q-args>)
 
 augroup localvimrc
   autocmd!
-  autocmd BufNewFile,BufReadPost * nested call ReadLocalVimrc()
+  autocmd VimEnter,BufNewFile,BufReadPost * nested call ReadLocalVimrc()
   autocmd BufWritePost local.vimrc nested :bufdo call ReadLocalVimrc()
 augroup END
 
@@ -359,7 +370,7 @@ function! ReadLocalVimrc()
   let mylocalvimrc = expand( "%:p:h" ) . "/local.vimrc"
   if filereadable( mylocalvimrc )
     execute "source " . fnameescape( mylocalvimrc )
-    echomsg mylocalvimrc . " sourced"
+    echo mylocalvimrc . " sourced"
   endif
 endfunction
 
