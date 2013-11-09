@@ -92,11 +92,15 @@ function cl () {
   fi
 }
 
-NORMAL=$( tput sgr0 )
-RED=$( tput setaf 1 )
-GREEN=$(tput setaf 2; tput bold)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
+tty -s
+if [[ $? == 0 ]]
+then
+  NORMAL=$( tput sgr0 )
+  RED=$( tput setaf 1 )
+  GREEN=$(tput setaf 2; tput bold)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+fi
 
 function red() {
   echo -e "$RED$*$NORMAL"
