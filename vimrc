@@ -151,6 +151,7 @@ set guioptions-=r " no right scrollbar
 set clipboard+=unnamedplus
 set report=0
 set noesckeys
+set listchars=trail:█,tab:>~,eol:¶,extends:>,precedes:<
 " }}}
 
 " Mappings {{{
@@ -178,6 +179,7 @@ nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
+xnoremap <leader>a, :Tabularize /,<CR>
 nnoremap <leader>a<Space> :Tabularize / /r0<CR>
 xnoremap <leader>a<Space> :Tabularize / /r0<CR>
 nnoremap <leader>gs :Gstatus<CR>
