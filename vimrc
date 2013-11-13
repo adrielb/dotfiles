@@ -1,7 +1,3 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 let mapleader = "\<Space>"
 " Installed Plugins {{{
 
@@ -101,12 +97,12 @@ hi MatchParen ctermfg=231
 set t_Co=256
 set history=10000
 set nowrap
-set wildmenu 
+set wildmenu
 set wildmode=list:longest:full
 set backspace=indent,eol,start
 set ruler            " show the cursor position all the time
 set showcmd          " display incomplete commands
-set mouse=nichr
+set mouse-=a
 set laststatus=2
                      " tabs
 set autoindent
@@ -148,6 +144,7 @@ set wildignore+=*.mp4,*.avi
 set guioptions-=T " no toolbar
 set guioptions-=L " no left scrollbar
 set guioptions-=r " no right scrollbar
+set shortmess+=I  " no intro msg
 set clipboard+=unnamedplus
 set report=0
 set noesckeys
@@ -204,6 +201,7 @@ nnoremap <leader>p "+p
 xnoremap <leader>p "+p
 nnoremap <leader>P "+P
 xnoremap <leader>P "+P
+inoremap <BS>      <Nop>
 nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
@@ -240,7 +238,7 @@ command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "}}}
 
@@ -262,7 +260,7 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "1.1"}
 let g:pymode_rope=0
 let g:pymode_folding=0
 let g:pymode_lint=0
-let g:pymode_doc=0
+let g:pymode_doc=1
 let g:pymode_run=0
 let g:pymode_breakpoint=1
 
@@ -355,7 +353,7 @@ function! PrintMessage(cmd)
   redir END
   tabnew
   silent put=mymessage
-  setlocal nomodifiable
+  setlocal readonly
   setlocal filetype=vim
   setlocal buftype=nofile
 endfunction
@@ -379,6 +377,7 @@ endfunction
 function! MySpell()
   setlocal spell!
   if &spell
+    echo "Spell Mode"
     nnoremap <buffer> k [s
     nnoremap <buffer> j ]s
     nnoremap <buffer> l 1z=
