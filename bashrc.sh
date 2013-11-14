@@ -140,11 +140,7 @@ man() {
 
 function o()
 {
-  #TODO: invert this test 
-  if [ -f $1 ]
-  then
-    echo "opening $1"
-  else
+  if [ ! -f $1 ]; then
     echo "'$1' dose not exist or is not a regular file"
     return 1
   fi
@@ -153,6 +149,7 @@ function o()
     *.tar.bz2) tar xvf $1 ;;
     *.tar.gz)  tar xvf $1 ;;
     *.zip)     unzip   $1 ;;
+    *.rar)     unrar x $1 ;;
     *.pdf)     evince  $1 ;;
     *)         vim     $1 ;;
   esac
