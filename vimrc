@@ -164,6 +164,11 @@ inoremap <C-U> <C-G>u<C-U>
 "inoremap kj <esc>
 "inoremap kk <esc>
 "inoremap jj <esc>
+" _af fold text-object
+vnoremap af :<C-U>silent! normal! [zV]z<CR>
+omap     af :normal Vaf<CR>
+vnoremap if :<C-U>silent! normal! [zjV]zk<CR>
+omap     if :normal Vif<CR>
 nnoremap Y y$
 nnoremap n nzvzz
 nnoremap N Nzvzz
@@ -201,13 +206,16 @@ nnoremap <leader>p "+p
 xnoremap <leader>p "+p
 nnoremap <leader>P "+P
 xnoremap <leader>P "+P
+nmap     <leader><CR>         <Plug>SlimeParagraphSend
+nmap     <leader><leader><CR> <Plug>SlimeLineSend
+xmap     <leader><CR>         <Plug>SlimeRegionSend
 inoremap <BS>      <Nop>
 nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
 nnoremap <right>    :cnext<CR>
-nmap     <leader><CR>  <Plug>SlimeParagraphSend
-xmap     <leader><CR>  <Plug>SlimeRegionSend
+inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 "These mappings dont work :(
 "nnoremap <C-1> 1gt
 "nnoremap <C-2> 2gt
@@ -238,7 +246,6 @@ command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "}}}
 
@@ -251,6 +258,7 @@ let g:unite_source_history_yank_enable=1
 " }}}
 
 " vim-slime {{{
+let g:slime_no_mappings = 1
 let g:slime_target="tmux"
 let g:slime_paste_file="/dev/shm/slime-paste"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "1.1"}
