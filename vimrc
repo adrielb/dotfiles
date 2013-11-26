@@ -186,6 +186,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>l  :nohlsearch<CR><C-L>
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
+nnoremap <leader>a  :Tabularize /
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
 xnoremap <leader>a, :Tabularize /,<CR>
@@ -313,12 +314,17 @@ let g:mma_candy=1
 "}}}
 
 " vim {{{
+augroup tmux
+  au!
+  autocmd VimEnter,BufEnter * call system( 'tmux rename-window "' . expand('%:t') . '"' )
+  autocmd VimLeave                        * call system( 'tmux rename-window ""' )
+augroup END
 " Auto-Reload vimrc
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/
-augroup reload_vimrc " {
+augroup reload_vimrc
   autocmd!
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-augroup END " }
+augroup END
 " use the :help command for 'K' in .vim files
 autocmd FileType vim set keywordprg=":help"
 autocmd FileType help nnoremap <silent><buffer> q :q<CR>
