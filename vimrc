@@ -19,13 +19,13 @@ function! LoadBundles()
   Bundle 'klen/python-mode'
   "Bundle 'Python-mode-klen'
   "Bundle 'jcf/vim-latex'
-  "Bundle 'vim-scripts/vimwiki'
+  Bundle 'vim-scripts/vimwiki'
   Bundle 'scrooloose/syntastic'
   Bundle 'scrooloose/nerdcommenter'
   "Bundle 'scrooloose/nerdtree'
   "Bundle 'mattn/calendar-vim'
   Bundle 'tpope/vim-fugitive'
-  Bundle 'tpope/vim-markdown'
+  "Bundle 'tpope/vim-markdown'
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-unimpaired'
   Bundle 'tpope/vim-git'
@@ -43,6 +43,8 @@ function! LoadBundles()
   "new plugins
   "Bundle 'Lokaltog/vim-easymotion'
   Bundle 'LaTeX-Box-Team/LaTeX-Box'
+  Bundle 'vim-pandoc/vim-pantondoc'
+  Bundle 'vim-pandoc/vim-pandoc-syntax'
   "Bundle 'kana/vim-altr'
   "Bundle 'kana/vim-textobj-user'
   "Bundle 'rbonvall/vim-textobj-latex'
@@ -164,6 +166,11 @@ inoremap <C-U> <C-G>u<C-U>
 "inoremap kj <esc>
 "inoremap kk <esc>
 "inoremap jj <esc>
+" line text object
+vnoremap al :<C-U>normal! 0v$h<CR>
+vnoremap il :<C-U>normal! ^vg_<CR>
+onoremap al :norm val<CR>
+onoremap il :norm vil<CR>
 " _af fold text-object
 vnoremap af :<C-U>silent! normal! [zV]z<CR>
 omap     af :normal Vaf<CR>
@@ -179,6 +186,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>l  :nohlsearch<CR><C-L>
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
+nnoremap <leader>a  :Tabularize /
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
 xnoremap <leader>a, :Tabularize /,<CR>
@@ -242,6 +250,10 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
       \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
 
+" Pantodoc {{{
+let g:pantondoc_formatting_settings="h"
+"}}}
+
 " Neocomplete {{{
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -302,12 +314,17 @@ let g:mma_candy=1
 "}}}
 
 " vim {{{
+augroup tmux
+  au!
+  autocmd VimEnter,BufEnter * call system( 'tmux rename-window "' . expand('%:t') . '"' )
+  autocmd VimLeave                        * call system( 'tmux rename-window ""' )
+augroup END
 " Auto-Reload vimrc
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/
-augroup reload_vimrc " {
+augroup reload_vimrc
   autocmd!
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-augroup END " }
+augroup END
 " use the :help command for 'K' in .vim files
 autocmd FileType vim set keywordprg=":help"
 autocmd FileType help nnoremap <silent><buffer> q :q<CR>
@@ -393,6 +410,7 @@ function! MySpell()
     nnoremap <buffer> g zg
     nnoremap <buffer> w zw
   else
+    echo "Spell off"
     nunmap <buffer> h
     nunmap <buffer> j
     nunmap <buffer> k
@@ -463,6 +481,21 @@ function! GvimColorTest(outfile)
   source %
 endfunction
 command! GvimColorTest call GvimColorTest('gvim-color-test.tmp')
+
+"http://dhruvasagar.com/2013/03/28/vim-better-foldtext
+"VIM Better FoldText
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+
 "}}}
 
 " Syntastic {{{

@@ -16,3 +16,12 @@ https://github.com/thewtex/tmux-mem-cpu-load
 
 https://github.com/alols/xcape
 
+pandoc
+install Haskell platform
+cabal update
+cabal install pandoc
+
+justhub Haskell platform
+wget http://sherkin.justhub.org/el6/RPMS/x86_64/justhub-release-2.0-4.0.el6.x86_64.rpm
+rpm -ivh justhub-release-2.0-4.0.<ARCH>.x86_64.rpm 
+yum install haskell
