@@ -222,7 +222,7 @@ nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
 nnoremap <right>    :cnext<CR>
-inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<ESC>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 "These mappings dont work :(
 "nnoremap <C-1> 1gt
