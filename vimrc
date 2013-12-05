@@ -394,6 +394,7 @@ function! ReadLocalVimrc()
   let mylocalvimrc = expand( "%:p:h" ) . "/local.vimrc"
   if filereadable( mylocalvimrc )
     execute "source " . fnameescape( mylocalvimrc )
+    redraw
     echo mylocalvimrc . " sourced"
   endif
 endfunction
