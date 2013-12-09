@@ -151,6 +151,7 @@ set clipboard+=unnamedplus
 set report=0
 set noesckeys
 set listchars=trail:█,tab:>~,eol:¶,extends:>,precedes:<
+set completeopt-=preview
 " }}}
 
 " Mappings {{{
