@@ -3,6 +3,7 @@ let mapleader = "\<Space>"
 
 function! LoadBundles()
   Bundle 'gmarik/vundle'
+  Bundle 'chrisbra/color_highlight'
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'tomasr/molokai'
   Bundle 'joedicastro/vim-molokai256'
@@ -318,7 +319,7 @@ let g:mma_candy=1
 augroup tmux
   au!
   autocmd VimEnter,BufEnter * call system( 'tmux rename-window "' . expand('%:t') . '"' )
-  autocmd VimLeave                        * call system( 'tmux rename-window ""' )
+  autocmd VimLeave          * call system( 'tmux rename-window ""' )
 augroup END
 " Auto-Reload vimrc
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/

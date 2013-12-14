@@ -23,3 +23,5 @@ pip install cython
 pip install tables
 pip install h5py
 pip install pyyaml nltk
+pip install patsy
+pip install statsmodels
