@@ -153,6 +153,7 @@ set report=0
 set noesckeys
 set listchars=trail:█,tab:>~,eol:¶,extends:>,precedes:<
 set completeopt-=preview
+set lazyredraw
 " }}}
 
 " Mappings {{{
@@ -224,7 +225,7 @@ nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
 nnoremap <right>    :cnext<CR>
-inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<ESC>"
+inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 "These mappings dont work :(
 "nnoremap <C-1> 1gt
