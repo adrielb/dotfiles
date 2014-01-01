@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SECVIMRC=/home/abergman/projects/dotfiles/sec.vimrc 
+PWDB=/home/abergman/projects/sec/pwdb
+
+gvim -u ${SECVIMRC} ${PWDB}

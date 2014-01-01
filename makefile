@@ -10,6 +10,9 @@ links:
 	-ln -sf ${DOT}/xmodmap ~/.xmodmap
 	-ln -sf ${DOT}/xsession ~/.xsession
 	-chmod 700 ~/.xsession
+	-mkdir -p ~/.config/awesome
+	-ln -sf ${DOT}/awesomerc.lua ~/.config/awesome/rc.lua
+	-ln -sf ${DOT}/home.gitignore ~/.gitignore
 
 slime:
 	chmod 700 dotfiles
@@ -19,4 +22,5 @@ root:
 	su -c ' \
 	cp -f ${DOT}/root.vimrc /root/.vimrc; \
 	cp -f ${DOT}/bashrc.root.sh /root/.bashrc.root.sh; \
+	cp -f ${DOT}/gitconfig /root/.gitconfig; \
 	'

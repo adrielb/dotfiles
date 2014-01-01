@@ -145,7 +145,7 @@ set wildignore+=*.aux,*.dvi,*.toc,*.pdf,*.ps
 set wildignore+=*.mp3,*.m4a,*.wav,*.flac
 set wildignore+=*.mp4,*.avi
 set guifont=DejaVu\ Sans\ Mono\ 12
-set guioptions-=M " no menubar
+set guioptions-=m " no menubar
 set guioptions-=T " no toolbar
 set guioptions-=L " no left scrollbar
 set guioptions-=r " no right scrollbar
@@ -356,6 +356,9 @@ augroup vimrcEx
   au!
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+
+  " Change to Directory of Current file
+  command CDC cd %:p:h
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler

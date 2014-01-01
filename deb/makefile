@@ -5,9 +5,10 @@ all:
 		libgtk2.0-dev libxt-dev \
 		ruby-dev tcl-dev ruby tcl \
 		liblua5.2-dev lua5.2 \
+		libqt4-core libqt4-dev \
 		libzmq-dev libhdf5-dev \
-		python-dev python-pip \
-		ack-grep \
+		python-dev python-pip python-qt4 \
+		ack-grep pwgen smartmontools xclip\
 		texlive
 	
 nvidia:
