@@ -1,0 +1,3 @@
+
+check:
+	awesome -k

@@ -10,8 +10,7 @@ links:
 	-ln -sf ${DOT}/xmodmap ~/.xmodmap
 	-ln -sf ${DOT}/xsession ~/.xsession
 	-chmod 700 ~/.xsession
-	-mkdir -p ~/.config/awesome
-	-ln -sf ${DOT}/awesomerc.lua ~/.config/awesome/rc.lua
+	-ln -sf ${DOT}/awesome ~/.config/awesome
 	-ln -sf ${DOT}/home.gitignore ~/.gitignore
 
 slime:
