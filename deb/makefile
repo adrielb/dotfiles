@@ -1,5 +1,6 @@
 all:
-	aptitude install libcurl3 gcc git meld awesome \
+	su -c 'aptitude install \
+		libcurl3 gcc git meld awesome \
 		libblas-dev liblapack-dev gfortran \
 		mercurial libncurses-dev cscope \
 		libgtk2.0-dev libxt-dev \
@@ -8,8 +9,9 @@ all:
 		libqt4-core libqt4-dev \
 		libzmq-dev libhdf5-dev \
 		python-dev python-pip python-qt4 \
-		ack-grep pwgen smartmontools xclip\
-		texlive
+		ack-grep pwgen smartmontools xclip \
+		texlive source-highlight \
+	'
 	
 nvidia:
 	aptitude -r install linux-headers-amd64 nvidia-kernel-dkms nvidia-xconfig
@@ -59,3 +61,7 @@ solarized:
 	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git && \
 	cd gnome-terminal-colors-solarized && \
 	./install.sh
+
+ctrl:
+	echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
+

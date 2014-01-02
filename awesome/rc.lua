@@ -10,6 +10,9 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
+-- Load user entries
+-- require("volume")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -100,6 +103,11 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
+-- CPU usage widget
+--cpuwidget = awful.widget.graph()
+--cpuwidget.set_width(50)
+--cpuwidget.set_height(30)
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" }, " %a %b %d, %l:%M %p ")
 

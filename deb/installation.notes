@@ -1,5 +1,3 @@
-/etc/apt/sources.list
+edit /etc/apt/sources.list
 deb ... wheezy main contrib non-free
 
-aptitude update
-aptitude -r install linux-headers-amd64 nvidia-kernel-dkms
