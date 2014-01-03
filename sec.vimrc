@@ -103,9 +103,25 @@ set noshelltemp
 set history=0
 set secure
 
+nnoremap <leader>j zv[z:/Password<CR>ww"+yiW:echo "Copied password"<CR>
+nnoremap <leader>k :call CopyField("Username")<CR>
 nnoremap <leader>m :r!pwgen -sy 24 1
 nnoremap <leader>s :source /home/abergman/projects/dotfiles/sec.vimrc<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>n "nPgI
+
+let @n=" {{{\n
+       \  Username: \n
+       \  Password: \n
+       \  URL: \n
+       \  Comment: \n
+       \}}}\n"
+function! CopyField( field )
+  execute "normal! zv[z"
+  execute "normal! /" . a:field . "\<CR>"
+  execute "normal! ww\"+yiW"
+  echo "Copied " . a:field
+endfunction
 
 set updatetime=10000
 augroup secgroup

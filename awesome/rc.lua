@@ -109,10 +109,33 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
--- CPU usage widget
+--wiwidth = 50
+---- CPU usage widget
 --cpuwidget = awful.widget.graph()
---cpuwidget.set_width(50)
+--cpuwidget:set_width(wiwidth)
+--cpuwidget:set_scale(true)
 --vicious.register( cpuwidget, vicious.widgets.cpu, "$1" )
+
+--ctext = wibox.widget.textbox()
+--cgraph = awful.widget.graph()
+--cgraph:set_width(100):set_height(20)
+--cgraph:set_stack(true):set_max_value(100)
+--cgraph:set_background_color("#494B4F")
+--cgraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96" })
+--vicious.register(ctext, vicious.widgets.cpu,
+  --function (widget, args)
+    --cgraph:add_value(args[2], 1) -- Core 1, color 1
+    --cgraph:add_value(args[3], 2) -- Core 2, color 2
+    --cgraph:add_value(args[4], 3) -- Core 3, color 3
+  --end, 1)
+
+---- Mem usage widget
+--ramwidget = awful.widget.graph()
+--ramwidget:set_width(wiwidth)
+--ramwidget:set_background_color("#494B4F")
+--ramwidget:set_color("#ABFF56")
+--ramwidget:set_scale(true)
+--vicious.register(ramwidget, vicious.widgets.mem, "$1" )
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" }, " %a %b %d, %l:%M %p ")
@@ -196,7 +219,9 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        --ramwidget.widget,
         --cpuwidget.widget,
+        --cgraph.widget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -235,6 +260,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    --awful.key({ modkey, "Control" }, "j", function () awful.screen.focus(2) end),
+    --awful.key({ modkey, "Control" }, "k", function () awful.screen.focus(1) end),
+    --awful.key({ modkey, "Control" }, "l", function () awful.screen.focus(3) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
