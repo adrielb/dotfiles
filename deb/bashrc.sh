@@ -17,8 +17,8 @@ export PATH=~/projects/dotfiles/bin:$PATH
 
 export ACK_OPTIONS="-A 5"
 export ACK_PAGER_COLOR="less -R"
-export LESS="-RF"
-export LESSOPEN="|src-hilite-lesspipe.sh %s"
+export LESS="-R"
+export LESSOPEN="|/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
 alias lx="ls -XshF"
 alias lt="ll -rt"

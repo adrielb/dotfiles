@@ -1,6 +1,7 @@
 all:
 	su -c 'aptitude install \
-		libcurl3 gcc git meld awesome \
+		libcurl3 gcc git meld \
+	  awesome awesome-extra \
 		libblas-dev liblapack-dev gfortran \
 		mercurial libncurses-dev cscope \
 		libgtk2.0-dev libxt-dev \
@@ -10,7 +11,7 @@ all:
 		libzmq-dev libhdf5-dev \
 		python-dev python-pip python-qt4 \
 		ack-grep pwgen smartmontools xclip \
-		texlive source-highlight \
+		texlive latexmk source-highlight tmux \
 	'
 	
 nvidia:

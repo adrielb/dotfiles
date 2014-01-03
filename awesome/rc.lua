@@ -12,6 +12,7 @@ require("debian.menu")
 
 -- Load user entries
 -- require("volume")
+require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -90,13 +91,18 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal },
-                                    { "Iceweasel","iceweasel","/usr/share/pixmaps/iceweasel.xpm"},
-                                    { "gvim","cd ~/projects;gvim -c Sex","/usr/share/pixmaps/iceweasel.xpm"}
-                                  }
-                        })
+-- /etc/xdg/awesome/debian/menu.lua
+mymainmenu = awful.menu({ items = {
+    { "Iceweasel"     , "iceweasel"                        , "/usr/share/pixmaps/iceweasel.xpm"}       ,
+    { "Google Chrome" , "/opt/google/chrome/google-chrome" , "/opt/google/chrome/product_logo_32.xpm"} ,
+    { "awesome"       , myawesomemenu                      , beautiful.awesome_icon }                  ,
+    { "Debian"        , debian.menu.Debian_menu.Debian }   ,
+    { "open terminal" , terminal },
+    { "Suspend", "/home/abergman/projects/dotfiles/bin/mysuspend" },
+    { "Restart", "/home/abergman/projects/dotfiles/bin/myreboot" },
+    { "Shutdown", "/home/abergman/projects/dotfiles/bin/myshutdown" }
+  }
+})
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
@@ -106,7 +112,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- CPU usage widget
 --cpuwidget = awful.widget.graph()
 --cpuwidget.set_width(50)
---cpuwidget.set_height(30)
+--vicious.register( cpuwidget, vicious.widgets.cpu, "$1" )
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" }, " %a %b %d, %l:%M %p ")
@@ -190,6 +196,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        --cpuwidget.widget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -262,7 +269,12 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- My shortcuts
+    awful.key({ modkey, "Mod1"    }, "j", awful.tag.viewprev       ),
+    awful.key({ modkey, "Mod1"    }, "k", awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end)
 )
 
 clientkeys = awful.util.table.join(

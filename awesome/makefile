@@ -1,4 +1,4 @@
-all: volumetest
+all: check
 
 check:
 	awesome -k

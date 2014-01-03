@@ -35,7 +35,7 @@ export LD_LIBRARY_PATH=${DCELL_DIR}/lib:$LD_LIBRARY_PATH
 export ACK_OPTIONS="-A 5 --nohtml"
 export ACK_PAGER_COLOR="less -R"
 export LESS="-RF"
-export LESSOPEN="|src-hilite-lesspipe.sh %s"
+export LESSOPEN="|/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
 #module load openmpi-i386
 #export PATH=/usr/java/latest/bin:/home/abergman/bin:/share/apps/bin:$PATH
