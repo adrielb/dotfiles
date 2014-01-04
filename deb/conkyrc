@@ -1,0 +1,84 @@
+#killall -SIGUSR1 conky
+#http://en.wikipedia.org/wiki/X11_color_names
+
+alignment top_left
+background no
+border_width 1
+cpu_avg_samples 2
+default_color Moccasin
+default_outline_color white
+default_shade_color white
+double_buffer yes
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont DejaVu Sans Mono:size=12
+gap_x 5
+gap_y 60
+minimum_size 5 5
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type dock
+#own_window_transparent yes
+stippled_borders 0
+update_interval 0.33
+uppercase no
+use_spacer none
+show_graph_scale yes
+show_graph_range no
+#temperature_unit fahrenheit
+#template0 \1: ${cpu \1}% ${cpugraph \1} 
+template0 \1: ${cpugraph \1 30,220 }
+template1 \1: ${top name \1} ${top pid \1} ${top cpu \1} ${top mem \1}
+template2 \1: ${top_mem name \1} ${top_mem pid \1} ${top_mem cpu \1} ${top_mem mem \1}
+template3 ${color grey}Core \1: ${color}${hwmon temp \1}C
+
+TEXT
+$nodename - $sysname $kernel on $machine 
+${color grey}Uptime:$color $uptime
+$hr
+${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
+${memgraph 50}
+${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
+$hr
+${color grey}CPU Usage:$color $cpu% ${cpubar 4}
+${template0 cpu1} ${template0 cpu5}
+${template0 cpu2} ${template0 cpu6}
+${template0 cpu3} ${template0 cpu7}
+${template0 cpu4} ${template0 cpu8}
+${template3 2} ${template3 3} ${template3 4} ${template3 5}
+$hr
+${color grey}File systems: R $diskio_read - W $diskio_write
+${color grey} /     $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+${color grey} /home $color${fs_used /home}/${fs_size /home} ${fs_bar 6 /home}
+Read:  ${diskiograph_read} 
+Write: ${diskiograph_write}
+$hr
+${color grey}Networking:  $color Up ${upspeed eth0} - Down ${downspeed eth0} 
+Up:   ${upspeedgraph}
+Down: ${downspeedgraph}
+$hr
+${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+${loadgraph}
+
+${color grey}Name                PID     CPU%   MEM% ${color lightgrey}
+${template1 1}
+${template1 2}
+${template1 3}
+${template1 4}
+
+${template2 1}
+${template2 2}
+${template2 3}
+${template2 4}
+${template2 5}
+${template2 6}
+${template2 7}
+${template2 8}
