@@ -302,7 +302,8 @@ globalkeys = awful.util.table.join(
     -- My shortcuts
     awful.key({ modkey, "Mod1"    }, "j", awful.tag.viewprev       ),
     awful.key({ modkey, "Mod1"    }, "k", awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end)
+    awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end),
+    awful.key({ modkey,           }, "i", function () awful.util.spawn("iceweasel") end)
 )
 
 clientkeys = awful.util.table.join(

@@ -52,6 +52,7 @@ function! LoadBundles()
   "Bundle 'b4winckler/vim-angry'
   "Bundle repeat
   Bundle 'mhinz/vim-signify'
+  Bundle 'justinmk/vim-sneak' 
   " runtime macros/matchit.vim
   "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   "Bundle 'Lokaltog/powerline'
@@ -93,7 +94,11 @@ let g:solarized_visibility="high"
 let g:solarized_hitrail=1
 "let g:solarized_termcolors=256
 "colorscheme solarized
-colorscheme molokai256
+if has("gui_running" )
+  colorscheme molokai
+else
+  colorscheme molokai256
+endif
 hi MatchParen ctermfg=231
 "let g:molokai_original=1
 "let g:rehash256=1
@@ -144,7 +149,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.aux,*.dvi,*.toc,*.pdf,*.ps
 set wildignore+=*.mp3,*.m4a,*.wav,*.flac
 set wildignore+=*.mp4,*.avi
-set guifont=DejaVu\ Sans\ Mono\ 12
+set guifont=Droid\ Sans\ Mono\ 12
 set guioptions-=m " no menubar
 set guioptions-=T " no toolbar
 set guioptions-=L " no left scrollbar
@@ -358,7 +363,7 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 
   " Change to Directory of Current file
-  command CDC cd %:p:h
+  command! CDC cd %:p:h
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler

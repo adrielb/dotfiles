@@ -11,7 +11,8 @@ all:
 		libzmq-dev libhdf5-dev \
 		python-dev python-pip python-qt4 \
 		ack-grep pwgen smartmontools xclip \
-		texlive latexmk source-highlight tmux \
+		texlive texlive-latex-extra latexmk \
+		source-highlight tmux \
 	'
 	
 nvidia:
