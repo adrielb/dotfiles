@@ -12,7 +12,8 @@ all:
 		python-dev python-pip python-qt4 \
 		ack-grep pwgen smartmontools xclip \
 		texlive texlive-latex-extra latexmk \
-		source-highlight tmux \
+		source-highlight tmux encfs \
+		flashplugin-nonfree iceweasel-flashblock \
 	'
 	
 nvidia:

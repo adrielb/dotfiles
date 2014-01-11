@@ -36,14 +36,26 @@ show_graph_range no
 #temperature_unit fahrenheit
 #template0 \1: ${cpu \1}% ${cpugraph \1} 
 template0 \1: ${cpugraph \1 30,220 }
-template1 \1: ${top name \1} ${top pid \1} ${top cpu \1} ${top mem \1}
-template2 \1: ${top_mem name \1} ${top_mem pid \1} ${top_mem cpu \1} ${top_mem mem \1}
+template1 \1: ${top name \1} ${top pid \1} ${top cpu \1} ${top mem \1} ${top_mem mem_res \1}
+template2 \1: ${top_mem name \1} ${top_mem pid \1} ${top_mem cpu \1} ${top_mem mem \1} ${top_mem mem_res \1}
 template3 ${color grey}Core \1: ${color}${hwmon temp \1}C
 template4 ${freq \1}
 
 TEXT
 $nodename - $sysname $kernel on $machine 
-${color grey}Uptime:$color $uptime
+${color grey}Uptime:$color $uptime ${color grey} IP:$color ${addr}
+#$hr
+#${apcupsd}
+#${apcupsd_charge}
+#${apcupsd_load}
+#${apcupsd_loadbar}
+#${apcupsd_loadgraph}
+#${apcupsd_temp}
+#hr
+#${nvidia temp}
+#${nvidia ambient}
+#${nvidia gpufreq}
+#${nvidia memfreq}
 $hr
 ${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
 ${memgraph 50}
@@ -64,13 +76,13 @@ Read:  ${diskiograph_read}
 Write: ${diskiograph_write}
 $hr
 ${color grey}Networking:  $color Up ${upspeed eth0} - Down ${downspeed eth0} 
-Up:   ${upspeedgraph}
-Down: ${downspeedgraph}
+Up:   ${upspeedgraph -t}
+Down: ${downspeedgraph -t}
 $hr
 ${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
 ${loadgraph}
 
-${color grey}Name                PID     CPU%   MEM% ${color lightgrey}
+${color grey}Name                PID     CPU%   MEM% MEM_RES${color lightgrey}
 ${template1 1}
 ${template1 2}
 ${template1 3}

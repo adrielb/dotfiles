@@ -218,7 +218,7 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+        s == 1 and mytextclock or nil,
         --ramwidget.widget,
         --cpuwidget.widget,
         --cgraph.widget,
