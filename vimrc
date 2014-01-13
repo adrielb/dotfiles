@@ -558,7 +558,7 @@ endif
 
 " CtrlP {{{
 let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]levlabnas$' }
+let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.neocomplete$' }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*'
