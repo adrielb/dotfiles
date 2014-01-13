@@ -238,6 +238,16 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key bindings
+function FBindings ( s, v )
+  return function ()
+    awful.screen.focus( s ) 
+    --local screen = mouse.screen
+    --if tags[screen][v] then
+      awful.tag.viewonly(tags[s][v])
+    --end
+  end
+end
+
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
@@ -303,7 +313,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Mod1"    }, "j", awful.tag.viewprev       ),
     awful.key({ modkey, "Mod1"    }, "k", awful.tag.viewnext       ),
     awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end),
-    awful.key({ modkey,           }, "i", function () awful.util.spawn("iceweasel") end)
+    awful.key({ modkey,           }, "i", function () awful.util.spawn("iceweasel") end),
+
+    awful.key({ modkey            } , "F1"  , FBindings(2 , 1) ) ,
+    awful.key({ modkey            } , "F2"  , FBindings(2 , 2) ) ,
+    awful.key({ modkey            } , "F3"  , FBindings(2 , 3) ) ,
+    awful.key({ modkey            } , "F4"  , FBindings(2 , 4) ) ,
+    awful.key({ modkey            } , "F5"  , FBindings(1 , 1) ) ,
+    awful.key({ modkey            } , "F6"  , FBindings(1 , 2) ) ,
+    awful.key({ modkey            } , "F7"  , FBindings(1 , 3) ) ,
+    awful.key({ modkey            } , "F8"  , FBindings(1 , 4) ) ,
+    awful.key({ modkey            } , "F9"  , FBindings(3 , 1) ) ,
+    awful.key({ modkey            } , "F10" , FBindings(3 , 2) ) ,
+    awful.key({ modkey            } , "F11" , FBindings(3 , 3) ) ,
+    awful.key({ modkey            } , "F12" , FBindings(3 , 4) )
 )
 
 clientkeys = awful.util.table.join(

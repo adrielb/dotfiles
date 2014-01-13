@@ -8,3 +8,6 @@ restart:
 
 volumetest:
 	lua v.lua
+
+screentest:
+	lua screentest.lua
