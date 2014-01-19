@@ -44,13 +44,12 @@ template4 ${freq \1}
 TEXT
 $nodename - $sysname $kernel on $machine 
 ${color grey}Uptime:$color $uptime ${color grey} IP:$color ${addr}
-#$hr
-#${apcupsd}
-#${apcupsd_charge}
-#${apcupsd_load}
-#${apcupsd_loadbar}
-#${apcupsd_loadgraph}
-#${apcupsd_temp}
+$hr ${apcupsd localhost 3551}
+${color grey}UPS usage:$color ${apcupsd_load}% ${apcupsd_loadbar}
+${color grey}Charge: $color${apcupsd_charge}%
+${color grey}Line:   $color${apcupsd_linev} Volts
+${color grey}Time:   $color${apcupsd_timeleft} Min
+${color grey}${apcupsd_model}: $color${apcupsd_status} 
 #hr
 #${nvidia temp}
 #${nvidia ambient}

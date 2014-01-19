@@ -164,8 +164,7 @@ set lazyredraw
 " }}}
 
 " Mappings {{{
-nmap Q gqip " Formats current paragraph
-vmap Q gq
+map Q @q
 "nmap <F5> :NERDTreeFind<CR>
 " CTRL-U in insert mode deletes a lot.
 " Use CTRL-G u to first break undo,  so that you
@@ -216,6 +215,7 @@ nnoremap <leader>b  :CtrlPBuffer<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
 nnoremap <leader>k  :Unite history/yank<CR>
+nnoremap <leader>x "_x
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
@@ -361,7 +361,10 @@ augroup vimrcEx
   au!
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
-
+  " Make Python follow PEP8
+  "autocmd FileType python set sts=4 ts=4 sw=4 tw=79
+   " Some file types use real tabs
+  au FileType {make,gitconfig} set noexpandtab tabstop=4
   " Change to Directory of Current file
   command! CDC cd %:p:h
 

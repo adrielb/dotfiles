@@ -1,7 +1,9 @@
-all:
+all: apcupsd
+
+packages:
 	su -c 'aptitude install \
 		libcurl3 gcc git meld \
-	  awesome awesome-extra \
+		awesome awesome-extra \
 		libblas-dev liblapack-dev gfortran \
 		mercurial libncurses-dev cscope \
 		libgtk2.0-dev libxt-dev \
@@ -68,3 +70,18 @@ solarized:
 ctrl:
 	echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
 
+ETCAPC=/etc/apcupsd/apcupsd.conf
+apcupsd:
+	su -c '                             \
+	set -x;                             \
+	if [ ! -e ${ETCAPC}.orig ];         \
+	then                                \
+	  cp ${ETCAPC} ${ETCAPC}.orig;      \
+	fi;                                 \
+	cp -f `pwd`/apcupsd.conf ${ETCAPC}; \
+	sed -i "s/\(ISCONFIGURED=\).*/\1yes/" /etc/default/apcupsd; \
+	service apcupsd start;       \
+	sleep 1;                     \
+	tail /var/log/apcupsd.events; \
+	apcaccess status \
+	'
