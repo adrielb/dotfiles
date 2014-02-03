@@ -62,8 +62,8 @@ function o()
     *.tar.gz)  tar xvf $1 ;;
     *.zip)     unzip   $1 ;;
     *.rar)     unrar x $1 ;;
-    *.pdf)     evince  $1 ;;
-    *)         vim     $1 ;;
+    *.pdf)     evince  "$1" ;;
+    *)         vim     "$1" ;;
   esac
 }
 

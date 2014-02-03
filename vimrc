@@ -44,8 +44,8 @@ function! LoadBundles()
   "new plugins
   "Bundle 'Lokaltog/vim-easymotion'
   Bundle 'LaTeX-Box-Team/LaTeX-Box'
-  Bundle 'vim-pandoc/vim-pantondoc'
-  Bundle 'vim-pandoc/vim-pandoc-syntax'
+  "Bundle 'vim-pandoc/vim-pantondoc'
+  "Bundle 'vim-pandoc/vim-pandoc-syntax'
   "Bundle 'kana/vim-altr'
   "Bundle 'kana/vim-textobj-user'
   "Bundle 'rbonvall/vim-textobj-latex'
@@ -175,6 +175,8 @@ inoremap <C-U> <C-G>u<C-U>
 "inoremap kj <esc>
 "inoremap kk <esc>
 "inoremap jj <esc>
+" highlight last inserted text
+noremap gV `[v`]
 " line text object
 vnoremap al :<C-U>normal! 0v$h<CR>
 vnoremap il :<C-U>normal! ^vg_<CR>
@@ -192,7 +194,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <leader>l  :nohlsearch<CR><C-L>
+nnoremap <leader>l  :nohlsearch<CR><C-L>:checktime<CR>
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>w  :update<CR>
 nnoremap <leader>a  :Tabularize /
@@ -227,7 +229,6 @@ xnoremap <leader>P "+P
 nmap     <leader><CR>         <Plug>SlimeParagraphSend
 nmap     <leader><leader><CR> <Plug>SlimeLineSend
 xmap     <leader><CR>         <Plug>SlimeRegionSend
-inoremap <BS>      <Nop>
 nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>

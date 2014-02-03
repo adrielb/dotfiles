@@ -326,7 +326,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey            } , "F9"  , FBindings(3 , 1) ) ,
     awful.key({ modkey            } , "F10" , FBindings(3 , 2) ) ,
     awful.key({ modkey            } , "F11" , FBindings(3 , 3) ) ,
-    awful.key({ modkey            } , "F12" , FBindings(3 , 4) )
+    awful.key({ modkey            } , "F12" , FBindings(3 , 4) ) ,
+    
+    awful.key({ } , "F10" , function() awful.util.spawn( "amixer set Master 3%-"    , false ) end ) ,
+    awful.key({ } , "F11" , function() awful.util.spawn( "amixer set Master 3%+"    , false ) end ) ,
+    awful.key({ } , "F12" , function() awful.util.spawn( "amixer set Master toggle" , false ) end )
 )
 
 clientkeys = awful.util.table.join(

@@ -126,7 +126,7 @@ endfunction
 set updatetime=10000
 augroup secgroup
   au!
-  autocmd CursorHold * :let @+=""|echo "Clipboard cleared"
+  autocmd CursorHold * :let @+=""|:nohlsearch|echo "Clipboard cleared"
 augroup end
 
 "autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 

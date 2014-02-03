@@ -1,4 +1,4 @@
-all: apcupsd
+all: packages
 
 packages:
 	su -c 'aptitude install \
@@ -16,6 +16,8 @@ packages:
 		texlive texlive-latex-extra latexmk \
 		source-highlight tmux encfs \
 		flashplugin-nonfree iceweasel-flashblock \
+		ffmpeg \
+		gcc-avr binutils-avr avr-libc \
 	'
 	
 nvidia:
@@ -38,6 +40,7 @@ python:
 	pip install pyyaml nltk
 	pip install patsy
 	pip install statsmodels
+	pip install moviepy
 
 VIMDIR=/tmp/vim
 ${VIMDIR}:

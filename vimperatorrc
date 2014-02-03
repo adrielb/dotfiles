@@ -1,5 +1,7 @@
 "3.7.1 (created: 2013/05/22 20:32:57)
 
+noremap h <C-p>
+noremap l <C-n>
 noremap j 3j
 noremap k 3k
 set hintchars=fjdkslghtyrueiwovncm
@@ -14,6 +16,8 @@ autocmd LocationChange '.*' :set hinttags&
 autocmd LocationChange 'www.google.com' :set hinttags='//h3[@class="r"]/a'
 " Reddit
 autocmd LocationChange 'www.reddit.com' :set hinttags='//p[@class="title"]/a | //div[contains(@class, "expando-button")]'
+" Craigslist
+"autocmd LocationChange 'craigslist.org' :set hinttags='//p[@class="pl"]/a'
 
 source! /home/abergman/.vimperatorrc.local
 
