@@ -185,7 +185,6 @@ cnoremap $m <CR>:m''<CR>
 cnoremap $d <CR>:d<CR>
 " highlight last inserted text
 noremap  gV `[v`]
-inoremap ga <Plug>(neosnippet_start_unite_snippet)
 nnoremap gs :update<CR>
 nnoremap gb :CtrlPBuffer<CR>
 nnoremap g/ :<C-U>Unite grep:.:<CR>
@@ -216,6 +215,7 @@ nnoremap N Nzxzz
 " CTRL-U in insert mode deletes a lot.
 " Use CTRL-G u to first break undo,  so that you
 " can undo CTRL-U after inserting a line break.
+    imap <C-f> <Plug>(neosnippet_start_unite_snippet)
 inoremap <C-U> <C-G>u<C-U>
 nnoremap <C-Q> :botright copen<CR>
 nnoremap <C-h> <C-w>h
@@ -261,10 +261,10 @@ nnoremap <up>       :cprev<CR>
 nnoremap <down>     :cnext<CR>
 nnoremap <left>     :lprev<CR>
 nnoremap <right>    :lnext<CR>
-inoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
                       \: pumvisible() ? "\<C-n>" : "\<TAB>"
-snoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
                       \: "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
