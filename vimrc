@@ -25,6 +25,7 @@ function! LoadBundles()
   Bundle 'scrooloose/nerdcommenter'
   "Bundle 'scrooloose/nerdtree'
   "Bundle 'mattn/calendar-vim'
+  Bundle 'gregsexton/gitv'
   Bundle 'tpope/vim-fugitive'
   "Bundle 'tpope/vim-markdown'
   Bundle 'tpope/vim-surround'
@@ -39,6 +40,9 @@ function! LoadBundles()
   Bundle 'Shougo/unite.vim'
   Bundle 'Shougo/vimproc.vim'
   Bundle 'Shougo/neocomplete.vim'
+  Bundle 'Shougo/neosnippet.vim'
+  Bundle 'Shougo/neosnippet-snippets'
+  Bundle 'Shougo/neomru.vim'
   Bundle 'jpalardy/vim-slime'
   "Bundle 'ivanov/vim-ipython'
   "new plugins
@@ -53,6 +57,8 @@ function! LoadBundles()
   "Bundle repeat
   Bundle 'mhinz/vim-signify'
   Bundle 'justinmk/vim-sneak' 
+  Bundle 'AndrewRadev/splitjoin.vim'
+
   " runtime macros/matchit.vim
   "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   "Bundle 'Lokaltog/powerline'
@@ -134,6 +140,7 @@ set colorcolumn=+1
 set winwidth=82
 set showmatch        " Show matching brackets
 set scrolloff=3
+set sidescrolloff=3
 set switchbuf=usetab
 set hidden
 set autoread
@@ -158,25 +165,35 @@ set shortmess+=I  " no intro msg
 set clipboard+=unnamedplus
 set report=0
 set noesckeys
-set listchars=trail:█,tab:>~,eol:¶,extends:>,precedes:<
+set listchars=trail:█,tab:>~,eol:¶,extends:»,precedes:«
+set fillchars=vert:\|,fold:\_,diff:⣿
 set completeopt-=preview
 set lazyredraw
+set synmaxcol=300
+cd  ~/projects
 " }}}
 
 " Mappings {{{
-map Q @q
-"nmap <F5> :NERDTreeFind<CR>
-" CTRL-U in insert mode deletes a lot.
-" Use CTRL-G u to first break undo,  so that you
-" can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-"using xcape now
-"inoremap jk <esc>
-"inoremap kj <esc>
-"inoremap kk <esc>
-"inoremap jj <esc>
+" available maps
+" nnoremap U gundo or fugitive?
+" nnoremap cr change/refactor
+" nnoremap gx execute file?
+" nnoremap g<Space>
+" allows incsearch highlighting for range commands, from /u/romainl 
+cnoremap $t <CR>:t''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $d <CR>:d<CR>
 " highlight last inserted text
-noremap gV `[v`]
+noremap  gV `[v`]
+inoremap ga <Plug>(neosnippet_start_unite_snippet)
+nnoremap gs :update<CR>
+nnoremap gb :CtrlPBuffer<CR>
+nnoremap g/ :<C-U>Unite grep:.:<CR>
+nnoremap go :<C-u>Unite directory_mru -start-insert -buffer-name=cd -default-action=cd<CR>
+nnoremap gz :<C-u>Unite process -start-insert -buffer-name=processes<CR>
+nnoremap gl :<C-u>Unite line -start-insert -buffer-name=lines<cr>
+nnoremap gr :<C-u>Unite register -buffer-name=register<CR>
+nnoremap gy :<C-u>Unite history/yank<CR>
 " line text object
 vnoremap al :<C-U>normal! 0v$h<CR>
 vnoremap il :<C-U>normal! ^vg_<CR>
@@ -187,17 +204,28 @@ vnoremap af :<C-U>silent! normal! [zV]z<CR>
 omap     af :normal Vaf<CR>
 vnoremap if :<C-U>silent! normal! [zjV]zk<CR>
 omap     if :normal Vif<CR>
+"move to last character
+nnoremap - $
+xnoremap - $
+onoremap - $
+nnoremap Q @q
 nnoremap Y y$
-nnoremap n nzvzz
-nnoremap N Nzvzz
+nnoremap ZZ :wqa<CR>
+nnoremap n nzxzz
+nnoremap N Nzxzz
+" CTRL-U in insert mode deletes a lot.
+" Use CTRL-G u to first break undo,  so that you
+" can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+nnoremap <C-Q> :botright copen<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <leader>l  :nohlsearch<CR><C-L>:checktime<CR>
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
-nnoremap <leader>w  :update<CR>
 nnoremap <leader>a  :Tabularize /
+xnoremap <leader>a  :Tabularize /
 nnoremap <leader>a= :Tabularize /=<CR>
 nnoremap <leader>a, :Tabularize /,<CR>
 xnoremap <leader>a, :Tabularize /,<CR>
@@ -208,15 +236,15 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gg :Ggrep<Space>
-nnoremap <leader>/  :Ag<Space>
-nnoremap <leader>/c :tabnew<CR>:AgCB<Space>
+nnoremap <leader>gv :Gitv --all<cr>
+nnoremap <leader>gV :Gitv! --all<cr>
+vnoremap <leader>gV :Gitv! --all<cr>
+nnoremap <leader>/  :Ack<Space>
 nnoremap <leader>q  :bp\|bd #<CR>
 nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
 nnoremap <leader>s  :call MySpell()<CR>
-nnoremap <leader>b  :CtrlPBuffer<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
-nnoremap <leader>k  :Unite history/yank<CR>
 nnoremap <leader>x "_x
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
@@ -229,11 +257,16 @@ xnoremap <leader>P "+P
 nmap     <leader><CR>         <Plug>SlimeParagraphSend
 nmap     <leader><leader><CR> <Plug>SlimeLineSend
 xmap     <leader><CR>         <Plug>SlimeRegionSend
-nnoremap <up>       :lprev<CR>
-nnoremap <down>     :lnext<CR>
-nnoremap <left>     :cprev<CR>
-nnoremap <right>    :cnext<CR>
-inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
+nnoremap <up>       :cprev<CR>
+nnoremap <down>     :cnext<CR>
+nnoremap <left>     :lprev<CR>
+nnoremap <right>    :lnext<CR>
+inoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                      \ "\<Plug>(neosnippet_jump_or_expand)"
+                      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+snoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                      \ "\<Plug>(neosnippet_jump_or_expand)"
+                      \: "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 "These mappings dont work :(
 "nnoremap <C-1> 1gt
@@ -265,15 +298,45 @@ command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
 let g:pantondoc_formatting_settings="h"
 "}}}
 
-" Neocomplete {{{
+" Neocomplete/Neosnippet {{{
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+"let g:neosnippet#snippets_directory='~/.vim/
 "}}}
 
 " Unite {{{
 let g:unite_source_history_yank_enable=1
+let g:unite_prompt = '❫ '
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  imap <buffer> <c-j>   <plug>(unite_select_next_line)
+  imap <buffer> <c-k>   <plug>(unite_select_previous_line)
+endfunction
+
+if executable('ag')
+  " Use ag in unite grep source.
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts =
+        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+        \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('pt')
+  " Use pt in unite grep source.
+  " https://github.com/monochromegane/the_platinum_searcher
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack-grep')
+  " Use ack in unite grep source.
+  let g:unite_source_grep_command = 'ack-grep'
+  let g:unite_source_grep_default_opts =
+        \ '--no-heading --no-color -a -H'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 "}}}
 
 " SuperTab {{{
@@ -334,7 +397,7 @@ augroup END
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/
 augroup reload_vimrc
   autocmd!
-  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+  autocmd BufWritePost vimrc nested source $MYVIMRC
 augroup END
 " use the :help command for 'K' in .vim files
 autocmd FileType vim set keywordprg=":help"
@@ -376,7 +439,7 @@ augroup vimrcEx
   " position when opening a file.
   " Also dont do it when the file is a git commit
   autocmd BufReadPost *
-    \ if &filetype !~ '^git\c' && line("'\"") > 1 && line("'\"") <= line("$") |
+    \ if &filetype !~ '^help' && &filetype !~ '^git\c' && line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
 augroup END
@@ -562,7 +625,7 @@ endif
 "}}}
 
 " CtrlP {{{
-let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.neocomplete$' }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_root_markers = ['.ctrlp']

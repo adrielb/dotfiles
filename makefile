@@ -12,6 +12,7 @@ links:
 	-chmod 700 ~/.xsession
 	-ln -sf ${DOT}/awesome ~/.config/awesome
 	-ln -sf ${DOT}/home.gitignore ~/.gitignore
+	-ln -sf ${DOT}/inputrc.sh ~/.inputrc
 
 slime:
 	chmod 700 dotfiles

@@ -13,11 +13,12 @@ packages:
 		libzmq-dev libhdf5-dev \
 		python-dev python-pip python-qt4 \
 		ack-grep pwgen smartmontools xclip \
-		texlive texlive-latex-extra latexmk \
+		texlive texlive-latex-extra texlive-fonts-extra latexmk \
 		source-highlight tmux encfs \
 		flashplugin-nonfree iceweasel-flashblock \
 		ffmpeg \
 		gcc-avr binutils-avr avr-libc \
+		python3 \
 	'
 	
 nvidia:
@@ -41,6 +42,7 @@ python:
 	pip install patsy
 	pip install statsmodels
 	pip install moviepy
+	pip install lxml howdoi
 
 VIMDIR=/tmp/vim
 ${VIMDIR}:

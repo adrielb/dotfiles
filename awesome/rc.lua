@@ -315,26 +315,29 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end),
     awful.key({ modkey,           }, "i", function () awful.util.spawn("iceweasel") end),
 
-    awful.key({ modkey            } , "F1"  , FBindings(2 , 1) ) ,
-    awful.key({ modkey            } , "F2"  , FBindings(2 , 2) ) ,
-    awful.key({ modkey            } , "F3"  , FBindings(2 , 3) ) ,
-    awful.key({ modkey            } , "F4"  , FBindings(2 , 4) ) ,
-    awful.key({ modkey            } , "F5"  , FBindings(1 , 1) ) ,
-    awful.key({ modkey            } , "F6"  , FBindings(1 , 2) ) ,
-    awful.key({ modkey            } , "F7"  , FBindings(1 , 3) ) ,
-    awful.key({ modkey            } , "F8"  , FBindings(1 , 4) ) ,
-    awful.key({ modkey            } , "F9"  , FBindings(3 , 1) ) ,
-    awful.key({ modkey            } , "F10" , FBindings(3 , 2) ) ,
-    awful.key({ modkey            } , "F11" , FBindings(3 , 3) ) ,
-    awful.key({ modkey            } , "F12" , FBindings(3 , 4) ) ,
+    awful.key({                   } , "F1"  , FBindings(2 , 1) ) ,
+    awful.key({                   } , "F2"  , FBindings(2 , 2) ) ,
+    awful.key({                   } , "F3"  , FBindings(2 , 3) ) ,
+    awful.key({                   } , "F4"  , FBindings(2 , 4) ) ,
+    awful.key({                   } , "F5"  , FBindings(1 , 1) ) ,
+    awful.key({                   } , "F6"  , FBindings(1 , 2) ) ,
+    awful.key({                   } , "F7"  , FBindings(1 , 3) ) ,
+    awful.key({                   } , "F8"  , FBindings(1 , 4) ) ,
+    awful.key({                   } , "F9"  , FBindings(3 , 1) ) ,
+    awful.key({                   } , "F10" , FBindings(3 , 2) ) ,
+    awful.key({                   } , "F11" , FBindings(3 , 3) ) ,
+    awful.key({                   } , "F12" , FBindings(3 , 4) ) ,
     
-    awful.key({ } , "F10" , function() awful.util.spawn( "amixer set Master 3%-"    , false ) end ) ,
-    awful.key({ } , "F11" , function() awful.util.spawn( "amixer set Master 3%+"    , false ) end ) ,
-    awful.key({ } , "F12" , function() awful.util.spawn( "amixer set Master toggle" , false ) end )
+    --minus, plus, times = Vol-, Vol+, Mute
+    awful.key({ } , "#82" , function() awful.util.spawn( "amixer set Master 3%-"    , false ) end ) ,
+    awful.key({ } , "#86" , function() awful.util.spawn( "amixer set Master 3%+"    , false ) end ) ,
+    awful.key({ } , "#63" , function() awful.util.spawn( "amixer set Master toggle" , false ) end ) ,
+    awful.key({ } , "#106", function() awful.util.spawn( "clementine -t"            , false ) end )
 )
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
