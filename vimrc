@@ -32,6 +32,7 @@ function! LoadBundles()
   Bundle 'tpope/vim-unimpaired'
   Bundle 'tpope/vim-git'
   Bundle 'tpope/vim-dispatch'
+  Bundle 'tpope/vim-vinegar'
   Bundle 'sjl/gundo.vim'
   "Bundle 'a.vim'
   Bundle 'dbakker/vim-lint'
@@ -261,6 +262,7 @@ nnoremap <up>       :cprev<CR>
 nnoremap <down>     :cnext<CR>
 nnoremap <left>     :lprev<CR>
 nnoremap <right>    :lnext<CR>
+nmap     <BS> <Plug>VinegarUp
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
                       \: pumvisible() ? "\<C-n>" : "\<TAB>"
