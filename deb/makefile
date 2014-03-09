@@ -18,7 +18,8 @@ packages:
 		flashplugin-nonfree iceweasel-flashblock \
 		ffmpeg \
 		gcc-avr binutils-avr avr-libc \
-		python3 \
+		python3 openmpi-bin openmpi-dev valgrind-mpi \
+		flex ctags \
 	'
 	
 nvidia:
@@ -90,3 +91,20 @@ apcupsd:
 	tail /var/log/apcupsd.events; \
 	apcaccess status \
 	'
+
+petsc-debug:
+	export PETSC_ARCH=gcc-debug &&         \
+	cd ${PETSC_DIR} &&                     \
+	echo `pwd` &&                          \
+	./configure                            \
+		--with-shared-libraries=1          \
+		--with-endian=big                  \
+		--with-errorchecking=yes           \
+		--with-debugging=yes               \
+		--with-cc=mpicc                    \
+		--with-cxx=mpicxx                  \
+		--with-fc=mpif90                   \
+		--with-mpi-dir=/usr/lib/openmpi && \
+	make all && make test
+
+

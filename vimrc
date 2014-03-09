@@ -59,6 +59,11 @@ function! LoadBundles()
   Bundle 'mhinz/vim-signify'
   Bundle 'justinmk/vim-sneak' 
   Bundle 'AndrewRadev/splitjoin.vim'
+  Bundle 'tommcdo/vim-exchange'
+  Bundle 'duff/vim-scratch'
+  Bundle 'bkad/CamelCaseMotion'
+  Bundle 'chrisbra/NrrwRgn'
+  Bundle 'file:///home/abergman/projects/vimtips'
 
   " runtime macros/matchit.vim
   "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -171,7 +176,8 @@ set fillchars=vert:\|,fold:\_,diff:⣿
 set completeopt-=preview
 set lazyredraw
 set synmaxcol=300
-cd  ~/projects
+set conceallevel=2
+set concealcursor=i
 " }}}
 
 " Mappings {{{
@@ -219,17 +225,29 @@ nnoremap N Nzxzz
     imap <C-f> <Plug>(neosnippet_start_unite_snippet)
 inoremap <C-U> <C-G>u<C-U>
 nnoremap <C-Q> :botright copen<CR>
+nnoremap <C-N> :CtrlPMRU<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+    nmap <C-Space>s :cscope find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>g :cscope find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>c :cscope find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>t :cscope find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>e :cscope find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>f :cscope find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-Space>i :cscope find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-Space>d :cscope find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>t  :! gnome-terminal<CR>
 nnoremap <leader>l  :nohlsearch<CR><C-L>:checktime<CR>
-nnoremap <leader>ev :tabnew $MYVIMRC<CR>
+nnoremap <leader>aa :Tabularize<CR>
+xnoremap <leader>aa :Tabularize<CR>
 nnoremap <leader>a  :Tabularize /
 xnoremap <leader>a  :Tabularize /
 nnoremap <leader>a= :Tabularize /=<CR>
-nnoremap <leader>a, :Tabularize /,<CR>
-xnoremap <leader>a, :Tabularize /,<CR>
+nnoremap <leader>a\ :Tabularize /\<CR>
+nnoremap <leader>a, :Tabularize /,/r0<CR>
+xnoremap <leader>a, :Tabularize /,/r0<CR>
 nnoremap <leader>a<Space> :Tabularize / /r0<CR>
 xnoremap <leader>a<Space> :Tabularize / /r0<CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -246,7 +264,8 @@ nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
 nnoremap <leader>s  :call MySpell()<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
-nnoremap <leader>x "_x
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
@@ -306,7 +325,7 @@ let g:neocomplete#enable_smart_case = 1
 
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
-"let g:neosnippet#snippets_directory='~/.vim/
+let g:neosnippet#snippets_directory='~/projects/dotfiles/snippets'
 "}}}
 
 " Unite {{{
@@ -432,7 +451,13 @@ augroup vimrcEx
    " Some file types use real tabs
   au FileType {make,gitconfig} set noexpandtab tabstop=4
   " Change to Directory of Current file
-  command! CDC cd %:p:h
+  command! CD cd %:p:h
+  command! S  Scratch
+  " search only open buffers
+  " :bufdo vimgrepadd searchstring %
+  " :bufdo g/searchstring
+  " :bufdo AckAdd -n searchstring
+  " Bundle 'vim-scripts/GrepCommands'
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -605,33 +630,36 @@ let NERDTreeChDirMode=2
 
 " netrw {{{
 let g:netrw_liststyle = 1
-let g:netrw_list_hide ='.swp$,.*\.un~,^\.git/$'
+let g:netrw_list_hide = '.swp$,.*\.un~,^\.git/$'
 let g:netrw_banner    = 0
+let g:netrw_keepdir   = 0
 " }}}
 
 " CScope {{{
 if has("cscope")
-  "set csprg=/usr/local/bin/cscope
-  set csto=0
-  set cst
-  set nocsverb
+  " use quickfix, - clears, + appends, 0 null
+  set cscopequickfix=s-,c-,d-,i-,t-,e-
+  set cscopetagorder=0 " search cscope db first, then ctags
+  set cscopetag        " use :cstag first when using C-]
+  set nocscopeverbose
   " add any database in current directory
   if filereadable("cscope.out")
-    cs add cscope.out
+    cscope add cscope.out
     " else add database pointed to by environment
   elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
+    cscope add $CSCOPE_DB
   endif
-  set csverb
+  set cscopeverbose
 endif
 "}}}
 
 " CtrlP {{{
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_open_multiple_files = '2vjr'
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.neocomplete$' }
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*'
+"let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*\|.vim/bundle/.*'
 "}}}
 
 " vimwiki {{{

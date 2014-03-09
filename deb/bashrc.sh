@@ -14,6 +14,7 @@ bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 export EDITOR="vim"
 export PATH=~/projects/dotfiles/bin:$PATH
 
+export PETSC_DIR=~/apps/petsc
 
 export ACK_OPTIONS="-A 5"
 export ACK_PAGER_COLOR="less -R"
@@ -58,12 +59,13 @@ function o()
   fi
 
   case $1 in 
-    *.tar.bz2) tar xvf $1 ;;
-    *.tar.gz)  tar xvf $1 ;;
-    *.zip)     unzip   $1 ;;
-    *.rar)     unrar x $1 ;;
-    *.pdf)     evince  "$1" &;;
-    *)         vim     "$1" ;;
+    *.tar.bz2) tar xvf "$1"   ;;
+    *.tgz)     tar xvf "$1"   ;;
+    *.tar.gz)  tar xvf "$1"   ;;
+    *.zip)     unzip   "$1"   ;;
+    *.rar)     unrar x "$1"   ;;
+    *.pdf)     evince  "$1" & ;;
+    *)         vim     "$1"   ;;
   esac
 }
 
