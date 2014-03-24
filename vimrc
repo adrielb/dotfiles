@@ -7,6 +7,8 @@ function! LoadBundles()
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'tomasr/molokai'
   Bundle 'joedicastro/vim-molokai256'
+  Bundle 'sjl/badwolf'
+  Bundle 'nielsmadan/harlequin'
   Bundle 'mileszs/ack.vim'
   Bundle 'rking/ag.vim'
   Bundle 'godlygeek/tabular'
@@ -33,6 +35,7 @@ function! LoadBundles()
   Bundle 'tpope/vim-git'
   Bundle 'tpope/vim-dispatch'
   Bundle 'tpope/vim-vinegar'
+  Bundle 'tpope/vim-obsession'
   Bundle 'sjl/gundo.vim'
   "Bundle 'a.vim'
   Bundle 'dbakker/vim-lint'
@@ -63,7 +66,9 @@ function! LoadBundles()
   Bundle 'duff/vim-scratch'
   Bundle 'bkad/CamelCaseMotion'
   Bundle 'chrisbra/NrrwRgn'
+  Bundle 'vim-scripts/Vim-R-plugin'
   Bundle 'file:///home/abergman/projects/vimtips'
+  Bundle 'file:///home/abergman/projects/dotvim'
 
   " runtime macros/matchit.vim
   "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -107,7 +112,9 @@ let g:solarized_hitrail=1
 "let g:solarized_termcolors=256
 "colorscheme solarized
 if has("gui_running" )
-  colorscheme molokai
+  "colorscheme molokai
+  "colorscheme badwolf
+  colorscheme harlequin
 else
   colorscheme molokai256
 endif
@@ -178,6 +185,7 @@ set lazyredraw
 set synmaxcol=300
 set conceallevel=2
 set concealcursor=i
+set foldtext=functions#NeatFoldText()
 " }}}
 
 " Mappings {{{
@@ -253,7 +261,7 @@ xnoremap <leader>a<Space> :Tabularize / /r0<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gl :Glog<CR>
-nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gc :Gcommit --verbose<CR>
 nnoremap <leader>gg :Ggrep<Space>
 nnoremap <leader>gv :Gitv --all<cr>
 nnoremap <leader>gV :Gitv! --all<cr>
@@ -261,7 +269,7 @@ vnoremap <leader>gV :Gitv! --all<cr>
 nnoremap <leader>/  :Ack<Space>
 nnoremap <leader>q  :bp\|bd #<CR>
 nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
-nnoremap <leader>s  :call MySpell()<CR>
+nnoremap <leader>s  :call functions#MySpell()<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
 nnoremap <leader>u  :GundoToggle<CR>
 nnoremap <leader>x *``cgn
@@ -312,8 +320,28 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Plugin Options {{{ 
 
+" Change to Directory of Current file
+command! CD cd %:p:h
+command! BI BundleInstall!
+command! S  Scratch
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+    \ | wincmd p | diffthis
+
 command! -bang -nargs=* -complete=file AgCB call ag#Ag('grep<bang>',
       \ " --all-types --hidden --ignore-dir=.git " . <q-args> . " ~/projects/codebank" )
+
+command! -nargs=+ -complete=command PrintMessage call functions#PrintMessage(<q-args>)
+command! -range=% HighlightRepeats <line1>,<line2>call functions#HighlightRepeats()
+" Increase numbers in next line to see more colors.
+command! VimColorTest call functions#VimColorTest('vim-color-test.tmp', 12, 16)
+command! GvimColorTest call functions#GvimColorTest('gvim-color-test.tmp')
+
+" Sneak {{{
+let g:sneak#streak = 1
+"}}}
 
 " Pantodoc {{{
 let g:pantondoc_formatting_settings="h"
@@ -323,9 +351,25 @@ let g:pantondoc_formatting_settings="h"
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
 let g:neosnippet#snippets_directory='~/projects/dotfiles/snippets'
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.python = ''
+" R (plugin: vim-R-plugin)
+"let g:neocomplete#sources#omni#input_patterns.r =
+"\ '[[:alnum:].\\]\+'
+let g:neocomplete#sources#omni#input_patterns.c =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+  "\'[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#sources#omni#input_patterns.cpp =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
 "}}}
 
 " Unite {{{
@@ -409,30 +453,20 @@ let g:mma_candy=1
 "}}}
 
 " vim {{{
+" TODO: enable when in tmux session
 augroup tmux
   au!
   autocmd VimEnter,BufEnter * call system( 'tmux rename-window "' . expand('%:t') . '"' )
   autocmd VimLeave          * call system( 'tmux rename-window ""' )
 augroup END
+autocmd! tmux *
+
 " Auto-Reload vimrc
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/
 augroup reload_vimrc
   autocmd!
   autocmd BufWritePost vimrc nested source $MYVIMRC
 augroup END
-" use the :help command for 'K' in .vim files
-autocmd FileType vim set keywordprg=":help"
-autocmd FileType help nnoremap <silent><buffer> q :q<CR>
-autocmd FileType help wincmd L
-autocmd FileType qf   nnoremap <silent><buffer> q :q<CR> 
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-    \ | wincmd p | diffthis
-endif
 
 " auto-save after 'updatetime'
 augroup autoSave
@@ -444,15 +478,6 @@ augroup END
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-  " Make Python follow PEP8
-  "autocmd FileType python set sts=4 ts=4 sw=4 tw=79
-   " Some file types use real tabs
-  au FileType {make,gitconfig} set noexpandtab tabstop=4
-  " Change to Directory of Current file
-  command! CD cd %:p:h
-  command! S  Scratch
   " search only open buffers
   " :bufdo vimgrepadd searchstring %
   " :bufdo g/searchstring
@@ -471,140 +496,11 @@ augroup vimrcEx
     \ endif
 augroup END
 
-" output all currently defined mappings
-function! PrintMappings()
-  execute "redir! > /tmp/map.vim"
-  execute "silent verbose map"
-  execute "redir END"
-  execute "tabnew /tmp/map.vim"
-endfunction
-
-"http://vim.wikia.com/wiki/Capture_ex_command_output
-function! PrintMessage(cmd)
-  redir => mymessage
-  silent execute a:cmd
-  redir END
-  tabnew
-  silent put=mymessage
-  setlocal readonly
-  setlocal filetype=vim
-  setlocal buftype=nofile
-endfunction
-command! -nargs=+ -complete=command PrintMessage call PrintMessage(<q-args>)
-
 augroup localvimrc
   autocmd!
-  autocmd VimEnter,BufNewFile,BufReadPost * nested call ReadLocalVimrc()
-  autocmd BufWritePost local.vimrc nested :bufdo call ReadLocalVimrc()
+  autocmd VimEnter,BufNewFile,BufReadPost * nested call functions#ReadLocalVimrc()
+  autocmd BufWritePost local.vimrc nested :bufdo call functions#ReadLocalVimrc()
 augroup END
-
-function! ReadLocalVimrc()
-  let mylocalvimrc = expand( "%:p:h" ) . "/local.vimrc"
-  if filereadable( mylocalvimrc )
-    execute "source " . fnameescape( mylocalvimrc )
-    redraw
-    echo mylocalvimrc . " sourced"
-  endif
-endfunction
-
-" MySpell()
-function! MySpell()
-  setlocal spell!
-  if &spell
-    echo "Spell Mode"
-    nnoremap <buffer> k [s
-    nnoremap <buffer> j ]s
-    nnoremap <buffer> l 1z=
-    nnoremap <buffer> h z=
-    nnoremap <buffer> g zg
-    nnoremap <buffer> w zw
-  else
-    echo "Spell off"
-    nunmap <buffer> h
-    nunmap <buffer> j
-    nunmap <buffer> k
-    nunmap <buffer> l
-    nunmap <buffer> g
-    nunmap <buffer> w
-  endif
-endfunction
-
-" Syntax colors duplicate lines
-" http://stackoverflow.com/questions/1268032/marking-duplicate-lines
-function! HighlightRepeats() range
-  let lineCounts = {}
-  let lineNum = a:firstline
-  while lineNum <= a:lastline
-    let lineText = getline(lineNum)
-    if lineText != ""
-      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
-    endif
-    let lineNum = lineNum + 1
-  endwhile
-  exe 'syn clear Repeat'
-  for lineText in keys(lineCounts)
-    if lineCounts[lineText] >= 2
-      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
-    endif
-  endfor
-endfunction
-
-command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
-
-"http://vim.wikia.com/wiki/View_all_colors_available_to_gvim
-"   :VimColorTest    "(for console/terminal Vim)
-"   :GvimColorTest   "(for GUI gvim)
-function! VimColorTest(outfile, fgend, bgend)
-  let result = []
-  for fg in range(a:fgend)
-    for bg in range(a:bgend)
-      let kw = printf('%-7s', printf('c_%d_%d', fg, bg))
-      let h = printf('hi %s ctermfg=%d ctermbg=%d', kw, fg, bg)
-      let s = printf('syn keyword %s %s', kw, kw)
-      call add(result, printf('%-32s | %s', h, s))
-    endfor
-  endfor
-  call writefile(result, a:outfile)
-  execute 'edit '.a:outfile
-  source %
-endfunction
-" Increase numbers in next line to see more colors.
-command! VimColorTest call VimColorTest('vim-color-test.tmp', 12, 16)
-
-function! GvimColorTest(outfile)
-  let result = []
-  for red in range(0, 255, 16)
-    for green in range(0, 255, 16)
-      for blue in range(0, 255, 16)
-        let kw = printf('%-13s', printf('c_%d_%d_%d', red, green, blue))
-        let fg = printf('#%02x%02x%02x', red, green, blue)
-        let bg = '#fafafa'
-        let h = printf('hi %s guifg=%s guibg=%s', kw, fg, bg)
-        let s = printf('syn keyword %s %s', kw, kw)
-        call add(result, printf('%s | %s', h, s))
-      endfor
-    endfor
-  endfor
-  call writefile(result, a:outfile)
-  execute 'edit '.a:outfile
-  source %
-endfunction
-command! GvimColorTest call GvimColorTest('gvim-color-test.tmp')
-
-"http://dhruvasagar.com/2013/03/28/vim-better-foldtext
-"VIM Better FoldText
-function! NeatFoldText()
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-set foldtext=NeatFoldText()
-
 "}}}
 
 " Syntastic {{{
