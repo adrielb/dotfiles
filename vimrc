@@ -208,6 +208,13 @@ nnoremap gz :<C-u>Unite process -start-insert -buffer-name=processes<CR>
 nnoremap gl :<C-u>Unite line -start-insert -buffer-name=lines<cr>
 nnoremap gr :<C-u>Unite register -buffer-name=register<CR>
 nnoremap gy :<C-u>Unite history/yank<CR>
+" argument list
+nnoremap gaa :argadd % <Bar> next<CR>
+nnoremap gal :arglocal<CR>
+nnoremap gaL :arglocal! %<CR>
+nnoremap gac :argument<CR>
+nnoremap gad :<C-R>=argidx()+1<CR>argdelete<CR>
+nnoremap gap :args<CR>
 " line text object
 vnoremap al :<C-U>normal! 0v$h<CR>
 vnoremap il :<C-U>normal! ^vg_<CR>
@@ -287,8 +294,8 @@ nmap     <leader><leader><CR> <Plug>SlimeLineSend
 xmap     <leader><CR>         <Plug>SlimeRegionSend
 nnoremap <up>       :cprev<CR>
 nnoremap <down>     :cnext<CR>
-nnoremap <left>     :lprev<CR>
-nnoremap <right>    :lnext<CR>
+nnoremap <left>     :previous<CR>
+nnoremap <right>    :next<CR>
 nmap     <BS> <Plug>VinegarUp
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
@@ -433,6 +440,8 @@ let g:airline_linecolumn_prefix = '␊ '
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#whitespace#enabled = 0
+"let g:airline_section_y = '%{argc()>0?("A[".repeat("-",argidx()).(expand("%")==argv(argidx())?"+":"~").repeat("-",argc()-argidx()-1)."]"):""}'
+let g:airline_section_y = functions#StatuslineArglistIndicator()
 "}}}
 
 " LaTex {{{
