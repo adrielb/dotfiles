@@ -246,7 +246,7 @@ nnoremap <C-l> <C-w>l
     nmap <C-Space>f :cscope find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <C-Space>i :cscope find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-Space>d :cscope find d <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>t  :! gnome-terminal<CR>
+nnoremap <leader>t  :silent ! gnome-terminal &<CR>
 nnoremap <leader>l  :nohlsearch<CR><C-L>:checktime<CR>
 nnoremap <leader>aa :Tabularize<CR>
 xnoremap <leader>aa :Tabularize<CR>
@@ -399,7 +399,7 @@ elseif executable('ack-grep')
   " Use ack in unite grep source.
   let g:unite_source_grep_command = 'ack-grep'
   let g:unite_source_grep_default_opts =
-        \ '--no-heading --no-color -a -H'
+        \ '--no-heading --no-color -a -H --smart-case'
   let g:unite_source_grep_recursive_opt = ''
 endif
 "}}}
