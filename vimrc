@@ -35,13 +35,14 @@ function! LoadBundles()
   Plugin 'tpope/vim-git'
   Plugin 'tpope/vim-dispatch'
   Plugin 'tpope/vim-vinegar'
-  Plugin 'tpope/vim-obsession'
+  "Plugin 'tpope/vim-obsession'
   Plugin 'sjl/gundo.vim'
   "Plugin 'a.vim'
   Plugin 'dbakker/vim-lint'
   Plugin 'rsmenon/vim-mathematica'
   "Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'Shougo/unite.vim'
+  Plugin 'Shougo/unite-session'
   Plugin 'Shougo/vimproc.vim'
   Plugin 'Shougo/neocomplete.vim'
   Plugin 'Shougo/neosnippet.vim'
@@ -66,6 +67,7 @@ function! LoadBundles()
   Plugin 'duff/vim-scratch'
   Plugin 'bkad/CamelCaseMotion'
   Plugin 'chrisbra/NrrwRgn'
+  Plugin 'chrisbra/csv.vim'
   Plugin 'vim-scripts/Vim-R-plugin'
   Plugin 'file:///home/abergman/projects/vimtips'
   Plugin 'file:///home/abergman/projects/dotvim'
@@ -186,6 +188,7 @@ set synmaxcol=300
 set conceallevel=2
 set concealcursor=i
 set foldtext=functions#NeatFoldText()
+set sessionoptions-=options
 " }}}
 
 " Mappings {{{
@@ -203,7 +206,8 @@ noremap  gV `[v`]
 nnoremap gs :update<CR>
 nnoremap gb :CtrlPBuffer<CR>
 nnoremap g/ :<C-U>Unite grep:.:<CR>
-nnoremap go :<C-u>Unite directory_mru -start-insert -buffer-name=cd -default-action=cd<CR>
+nnoremap gO :<C-u>Unite session/new -start-insert -buffer-name=session<CR>
+nnoremap go :<C-u>Unite session -start-insert -buffer-name=session<CR>
 nnoremap gz :<C-u>Unite process -start-insert -buffer-name=processes<CR>
 nnoremap gl :<C-u>Unite line -start-insert -buffer-name=lines<cr>
 nnoremap gr :<C-u>Unite register -buffer-name=register<CR>
@@ -229,6 +233,8 @@ omap     if :normal Vif<CR>
 nnoremap - $
 xnoremap - $
 onoremap - $
+nnoremap ' `
+nnoremap ` '
 nnoremap Q @q
 nnoremap Y y$
 nnoremap ZZ :wqa<CR>
@@ -380,6 +386,7 @@ let g:neocomplete#sources#omni#input_patterns.cpp =
 "}}}
 
 " Unite {{{
+let g:unite_source_session_enable_auto_save = 1
 let g:unite_source_history_yank_enable=1
 let g:unite_prompt = '❫ '
 
@@ -564,7 +571,7 @@ let g:ctrlp_open_multiple_files = '2vjr'
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.neocomplete$' }
 let g:ctrlp_show_hidden = 1
 "let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*\|.vim/bundle/.*'
+let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*\|.vim/bundle/.*\|.git/.*\|/tmp/.*'
 "}}}
 
 " vimwiki {{{
