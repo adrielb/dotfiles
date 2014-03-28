@@ -19,7 +19,7 @@ packages:
 		ffmpeg \
 		gcc-avr binutils-avr avr-libc \
 		python3 openmpi-bin openmpi-dev valgrind-mpi \
-		flex ctags \
+		flex ctags lighttpd \
 	'
 	
 nvidia:
