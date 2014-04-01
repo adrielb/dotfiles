@@ -3,7 +3,6 @@ let mapleader = "\<Space>"
 
 function! LoadBundles()
   Plugin 'gmarik/vundle'
-  Plugin 'chrisbra/color_highlight'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'tomasr/molokai'
   Plugin 'joedicastro/vim-molokai256'
@@ -189,6 +188,7 @@ set conceallevel=2
 set concealcursor=i
 set foldtext=functions#NeatFoldText()
 set sessionoptions-=options
+set sessionoptions-=help
 " }}}
 
 " Mappings {{{
@@ -245,7 +245,7 @@ nnoremap N Nzxzz
 " can undo CTRL-U after inserting a line break.
     imap <C-f> <Plug>(neosnippet_start_unite_snippet)
 inoremap <C-U> <C-G>u<C-U>
-nnoremap <C-Q> :botright copen<CR>
+nnoremap <C-Q> :wincmd c<CR>
 nnoremap <C-N> :CtrlPMRU<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -273,12 +273,14 @@ nnoremap <leader>a<Space> :Tabularize / /r0<CR>
 xnoremap <leader>a<Space> :Tabularize / /r0<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gD :call Gitv_OpenGitCommand("diff --no-color", 'enew')<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gc :Gcommit --verbose<CR>
 nnoremap <leader>gg :Ggrep<Space>
 nnoremap <leader>gv :Gitv --all<cr>
 nnoremap <leader>gV :Gitv! --all<cr>
 vnoremap <leader>gV :Gitv! --all<cr>
+    nmap <leader>gh <plug>(signify-toggle-highlight)
 nnoremap <leader>/  :Ack<Space>
 nnoremap <leader>q  :bp\|bd #<CR>
 nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
@@ -351,6 +353,14 @@ command! -range=% HighlightRepeats <line1>,<line2>call functions#HighlightRepeat
 " Increase numbers in next line to see more colors.
 command! VimColorTest call functions#VimColorTest('vim-color-test.tmp', 12, 16)
 command! GvimColorTest call functions#GvimColorTest('gvim-color-test.tmp')
+
+"Ack {{{
+let g:ackprg="ack-grep -H --nocolor --nogroup --column --smart-case"
+"}}}
+
+" Signify {{{
+let g:signify_vcs_list = [ 'git' ]
+"}}}
 
 " Sneak {{{
 let g:sneak#streak = 1
@@ -447,7 +457,6 @@ let g:airline_linecolumn_prefix = '␊ '
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#whitespace#enabled = 0
-"let g:airline_section_y = '%{argc()>0?("A[".repeat("-",argidx()).(expand("%")==argv(argidx())?"+":"~").repeat("-",argc()-argidx()-1)."]"):""}'
 let g:airline_section_y = functions#StatuslineArglistIndicator()
 "}}}
 
