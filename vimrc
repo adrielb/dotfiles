@@ -189,6 +189,7 @@ set concealcursor=i
 set foldtext=functions#NeatFoldText()
 set sessionoptions-=options
 set sessionoptions-=help
+set wildcharm=<C-z>
 " }}}
 
 " Mappings {{{
@@ -271,6 +272,9 @@ nnoremap <leader>a, :Tabularize /,/r0<CR>
 xnoremap <leader>a, :Tabularize /,/r0<CR>
 nnoremap <leader>a<Space> :Tabularize / /r0<CR>
 xnoremap <leader>a<Space> :Tabularize / /r0<CR>
+nnoremap <leader>b  :buffer <C-z><S-TAB>
+nnoremap <leader>f  :find <C-R>=expand('%:h').'/*'<CR><C-z>
+nnoremap <leader>ga :Gwrite<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gD :call Gitv_OpenGitCommand("diff --no-color", 'enew')<CR>
@@ -304,6 +308,8 @@ nnoremap <up>       :cprev<CR>
 nnoremap <down>     :cnext<CR>
 nnoremap <left>     :previous<CR>
 nnoremap <right>    :next<CR>
+nnoremap <PageUp>   :bnext<CR>
+nnoremap <PageDown> :bprevious<CR>
 nmap     <BS> <Plug>VinegarUp
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
