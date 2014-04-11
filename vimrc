@@ -230,6 +230,15 @@ vnoremap af :<C-U>silent! normal! [zV]z<CR>
 omap     af :normal Vaf<CR>
 vnoremap if :<C-U>silent! normal! [zjV]zk<CR>
 omap     if :normal Vif<CR>
+" [ and < text objects using 'r' and 'a'
+vnoremap ir i]
+vnoremap ar a]
+vnoremap ia i>
+vnoremap aa a>
+onoremap ir i]
+onoremap ar a]
+onoremap ia i>
+onoremap aa a>
 "move to last character
 nnoremap - $
 xnoremap - $
