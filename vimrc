@@ -285,6 +285,7 @@ nnoremap <leader>gv :Gitv --all<cr>
 nnoremap <leader>gV :Gitv! --all<cr>
 vnoremap <leader>gV :Gitv! --all<cr>
     nmap <leader>gh <plug>(signify-toggle-highlight)
+    xmap <leader>n  :NR!<CR>
 nnoremap <leader>/  :Ack<Space>
 nnoremap <leader>q  :bp\|bd #<CR>
 nnoremap <leader>m  :wall\|make\|redraw!\|copen\|cc<CR>
@@ -310,7 +311,9 @@ nnoremap <left>     :previous<CR>
 nnoremap <right>    :next<CR>
 nnoremap <PageUp>   :bnext<CR>
 nnoremap <PageDown> :bprevious<CR>
-nmap     <BS> <Plug>VinegarUp
+    nmap <Home>     <plug>(signify-prev-hunk)
+    nmap <End>      <plug>(signify-next-hunk)
+    nmap <BS>       <Plug>VinegarUp
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
                       \: pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -402,6 +405,7 @@ let g:neocomplete#sources#omni#input_patterns.cpp =
 "}}}
 
 " Unite {{{
+let g:unite_source_session_options="blank,buffers,curdir,folds,tabpages,winsize"
 let g:unite_source_session_enable_auto_save = 1
 let g:unite_source_history_yank_enable=1
 let g:unite_prompt = '❫ '
@@ -456,10 +460,13 @@ let g:pymode_breakpoint=1
 " }}}
 
 " Airline {{{
-let g:airline_theme='light'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_linecolumn_prefix = '␊ '
+let g:airline_theme='dark'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = ' '
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀'
+"let g:airline_linecolumn_prefix = '␊ '
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#whitespace#enabled = 0
@@ -592,6 +599,7 @@ let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*\|.vim/bundle/.*\|.git/.*\|/t
 " vimwiki {{{
 let g:vimwiki_hl_headers=1
 let g:vimwiki_hl_cb_checked=1
+let g:vimwiki_list=[{'path':'~/projects/vimwiki'}]
 " }}}
 
 "}}}
