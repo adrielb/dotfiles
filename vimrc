@@ -15,7 +15,7 @@ function! LoadBundles()
   "Plugin 'nathanaelkane/vim-indent-guides'
   "Plugin 'SirVer/ultisnips'
   Plugin 'kien/ctrlp.vim'
-  "Plugin 'davidhalter/jedi-vim'
+  Plugin 'davidhalter/jedi-vim'
   "Plugin 'ervandew/supertab'
   "Plugin 'Valloric/YouCompleteMe'
   Plugin 'klen/python-mode'
@@ -37,7 +37,7 @@ function! LoadBundles()
   "Plugin 'tpope/vim-obsession'
   Plugin 'sjl/gundo.vim'
   "Plugin 'a.vim'
-  Plugin 'dbakker/vim-lint'
+  "Plugin 'dbakker/vim-lint'
   Plugin 'rsmenon/vim-mathematica'
   "Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'Shougo/unite.vim'
@@ -55,7 +55,6 @@ function! LoadBundles()
   "Plugin 'vim-pandoc/vim-pantondoc'
   "Plugin 'vim-pandoc/vim-pandoc-syntax'
   "Plugin 'kana/vim-altr'
-  "Plugin 'kana/vim-textobj-user'
   "Plugin 'rbonvall/vim-textobj-latex'
   "Plugin 'b4winckler/vim-angry'
   "Plugin repeat
@@ -68,6 +67,12 @@ function! LoadBundles()
   Plugin 'chrisbra/NrrwRgn'
   Plugin 'chrisbra/csv.vim'
   Plugin 'vim-scripts/Vim-R-plugin'
+  "Plugin 'zef/vim-cycle'
+  Plugin 'mjbrownie/swapit'
+  Plugin 'kana/vim-textobj-user'
+  Plugin 'kana/vim-textobj-entire'
+  Plugin 'wellle/targets.vim'
+  Plugin 'wellle/tmux-complete.vim'
   Plugin 'file:///home/abergman/projects/vimtips'
   Plugin 'file:///home/abergman/projects/dotvim'
 
@@ -180,7 +185,7 @@ set clipboard+=unnamedplus
 set report=0
 set noesckeys
 set listchars=trail:█,tab:>~,eol:¶,extends:»,precedes:«
-set fillchars=vert:\|,fold:\_,diff:⣿
+set fillchars=vert:│,fold:\_,diff:⣿
 set completeopt-=preview
 set lazyredraw
 set synmaxcol=300
@@ -220,6 +225,11 @@ nnoremap gaL :arglocal! %<CR>
 nnoremap gac :argument<CR>
 nnoremap gad :<C-R>=argidx()+1<CR>argdelete<CR>
 nnoremap gap :args<CR>
+" entire file text object
+"vnoremap ae :normal gg0VG$<CR>
+"onoremap ae :normal Vae<CR>
+"vnoremap ie :normal gg0/^.<CR>VG$?^.<CR><CR>
+"onoremap ie :normal Vie<CR>
 " line text object
 vnoremap al :<C-U>normal! 0v$h<CR>
 vnoremap il :<C-U>normal! ^vg_<CR>
@@ -314,12 +324,12 @@ xnoremap <leader>P "+P
 nmap     <leader><CR>         <Plug>SlimeParagraphSend
 nmap     <leader><leader><CR> <Plug>SlimeLineSend
 xmap     <leader><CR>         <Plug>SlimeRegionSend
-nnoremap <up>       :cprev<CR>
-nnoremap <down>     :cnext<CR>
+nnoremap <up>       :cprev<bar>normal zxzz<CR>
+nnoremap <down>     :cnext<bar>normal zxzz<CR>
 nnoremap <left>     :previous<CR>
 nnoremap <right>    :next<CR>
-nnoremap <PageUp>   :bnext<CR>
-nnoremap <PageDown> :bprevious<CR>
+nnoremap <PageUp>    g,zxzz
+nnoremap <PageDown>  g;zxzz
     nmap <Home>     <plug>(signify-prev-hunk)
     nmap <End>      <plug>(signify-next-hunk)
     nmap <BS>       <Plug>VinegarUp
@@ -357,6 +367,7 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 command! CD cd %:p:h
 command! PI PluginInstall!
 command! S  Scratch
+command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -372,6 +383,15 @@ command! -range=% HighlightRepeats <line1>,<line2>call functions#HighlightRepeat
 command! VimColorTest call functions#VimColorTest('vim-color-test.tmp', 12, 16)
 command! GvimColorTest call functions#GvimColorTest('gvim-color-test.tmp')
 
+" Gitv {{{
+let g:Gitv_DoNotMapCtrlKey = 0
+"}}}
+
+" jedi {{{
+let g:jedi#popup_on_dot=0
+let g:jedi#popup_select_first=0
+"}}}
+
 "Ack {{{
 let g:ackprg="ack-grep -H --nocolor --nogroup --column --smart-case"
 "}}}
@@ -382,6 +402,7 @@ let g:signify_vcs_list = [ 'git' ]
 
 " Sneak {{{
 let g:sneak#streak = 1
+let g:sneak#use_ic_scs = 1
 "}}}
 
 " Pantodoc {{{
@@ -401,7 +422,7 @@ endif
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.python = ''
+let g:neocomplete#sources#omni#input_patterns.python = ''
 " R (plugin: vim-R-plugin)
 "let g:neocomplete#sources#omni#input_patterns.r =
 "\ '[[:alnum:].\\]\+'
@@ -455,7 +476,7 @@ endif
 let g:slime_no_mappings = 1
 let g:slime_target="tmux"
 let g:slime_paste_file="/dev/shm/slime-paste"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "1.1"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": "1.0"}
 "}}}
 
 " Python-mode {{{
@@ -520,6 +541,7 @@ augroup autoSave
   au!
   "autocmd CursorHold  * :silent! update
   "autocmd CursorHoldI * :silent! update
+  "autocmd InsertLeave * :silent! update
 augroup END
 
 " Put these in an autocmd group, so that we can delete them easily.
@@ -599,7 +621,7 @@ endif
 " CtrlP {{{
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_open_multiple_files = '2vjr'
-let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.neocomplete$' }
+let g:ctrlp_custom_ignore = { 'dir':  '\.neocomplete/\|\.cache/' }
 let g:ctrlp_show_hidden = 1
 "let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_mruf_exclude = '/.*/share/vim/.*/doc/.*\|.vim/bundle/.*\|.git/.*\|/tmp/.*'

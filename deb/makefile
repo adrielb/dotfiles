@@ -16,10 +16,11 @@ packages:
 		texlive texlive-latex-extra texlive-fonts-extra latexmk \
 		source-highlight tmux encfs \
 		flashplugin-nonfree iceweasel-flashblock \
-		ffmpeg \
+		ffmpeg mpd ncmpcpp \
 		gcc-avr binutils-avr avr-libc \
 		python3 openmpi-bin openmpi-dev valgrind-mpi \
 		flex ctags lighttpd \
+		
 	'
 	
 nvidia:

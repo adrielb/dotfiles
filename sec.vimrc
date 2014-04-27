@@ -65,8 +65,8 @@ omap     af :normal Vaf<CR>
 vnoremap if :<C-U>silent! normal! [zjV]zk<CR>
 omap     if :normal Vif<CR>
 nnoremap Y y$
-nnoremap n nzvzz
-nnoremap N Nzvzz
+nnoremap n nzxzz
+nnoremap N Nzxzz
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -85,7 +85,6 @@ nnoremap <leader>p "+p
 xnoremap <leader>p "+p
 nnoremap <leader>P "+P
 xnoremap <leader>P "+P
-inoremap <BS>      <Nop>
 nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
@@ -118,7 +117,7 @@ let @n=" {{{\n
        \}}}\n"
 function! CopyField( field )
   execute "normal! zv[z"
-  execute "normal! /" . a:field . "\<CR>"
+  execute "silent normal! /" . a:field . "\<CR>"
   execute "normal! ww\"+yiW"
   echo "Copied " . a:field
 endfunction
