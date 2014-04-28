@@ -13,6 +13,7 @@ bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
 export EDITOR="vim"
 export PATH=~/projects/dotfiles/bin:$PATH
+export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
 
 export PETSC_DIR=~/apps/petsc
 

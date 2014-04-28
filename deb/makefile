@@ -14,13 +14,13 @@ packages:
 		python-dev python-pip python-qt4 \
 		ack-grep pwgen smartmontools xclip \
 		texlive texlive-latex-extra texlive-fonts-extra latexmk \
-		source-highlight tmux encfs \
+		source-highlight encfs \
 		flashplugin-nonfree iceweasel-flashblock \
 		ffmpeg mpd ncmpcpp \
 		gcc-avr binutils-avr avr-libc \
 		python3 openmpi-bin openmpi-dev valgrind-mpi \
 		flex ctags lighttpd \
-		
+		cmake	libevent-dev \
 	'
 	
 nvidia:

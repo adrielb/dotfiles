@@ -1,3 +1,12 @@
 edit /etc/apt/sources.list
 deb ... wheezy main contrib non-free
 
+== LLVM ==
+http://llvm.org/releases/
+
+* move clang src into llvm source tools directory
+cd ~/llvm/tools
+tar xvf clang.tar.gz
+
+mkdir ~/build
+cmake ../path/to/source
