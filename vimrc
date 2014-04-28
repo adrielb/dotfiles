@@ -383,6 +383,10 @@ command! -range=% HighlightRepeats <line1>,<line2>call functions#HighlightRepeat
 command! VimColorTest call functions#VimColorTest('vim-color-test.tmp', 12, 16)
 command! GvimColorTest call functions#GvimColorTest('gvim-color-test.tmp')
 
+"tmux-complete"{{{
+let g:tmuxcomplete#trigger = ''
+"}}}
+
 " Gitv {{{
 let g:Gitv_DoNotMapCtrlKey = 0
 "}}}
