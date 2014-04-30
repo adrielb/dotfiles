@@ -223,6 +223,7 @@ nnoremap gaa :argadd % <Bar> next<CR>
 nnoremap gal :arglocal<CR>
 nnoremap gaL :arglocal! %<CR>
 nnoremap gac :argument<CR>
+nnoremap gav :1,999bd<CR>:argdo e<CR>
 nnoremap gad :<C-R>=argidx()+1<CR>argdelete<CR>
 nnoremap gap :args<CR>
 " entire file text object
@@ -397,7 +398,7 @@ let g:jedi#popup_select_first=0
 "}}}
 
 "Ack {{{
-let g:ackprg="ack-grep -H --nocolor --nogroup --column --smart-case"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column --smart-case --noenv"
 "}}}
 
 " Signify {{{
@@ -541,6 +542,7 @@ augroup reload_vimrc
 augroup END
 
 " auto-save after 'updatetime'
+" TODO: create toggle command for auto-save, :Autosave
 augroup autoSave
   au!
   "autocmd CursorHold  * :silent! update
@@ -551,6 +553,11 @@ augroup END
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
+  " prevent quickfix window from becoming a blank window when the session is
+  " restored
+  " https://github.com/tpope/vim-obsession/issues/13
+  autocmd VimLeavePre * cclose | lclose
+
   " search only open buffers
   " :bufdo vimgrepadd searchstring %
   " :bufdo g/searchstring
