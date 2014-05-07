@@ -10,3 +10,7 @@ tar xvf clang.tar.gz
 
 mkdir ~/build
 cmake ../path/to/source
+
+== nvidia ==
+304.88
+304.117

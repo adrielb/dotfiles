@@ -5,7 +5,7 @@ export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
-export HISTIGNORE=ls:ll:cd:fg:exit
+export HISTIGNORE=ls:ll:cd:fg:exit:ZZ
 shopt -s histappend
 set -o vi  # enable vi editing mode
 bind -m vi-insert "\C-l":clear-screen # ^l clear screen
@@ -27,7 +27,13 @@ alias lt="ll -rt"
 alias ll="ls -l"
 alias du1="du --max-depth=1|sort -n"
 alias xclip="xclip -selection clipboard"
+alias ZZ="exit"
+#TODO: copy prev cmd into clipboard
+#alias cmdcp="echo \"!!\" | xclip"
 
+if [ "$COLORTERM" == "gnome-terminal" ]; then
+  TERM=xterm-256color
+fi
 
 debug() { [ "$DEBUG" ] && echo ">>> $*"; }
 
