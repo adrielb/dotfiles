@@ -292,6 +292,8 @@ nnoremap <leader>a, :Tabularize /,/r0<CR>
 xnoremap <leader>a, :Tabularize /,/r0<CR>
 nnoremap <leader>a<Space> :Tabularize / /r0<CR>
 xnoremap <leader>a<Space> :Tabularize / /r0<CR>
+nnoremap <leader>eh :CtrlP ~<CR>
+nnoremap <leader>er :CtrlP /<CR>
 nnoremap <leader>b  :buffer <C-z><S-TAB>
 nnoremap <leader>f  :find <C-R>=expand('%:h').'/*'<CR><C-z>
 nnoremap <leader>ga :Gwrite<CR>
@@ -365,6 +367,7 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 " Plugin Options {{{ 
 
 " Change to Directory of Current file
+command! A call functions#SwitchSourceHeader()
 command! CD cd %:p:h
 command! PI PluginInstall!
 command! S  Scratch
