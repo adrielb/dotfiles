@@ -67,6 +67,7 @@ function! LoadBundles()
   Plugin 'chrisbra/NrrwRgn'
   Plugin 'chrisbra/csv.vim'
   Plugin 'vim-scripts/Vim-R-plugin'
+  Plugin 'vim-scripts/vim-auto-save'
   "Plugin 'zef/vim-cycle'
   Plugin 'mjbrownie/swapit'
   Plugin 'kana/vim-textobj-user'
@@ -74,7 +75,7 @@ function! LoadBundles()
   Plugin 'wellle/targets.vim'
   Plugin 'wellle/tmux-complete.vim'
   Plugin 'file:///home/abergman/projects/vimtips'
-  Plugin 'file:///home/abergman/projects/dotvim'
+  Plugin 'file:///home/abergman/projects/dotvim', {'pinned':1}
 
   " runtime macros/matchit.vim
   "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -169,6 +170,7 @@ set undofile
 set foldmethod=marker
 set spelllang=en_us
 set wildignore+=.git
+set wildignore+=*.hi,*.x
 set wildignore+=*.so,*.a,*.la,*.o
 set wildignore+=*.sw?,*.un~,*.pyc,*.class
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
@@ -251,9 +253,9 @@ onoremap ar a]
 onoremap ia i>
 onoremap aa a>
 "move to last character
-nnoremap - $
-xnoremap - $
-onoremap - $
+"nnoremap - $
+"xnoremap - $
+"onoremap - $
 nnoremap ' `
 nnoremap ` '
 nnoremap Q @q
@@ -294,6 +296,7 @@ nnoremap <leader>a<Space> :Tabularize / /r0<CR>
 xnoremap <leader>a<Space> :Tabularize / /r0<CR>
 nnoremap <leader>eh :CtrlP ~<CR>
 nnoremap <leader>er :CtrlP /<CR>
+nnoremap <leader>ep :CtrlP ~/apps/petsc/<CR>
 nnoremap <leader>b  :buffer <C-z><S-TAB>
 nnoremap <leader>f  :find <C-R>=expand('%:h').'/*'<CR><C-z>
 nnoremap <leader>ga :Gwrite<CR>
@@ -327,15 +330,15 @@ xnoremap <leader>P "+P
 nmap     <leader><CR>         <Plug>SlimeParagraphSend
 nmap     <leader><leader><CR> <Plug>SlimeLineSend
 xmap     <leader><CR>         <Plug>SlimeRegionSend
-nnoremap <up>       :cprev<bar>normal zxzz<CR>
-nnoremap <down>     :cnext<bar>normal zxzz<CR>
+nnoremap <up>       :cprev<bar>normal! zxzz<CR>
+nnoremap <down>     :cnext<bar>normal! zxzz<CR>
 nnoremap <left>     :previous<CR>
 nnoremap <right>    :next<CR>
 nnoremap <PageUp>    g,zxzz
 nnoremap <PageDown>  g;zxzz
     nmap <Home>     <plug>(signify-prev-hunk)
     nmap <End>      <plug>(signify-next-hunk)
-    nmap <BS>       <Plug>VinegarUp
+nnoremap <BS>       a<BS>
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                       \ "\<Plug>(neosnippet_jump_or_expand)"
                       \: pumvisible() ? "\<C-n>" : "\<TAB>"
