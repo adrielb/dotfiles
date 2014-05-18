@@ -72,8 +72,20 @@ function! LoadBundles()
   Plugin 'mjbrownie/swapit'
   Plugin 'kana/vim-textobj-user'
   Plugin 'kana/vim-textobj-entire'
-  Plugin 'wellle/targets.vim'
+  Plugin 'kana/vim-textobj-indent'
+  "Plugin 'wellle/targets.vim'
   Plugin 'wellle/tmux-complete.vim'
+  " Haskell plugins
+  "Plugin 'Twinside/vim-haskellConceal'
+  "Plugin 'Twinside/vim-haskellFold'
+  "Plugin 'Twinside/vim-hoogle'
+  "Plugin 'bitc/lushtags'
+  "Plugin 'dag/vim2hs'
+  Plugin 'eagletmt/ghcmod-vim'
+  Plugin 'eagletmt/neco-ghc'
+  "Plugin 'kana/vim-filetype-haskell'
+
+  " Local plugins
   Plugin 'file:///home/abergman/projects/vimtips'
   Plugin 'file:///home/abergman/projects/dotvim', {'pinned':1}
 
