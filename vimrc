@@ -50,7 +50,7 @@ function! LoadBundles()
   Plugin 'jpalardy/vim-slime'
   "Plugin 'ivanov/vim-ipython'
   "new plugins
-  "Plugin 'Lokaltog/vim-easymotion'
+  Plugin 'Lokaltog/vim-easymotion'
   Plugin 'LaTeX-Box-Team/LaTeX-Box'
   "Plugin 'vim-pandoc/vim-pantondoc'
   "Plugin 'vim-pandoc/vim-pandoc-syntax'
@@ -59,7 +59,7 @@ function! LoadBundles()
   "Plugin 'b4winckler/vim-angry'
   "Plugin repeat
   Plugin 'mhinz/vim-signify'
-  Plugin 'justinmk/vim-sneak' 
+  "Plugin 'justinmk/vim-sneak' 
   Plugin 'AndrewRadev/splitjoin.vim'
   Plugin 'tommcdo/vim-exchange'
   Plugin 'duff/vim-scratch'
@@ -275,6 +275,7 @@ nnoremap Y y$
 nnoremap ZZ :wqa<CR>
 nnoremap n nzxzz
 nnoremap N Nzxzz
+    nmap s <Plug>(easymotion-bd-w)
 " CTRL-U in insert mode deletes a lot.
 " Use CTRL-G u to first break undo,  so that you
 " can undo CTRL-U after inserting a line break.
@@ -401,6 +402,10 @@ command! -range=% HighlightRepeats <line1>,<line2>call functions#HighlightRepeat
 " Increase numbers in next line to see more colors.
 command! VimColorTest call functions#VimColorTest('vim-color-test.tmp', 12, 16)
 command! GvimColorTest call functions#GvimColorTest('gvim-color-test.tmp')
+
+" easymotion {{{
+let g:EasyMotion_smartcase = 1
+"}}}
 
 "tmux-complete"{{{
 let g:tmuxcomplete#trigger = ''
