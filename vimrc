@@ -225,6 +225,7 @@ cnoremap $d <CR>:d<CR>
 noremap  gV `[v`]
 nnoremap gs :update<CR>
 nnoremap gb :CtrlPBuffer<CR>
+nnoremap gB :CtrlPMRU<CR>
 nnoremap g/ :<C-U>Unite grep:.:<CR>
 nnoremap gO :<C-u>Unite session/new -start-insert -buffer-name=session<CR>
 nnoremap go :<C-u>Unite session -start-insert -buffer-name=session<CR>
@@ -282,7 +283,6 @@ nnoremap N Nzxzz
     imap <C-f> <Plug>(neosnippet_start_unite_snippet)
 inoremap <C-U> <C-G>u<C-U>
 nnoremap <C-Q> :wincmd c<CR>
-nnoremap <C-N> :CtrlPMRU<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
