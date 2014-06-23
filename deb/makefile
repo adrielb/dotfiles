@@ -18,9 +18,10 @@ packages:
 		flashplugin-nonfree iceweasel-flashblock \
 		ffmpeg mpd ncmpcpp \
 		gcc-avr binutils-avr avr-libc \
-		python3 openmpi-bin openmpi-dev valgrind-mpi \
+		python3 valgrind-mpi \
 		flex ctags lighttpd \
 		cmake	libevent-dev \
+		libgnutls-dev libgsasl7 libgsasl7-dev \
 	'
 	
 nvidia:
@@ -46,7 +47,7 @@ python:
 	pip install moviepy
 	pip install lxml howdoi
 
-VIMDIR=/tmp/vim
+VIMDIR=/home/abergman/apps/vim
 ${VIMDIR}:
 	hg clone https://vim.googlecode.com/hg/ ${VIMDIR}
 
@@ -65,7 +66,7 @@ vim: ${VIMDIR}
 		--enable-fail-if-missing && \
 	make clean && \
 	make -j16 && \
-	make install && \
+	su -c 'make install' && \
 	vim --version
 
 solarized:
@@ -102,10 +103,7 @@ petsc-debug:
 		--with-endian=big                  \
 		--with-errorchecking=yes           \
 		--with-debugging=yes               \
-		--with-cc=mpicc                    \
-		--with-cxx=mpicxx                  \
-		--with-fc=mpif90                   \
-		--with-mpi-dir=/usr/lib/openmpi && \
+		--with-mpi-dir=/home/abergman/apps/openmpi-1.8.1/build && \
 	make all && make test
 
 
