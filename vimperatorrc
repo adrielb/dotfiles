@@ -1,5 +1,6 @@
 "3.7.1 (created: 2013/05/22 20:32:57)
 
+noremap yt :js util.copyToClipboard(content.document.title, true)<cr>
 noremap h <C-p>
 noremap l <C-n>
 noremap j 3j
