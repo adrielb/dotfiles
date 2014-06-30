@@ -22,6 +22,12 @@ packages:
 		flex ctags lighttpd \
 		cmake	libevent-dev \
 		libgnutls-dev libgsasl7 libgsasl7-dev \
+		ntp \
+		sqlite3 \
+		libsqlite3-dev \
+		libcurl4-gnutls-dev \
+		libstfl-dev \
+		libjson0-dev \
 	'
 	
 nvidia:
