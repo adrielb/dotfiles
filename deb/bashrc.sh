@@ -32,8 +32,7 @@ alias ll="ls -l"
 alias du1="du --max-depth=1|sort -n"
 alias xclip="xclip -selection clipboard"
 alias ZZ="exit"
-#TODO: copy prev cmd into clipboard
-#alias cmdcp="echo \"!!\" | xclip"
+alias cmdcp="history 2|head -n 1|xclip"
 
 if [ "$COLORTERM" == "gnome-terminal" ]; then
   TERM=xterm-256color
