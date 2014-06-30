@@ -16,7 +16,7 @@ export PATH=~/.cabal/bin:$PATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
 
-export PYTHONPATH=/home/abergman/apps/VTK/lib:/home/abergman/apps/VTK/Wrapping/Python
+export PYTHONPATH=~/VTK-OS/lib:~/VTK-OS/Wrapping/Python
 
 export PETSC_DIR=~/apps/petsc
 export PETSC_TMP=~/tmp
