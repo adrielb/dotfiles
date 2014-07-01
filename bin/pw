@@ -1,6 +1,26 @@
 #!/bin/bash
 
-SECVIMRC=/home/abergman/projects/dotfiles/sec.vimrc 
-PWDB=/home/abergman/projects/sec/pwdb
+PROJECTS=/home/abergman/projects
+SECVIMRC=${PROJECTS}/dotfiles/sec.vimrc 
+CONTAINER=${PROJECTS}/sec/container.img 
+MAPPER=mycryptfs
+MOUNT=/mnt/${MAPPER}
+PWDB=${MOUNT}/pwdb
 
-gvim -u ${SECVIMRC} ${PWDB}
+
+if [ ! $( id -u ) -eq 0 ]; then
+    echo "Please enter root's password."
+    exec su -c "${0}" # Call this prog as root
+    exit ${?}  # sice we're 'execing' above, we wont reach this exit
+               # unless something goes wrong.
+fi
+
+cryptsetup luksOpen ${CONTAINER} ${MAPPER}
+mount /dev/mapper/${MAPPER} ${MOUNT}
+
+su abergman -c "gvim -u ${SECVIMRC} ${PWDB}; \
+                cd ${MOUNT}; \
+                bash"
+ 
+umount ${MOUNT}
+cryptsetup luksClose ${MAPPER}
