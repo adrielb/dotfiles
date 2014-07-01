@@ -26,13 +26,9 @@ export ACK_PAGER_COLOR="less -R"
 export LESS="-R"
 export LESSOPEN="|/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
-alias lx="ls -XshF"
-alias lt="ll -rt"
-alias ll="ls -l"
-alias du1="du --max-depth=1|sort -n"
-alias xclip="xclip -selection clipboard"
-alias ZZ="exit"
-alias cmdcp="history 2|head -n 1|xclip"
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
 
 if [ "$COLORTERM" == "gnome-terminal" ]; then
   TERM=xterm-256color

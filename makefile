@@ -13,6 +13,7 @@ links:
 	-ln -sf ${DOT}/awesome ~/.config/awesome
 	-ln -sf ${DOT}/home.gitignore ~/.gitignore
 	-ln -sf ${DOT}/inputrc.sh ~/.inputrc
+	-ln -sf ${DOT}/bash_aliases.sh ~/.bash_aliases
 
 slime:
 	chmod 700 dotfiles
