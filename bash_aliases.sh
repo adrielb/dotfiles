@@ -12,3 +12,4 @@ alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias fhere="find . -iname "
 alias myip="curl http://ipecho.net/plain; echo"
+alias gitpushstatusall='gitstatusall.sh |grep -B 2 "Your branch is ahead"'

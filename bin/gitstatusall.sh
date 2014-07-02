@@ -7,5 +7,6 @@ do
     repo=$(dirname $repo)
     echo $repo
     cd $repo 
-    git status --short
+    #git status --short
+    git status
 done
