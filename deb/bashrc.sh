@@ -1,18 +1,21 @@
 
-source /etc/bash_completion.d/git
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-export HISTTIMEFORMAT='%F %T '
+#source /etc/bash_completion.d/git
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+# don't put duplicate lines or lines starting with space in the history.
 export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT='%F %T '
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 export HISTIGNORE=ls:ll:cd:fg:exit:ZZ
+# append to the history file, don't overwrite it
 shopt -s histappend
 set -o vi  # enable vi editing mode
 bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
-
 export EDITOR="vim"
 export PATH=~/.cabal/bin:$PATH
+export PATH=~/apps/local/bin:$PATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
 
@@ -75,3 +78,38 @@ function o()
   esac
 }
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
