@@ -1,20 +1,20 @@
 [user]
-	name = Adriel Bergmann
-	email = adrielb@users.noreply.github.com
+    name = Adriel Bergmann
+    email = adrielb@users.noreply.github.com
 [color]
-	ui = auto
+    ui = auto
 [merge]
-	tool = meld
+    tool = meld
 [alias]
-	st = status -sb
-  ci = commit --verbose
-  co = checkout
-  unstage =  reset HEAD --
-	undo = reset --hard
-  cleanup = clean -fdx
-  lg = log --pretty=format:\"%C(bold red)%ar%C(reset): %C(green)%s%C(reset)\" --graph --decorate --branches=*
-  ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
-  this = !git init && git add . && git commit -m \"initial commit\"
-  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+    st = status -sb
+    ci = commit --verbose
+    co = checkout
+    unstage =  reset HEAD --
+    undo = reset --hard
+    cleanup = clean -fdx
+    lg = log --pretty=format:\"%C(bold red)%ar%C(reset): %C(green)%s%C(reset)\" --graph --decorate --branches=*
+    ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+    this = !git init && git add . && git commit -m \"initial commit\"
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
 [core]
-	excludesfile = /home/abergman/projects/dotfiles/global.gitignore
+    excludesfile = /home/abergman/projects/dotfiles/global.gitignore
