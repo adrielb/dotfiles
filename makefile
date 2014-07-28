@@ -2,6 +2,7 @@ DOT=`pwd`
 
 links:
 	-ln -sf ${DOT}/vimperatorrc ~/.vimperatorrc
+	-mkdir -p ~/.ghc
 	-ln -sf ${DOT}/ghci.conf ~/.ghc/ghci.conf
 	-ln -sf ${DOT}/tmux.conf ~/.tmux.conf
 	-ln -sf ${DOT}/toprc ~/.toprc
