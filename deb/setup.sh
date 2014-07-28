@@ -105,6 +105,16 @@ vim()
 }
 #}}}
 
+# solarized {{{
+solarized()
+{
+    cd /tmp
+    git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+    cd gnome-terminal-colors-solarized
+    ./install.sh
+}
+# }}}
+
 CMD=$1
 LOGDIR=logs
 LOGFILE=$LOGDIR/$CMD-`date '+%F-%T'`
