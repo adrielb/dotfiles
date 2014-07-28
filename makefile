@@ -25,3 +25,12 @@ root:
 	cp -f ${DOT}/bashrc.root.sh /root/.bashrc.root.sh; \
 	cp -f ${DOT}/gitconfig /root/.gitconfig; \
 	'
+
+REPOS=${addprefix ~/projects/,  \
+dcard learnzeromq dotvim learnhaskell learnd3 workout DCell ergodox-firmware \
+ChemoMech BetaArrestin optimization adrielb.github.io hakyll-blog}
+
+${REPOS}:
+	git clone git@github.com:adrielb/${@F}.git $@
+
+github: ${REPOS}
