@@ -125,6 +125,14 @@ bashrc()
 }
 #}}}
 
+# bash-git-prompt {{{
+bash-git-prompt()
+{
+    cd
+    git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt
+}
+#}}}
+
 CMD=$1
 LOGDIR=logs
 LOGFILE=$LOGDIR/$CMD-`date '+%F-%T'`
