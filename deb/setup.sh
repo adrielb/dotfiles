@@ -128,8 +128,9 @@ bashrc()
 # bash-git-prompt {{{
 bash-git-prompt()
 {
-    cd
-    git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt
+    git clone git@github.com:adrielb/bash-git-prompt.git ~/.bash-git-prompt
+    cd ~/.bash-git-prompt
+    git co mymods
 }
 #}}}
 
