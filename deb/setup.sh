@@ -115,6 +115,16 @@ solarized()
 }
 # }}}
 
+# bashrc {{{
+bashrc()
+{
+    if [ ! -h ~/.bashrc ]; then
+        mv ~/.bashrc ~/.bashrc.bak
+        ln -sf ~/projects/dotfiles/deb/bashrc.sh ~/.bashrc
+    fi
+}
+#}}}
+
 CMD=$1
 LOGDIR=logs
 LOGFILE=$LOGDIR/$CMD-`date '+%F-%T'`
