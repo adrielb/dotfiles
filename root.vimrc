@@ -21,6 +21,7 @@ set relativenumber
 set colorcolumn=+1
 set showmatch        " Show matching brackets
 set scrolloff=3
+set sidescrolloff=3
 set switchbuf=usetab
 set hidden
 set autoread
@@ -29,6 +30,7 @@ set gdefault
 set undofile
 set foldmethod=marker
 set wildignore+=.git
+set wildignore+=*.hi,*.x
 set wildignore+=*.so,*.a,*.la,*.o
 set wildignore+=*.sw?,*.un~,*.pyc,*.class
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
@@ -39,13 +41,13 @@ set shortmess+=I  " no intro msg
 set clipboard+=unnamedplus
 set report=0
 set noesckeys
-set listchars=trail:█,tab:>~,eol:¶,extends:>,precedes:<
+set listchars=trail:█,tab:>~,eol:¶,extends:»,precedes:«
+set fillchars=vert:│,fold:\_,diff:⣿
 set completeopt-=preview
 set lazyredraw
 
-nmap Q gqip
-vmap Q gq
-inoremap <C-U> <C-G>u<C-U>
+noremap  gV `[v`]
+nnoremap gs :update<CR>
 " line text object
 vnoremap al :<C-U>normal! 0v$h<CR>
 vnoremap il :<C-U>normal! ^vg_<CR>
@@ -56,19 +58,28 @@ vnoremap af :<C-U>silent! normal! [zV]z<CR>
 omap     af :normal Vaf<CR>
 vnoremap if :<C-U>silent! normal! [zjV]zk<CR>
 omap     if :normal Vif<CR>
+nnoremap ' `
+nnoremap ` '
+nnoremap Q @q
+xnoremap Q :norm @q<CR>
 nnoremap Y y$
-nnoremap n nzvzz
-nnoremap N Nzvzz
+nnoremap ZZ :wqa<CR>
+nnoremap n nzxzz
+nnoremap N Nzxzz
+inoremap <C-U> <C-G>u<C-U>
+nnoremap <C-Q> :wincmd c<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <leader>l  :nohlsearch<CR><C-L>
-nnoremap <leader>ev :tabnew $MYVIMRC<CR>
-nnoremap <leader>w  :update<CR>
+nnoremap <leader>l  :nohlsearch<CR><C-L>:checktime<CR>
+nnoremap <leader>b  :buffer <C-z><S-TAB>
+nnoremap <leader>f  :find <C-R>=expand('%:h').'/*'<CR><C-z>
 nnoremap <leader>q  :bp\|bd #<CR>
 nnoremap <leader>m  :make<CR>
 nnoremap <leader>v  :vertical resize 80<CR>
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
@@ -77,11 +88,11 @@ nnoremap <leader>p "+p
 xnoremap <leader>p "+p
 nnoremap <leader>P "+P
 xnoremap <leader>P "+P
-inoremap <BS>      <Nop>
 nnoremap <up>       :lprev<CR>
 nnoremap <down>     :lnext<CR>
 nnoremap <left>     :cprev<CR>
 nnoremap <right>    :cnext<CR>
+nnoremap <BS>       a<BS>
 inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
