@@ -134,6 +134,31 @@ bash-git-prompt()
 }
 #}}}
 
+python() #{{{
+{
+	easy_install -U distribute
+	pip install jedi
+	pip install pyzmq
+	pip install numpy
+	pip install matplotlib
+	pip install scipy
+	pip install scikit-learn
+	pip install pylint
+	pip install pandas
+	pip install ipython
+	pip install sympy
+	pip install numexpr
+	pip install cython
+	pip install tables
+	pip install h5py
+	pip install pyyaml
+	pip install patsy
+	pip install statsmodels
+	pip install moviepy
+	pip install lxml
+}
+#}}}
+
 CMD=$1
 LOGDIR=logs
 LOGFILE=$LOGDIR/$CMD-`date '+%F-%T'`
