@@ -12,7 +12,8 @@
     unstage =  reset HEAD --
     undo = reset --hard
     cleanup = clean -fdx
-    lg = log --pretty=format:\"%C(bold red)%ar%C(reset): %C(green)%s%C(reset)\" --graph --decorate --branches=*
+    lr = log HEAD..origin/master --stat
+    lg = log --pretty=format:\"%C(yellow)%h%C(reset) %C(bold red)%ar%C(reset): %C(green)%s%C(reset)\" --graph --decorate --branches=*
     ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
     this = !git init && git add . && git commit -m \"initial commit\"
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
