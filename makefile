@@ -14,6 +14,7 @@ links:
 	-ln -sf ${DOT}/home.gitignore ~/.gitignore
 	-ln -sf ${DOT}/inputrc.sh ~/.inputrc
 	-ln -sf ${DOT}/bash_aliases.sh ~/.bash_aliases
+	-ln -sf ${DOT}/Rprofile ~/.Rprofile
 
 slime:
 	chmod 700 dotfiles
