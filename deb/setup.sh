@@ -137,6 +137,7 @@ bash-git-prompt()
 python() #{{{
 {
 	easy_install -U distribute
+    pip install jinja2
 	pip install jedi
 	pip install pyzmq
 	pip install numpy
