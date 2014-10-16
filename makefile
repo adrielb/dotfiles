@@ -15,6 +15,7 @@ links:
 	-ln -sf ${DOT}/inputrc.sh ~/.inputrc
 	-ln -sf ${DOT}/bash_aliases.sh ~/.bash_aliases
 	-ln -sf ${DOT}/Rprofile ~/.Rprofile
+	-ln -sf ${DOT}/ackrc ~/.ackrc
 
 slime:
 	chmod 700 dotfiles
