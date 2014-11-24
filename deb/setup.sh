@@ -157,6 +157,10 @@ python() #{{{
 	pip install statsmodels
 	pip install moviepy
 	pip install lxml
+    pip install seaborn
+    pip install mpld3
+    pip install prettyplotlib
+    pip install Theano
 }
 #}}}
 
