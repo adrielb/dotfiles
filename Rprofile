@@ -1,5 +1,5 @@
 # http://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/
-options( prompt="R> " )
+options( prompt=  "R> " )
+options( continue="+  " )
 
-# r <- getOptions( 'repos' )
-# r['CRAN'] <- "http"
+options("repos" = c(CRAN = "http://watson.nci.nih.gov/cran_mirror"))
