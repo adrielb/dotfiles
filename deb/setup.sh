@@ -161,6 +161,7 @@ python() #{{{
     pip install mpld3
     pip install prettyplotlib
     pip install Theano
+    pip install pillow
 }
 #}}}
 
