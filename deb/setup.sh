@@ -168,7 +168,16 @@ python() #{{{
 
 R() #{{{
 {
+    RVERSION=R-3.1.2.tar.gz
     unset -f R
+    mkdir -p ~/apps/R-cran
+    wget http://watson.nci.nih.gov/cran_mirror/src/base/R-3/$RFILE
+    tar -xf $RFILE
+    cd $RFILE
+    ./configure
+    make -j
+    make check
+    ln -s bin/R ~/apps/local/bin
     R CMD BATCH --no-init-file setup.R logs/R.log
 } #}}}
 

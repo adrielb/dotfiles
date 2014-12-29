@@ -5,4 +5,3 @@ if [ -f "$HOME/.bashrc" ]; then
 fi
 
 export PETSC_DIR=~/apps/petsc
-export PATH=~/apps/R-cran/R-3.1.2/bin:$PATH
