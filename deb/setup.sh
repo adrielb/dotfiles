@@ -164,6 +164,12 @@ python() #{{{
 }
 #}}}
 
+R() #{{{
+{
+    unset -f R
+    R CMD BATCH --no-init-file setup.R logs/R.log
+} #}}}
+
 CMD=$1
 LOGDIR=logs
 LOGFILE=$LOGDIR/$CMD-`date '+%F-%T'`

@@ -16,6 +16,7 @@ links:
 	-ln -sf ${DOT}/bash_aliases.sh ~/.bash_aliases
 	-ln -sf ${DOT}/Rprofile ~/.Rprofile
 	-ln -sf ${DOT}/ackrc ~/.ackrc
+	-ln -sf ${DOT}/bash_profile.sh ~/.bash_profile
 
 slime:
 	chmod 700 dotfiles
