@@ -70,6 +70,7 @@ packages() #{{{
     libjson0-dev \
     autoconf \
     automake \
+    libevent-dev \
   '
 
 }
@@ -169,6 +170,21 @@ R() #{{{
 {
     unset -f R
     R CMD BATCH --no-init-file setup.R logs/R.log
+} #}}}
+
+tmux() #{{{
+{
+    mkdir -p ~/apps/local/bin
+    cd ~/apps
+    if [ ! -d "tmux" ]; then
+        git clone https://github.com/ThomasAdam/tmux.git
+    fi
+    cd tmux
+    sh autogen.sh
+    ./configure
+    make clean
+    make -j
+    cp tmux ~/apps/local/bin/
 } #}}}
 
 CMD=$1
