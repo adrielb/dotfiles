@@ -1,4 +1,8 @@
 #--color
 #--smart-case
 
---type-add=R=.R
+--type-set
+R=.R
+
+--type-set
+stan=.stan
