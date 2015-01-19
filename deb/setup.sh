@@ -71,6 +71,9 @@ packages() #{{{
     autoconf \
     automake \
     libevent-dev \
+    liblzma-dev \
+    libio-pty-perl \
+    libfile-next-perl \
   '
 
 }
@@ -162,7 +165,6 @@ python() #{{{
     pip install mpld3
     pip install prettyplotlib
     pip install Theano
-    pip install pillow
 }
 #}}}
 
@@ -179,21 +181,6 @@ R() #{{{
     make check
     ln -s bin/R ~/apps/local/bin
     R CMD BATCH --no-init-file setup.R logs/R.log
-} #}}}
-
-tmux() #{{{
-{
-    mkdir -p ~/apps/local/bin
-    cd ~/apps
-    if [ ! -d "tmux" ]; then
-        git clone https://github.com/ThomasAdam/tmux.git
-    fi
-    cd tmux
-    sh autogen.sh
-    ./configure
-    make clean
-    make -j
-    cp tmux ~/apps/local/bin/
 } #}}}
 
 CMD=$1
