@@ -131,6 +131,13 @@ fe() {
   [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
 
+fp() {
+  local file
+  cd ~/projects
+  file=$(fzf --query="$1" --select-1 --exit-0)
+  [ -n "$file" ] && ${EDITOR:-nvim} "$file"
+}
+
 # fd - cd to selected directory
 fd() {
   local dir
