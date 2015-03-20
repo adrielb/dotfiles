@@ -1,4 +1,4 @@
-
+PS1='\[\e[1;31m\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$\[\e[0m\] '
 export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=1000000
