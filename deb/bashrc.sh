@@ -13,7 +13,7 @@ shopt -s histappend
 set -o vi  # enable vi editing mode
 bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export PATH=~/.cabal/bin:$PATH
 export PATH=~/apps/local/bin:$PATH
 export PATH=~/projects/dotfiles/bin:$PATH
