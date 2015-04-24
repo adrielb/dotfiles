@@ -2,6 +2,8 @@
 #source /etc/bash_completion.d/git
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
+PS1='\[\e[1;37m\]\u@\h:\w\$\[\e[0m\] '
+
 # don't put duplicate lines or lines starting with space in the history.
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT='%F %T '
