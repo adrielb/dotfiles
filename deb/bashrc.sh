@@ -17,6 +17,7 @@ bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
 export EDITOR="nvim"
 export PATH=~/.cabal/bin:$PATH
+export PATH=~/apps/ghc/ghc-7.8.4/bin:$PATH
 export PATH=~/apps/local/bin:$PATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
