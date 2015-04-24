@@ -8,6 +8,8 @@ alias xclip="xclip -selection clipboard"
 alias ZZ="exit"
 alias cmdcp="history 2|head -n 1|xclip"
 alias grep='grep --color=auto'
+alias mkdir='mkdir -pv'
+alias wget='wget -c'
 
 alias mysync="rsync --verbose --stats --progress --archive --checksum \
       --compress --human-readable "
