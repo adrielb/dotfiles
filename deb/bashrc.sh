@@ -42,14 +42,6 @@ fi
 
 debug() { [ "$DEBUG" ] && echo ">>> $*"; }
 
-_path_add() {
-  # Adds a directory to $PATH, but only if it isn't already present.
-  # http://superuser.com/questions/39751/add-directory-to-path-if-its-not-already-there/39995#39995
-  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-    PATH="$1:${PATH:+"$PATH:"}"
-  fi
-}
-
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -60,25 +52,6 @@ man() {
 		LESS_TERMCAP_ue=$(printf "\e[0m") \
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
-}
-
-
-function o()
-{
-  if [ ! -f $1 ]; then
-    echo "'$1' dose not exist or is not a regular file"
-    return 1
-  fi
-
-  case $1 in 
-    *.tar.bz2) tar xvf "$1"   ;;
-    *.tgz)     tar xvf "$1"   ;;
-    *.tar.gz)  tar xvf "$1"   ;;
-    *.zip)     unzip   "$1"   ;;
-    *.rar)     unrar x "$1"   ;;
-    *.pdf)     evince  "$1" & ;;
-    *)         vim     "$1"   ;;
-  esac
 }
 
 # If not running interactively, don't do anything
