@@ -20,3 +20,5 @@
 [core]
     excludesfile = /home/abergman/projects/dotfiles/global.gitignore
     pager = less
+[push]
+	default = simple
