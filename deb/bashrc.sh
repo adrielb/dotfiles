@@ -21,6 +21,8 @@ export PATH=~/apps/ghc/ghc-7.8.4/bin:$PATH
 export PATH=~/apps/local/bin:$PATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
+export PATH=~/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 export PYTHONPATH=~/VTK-OS/lib:~/VTK-OS/Wrapping/Python
 
