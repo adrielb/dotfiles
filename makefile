@@ -17,6 +17,8 @@ links:
 	-ln -sf ${DOT}/Rprofile ~/.Rprofile
 	-ln -sf ${DOT}/ackrc ~/.ackrc
 	-ln -sf ${DOT}/bash_profile.sh ~/.bash_profile
+	-ln -sf ${DOT}/git-prompt-colors.sh ~/.git-prompt-colors.sh
+	
 
 slime:
 	chmod 700 dotfiles
