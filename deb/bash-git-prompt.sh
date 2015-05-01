@@ -5,5 +5,6 @@ set -x # log all cmds before executing
 
 BASHGITPROMPTDIR=~/.bash-git-prompt
 if [ ! -d "$BASHGITPROMPTDIR" ]; then
-  git clone git@github.com:adrielb/bash-git-prompt.git ${BASHGITPROMPTDIR}
+  git clone https://github.com/magicmonty/bash-git-prompt.git ${BASHGITPROMPTDIR}
 fi
+
