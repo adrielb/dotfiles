@@ -8,6 +8,7 @@ APPS=~/apps/
 NEOVIMDIR=${APPS}/neovim
 if [ ! -d "$NEOVIMDIR" ]; then
   git clone git@github.com:neovim/neovim.git  ${NEOVIMDIR}
+  pip install neovim
 fi
 
 cd ${NEOVIMDIR}
