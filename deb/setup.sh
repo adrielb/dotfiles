@@ -74,6 +74,7 @@ packages() #{{{
     liblzma-dev \
     libio-pty-perl \
     libfile-next-perl \
+    cmake \
   '
 
 }
