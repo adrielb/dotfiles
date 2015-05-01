@@ -137,15 +137,6 @@ bashgitprompt() {
 }
 #}}}
 
-git() {
-	cd ${APPS}
-	git clone https://github.com/git/git 
-	cd git
-	git co v2.3.6
-	make -j prefix=${APPS}/local all
-	make -j prefix=${APPS}/local install
-}
-
 # solarized {{{
 solarized()
 {
