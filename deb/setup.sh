@@ -137,6 +137,15 @@ bashgitprompt() {
 }
 #}}}
 
+git() {
+	cd ${APPS}
+	git clone https://github.com/git/git 
+	cd git
+	git co v2.3.6
+	make -j prefix=${APPS}/local all
+	make -j prefix=${APPS}/local install
+}
+
 # solarized {{{
 solarized()
 {
@@ -154,15 +163,6 @@ bashrc()
         mv ~/.bashrc ~/.bashrc.bak
         ln -sf ~/projects/dotfiles/deb/bashrc.sh ~/.bashrc
     fi
-}
-#}}}
-
-# bash-git-prompt {{{
-bash-git-prompt()
-{
-    git clone git@github.com:adrielb/bash-git-prompt.git ~/.bash-git-prompt
-    cd ~/.bash-git-prompt
-    git co mymods
 }
 #}}}
 
