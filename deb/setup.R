@@ -1,3 +1,4 @@
+options("repos" = c(CRAN = "http://watson.nci.nih.gov/cran_mirror"))
 Sys.setenv( MAKEFLAGS="-j" )
 install.packages( c(
       "dlm"
