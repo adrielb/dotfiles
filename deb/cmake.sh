@@ -11,6 +11,9 @@ cd ${APPS}/cmake
 wget http://www.cmake.org/files/v3.2/${CMAKE}.tar.gz
 tar zxvf ${CMAKE}.tar.gz
 cd ${CMAKE}
-cmake -DCMAKE_INSTALL_PREFIX:PREFIX=${APPS}/local .
+cmake \
+  -DCMAKE_INSTALL_PREFIX:PREFIX=${APPS}/local \
+  -DCMAKE_USE_OPENSSL=ON \
+  .
 make -j all
 make install
