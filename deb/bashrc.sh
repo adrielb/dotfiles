@@ -114,7 +114,12 @@ fp() {
   local file
   cd ~/projects
   file=$(fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && ${EDITOR:-nvim} "$file"
+  if [ -n "$file" ]
+  then
+    cd `dirname $file`
+    cdg
+    ${EDITOR:-nvim} ~/projects/"$file"
+  fi
 }
 
 # fd - cd to selected directory
