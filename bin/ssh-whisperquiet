@@ -1,6 +1,0 @@
-#!/bin/bash
-
-while true; do
-  ssh -N -v whisperquiet
-  sleep 5
-done
