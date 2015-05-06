@@ -5,8 +5,7 @@ REPOS=`find $ROOT/ -name .git`
 for repo in $REPOS
 do
     repo=$(dirname $repo)
-    echo $repo
+    echo -e '\e[1;37m'$repo '\e[0m'
     cd $repo 
-    #git status --short
-    git status
+    git status -sb
 done
