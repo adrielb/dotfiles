@@ -27,4 +27,4 @@ function find-dirty () {
     done
 }
 
-find-dirty
+find-dirty | sort
