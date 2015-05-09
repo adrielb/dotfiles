@@ -5,78 +5,6 @@ set -x # log all cmds before executing
 
 APPS=~/apps/
 
-packages() #{{{
-{
-  su -c 'aptitude install \
-    libcurl3 \
-    gcc \
-    git \
-    meld \
-    awesome \
-    awesome-extra \
-    libblas-dev \
-    liblapack-dev \
-    gfortran \
-    mercurial \
-    libncurses-dev \
-    cscope \
-    libgtk2.0-dev \
-    libxt-dev \
-    ruby-dev \
-    tcl-dev \
-    ruby \
-    tcl \
-    liblua5.2-dev \
-    lua5.2 \
-    libqt4-core \
-    libqt4-dev \
-    libzmq-dev \
-    libhdf5-dev \
-    python-dev \
-    python-pip \
-    python-qt4 \
-    ack-grep \
-    pwgen \
-    smartmontools \
-    xclip \
-    texlive \
-    texlive-latex-extra \
-    texlive-fonts-extra \
-    latexmk \
-    source-highlight \
-    encfs \
-    flashplugin-nonfree \
-    ffmpeg \
-    ncmpcpp \
-    gcc-avr \
-    binutils-avr \
-    avr-libc \
-    python3 \
-    valgrind-mpi \
-    flex \
-    ctags \
-    cmakelibevent-dev \
-    libgnutls-dev \
-    libgsasl7 \
-    libgsasl7-dev \
-    ntp \
-    sqlite3 \
-    libsqlite3-dev \
-    libcurl4-gnutls-dev \
-    libstfl-dev \
-    libjson0-dev \
-    autoconf \
-    automake \
-    libevent-dev \
-    liblzma-dev \
-    libio-pty-perl \
-    libfile-next-perl \
-    cmake \
-  '
-
-}
-#}}}
-
 # vim {{{
 VIMDIR=$APPS/vim
 
@@ -104,56 +32,6 @@ vim()
   # since function name is same as program name, delete function
   unset -f vim
   vim --version
-}
-#}}}
-
-# solarized {{{
-solarized()
-{
-    cd /tmp
-    git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
-    cd gnome-terminal-colors-solarized
-    ./install.sh
-}
-# }}}
-
-# bashrc {{{
-bashrc()
-{
-    if [ ! -h ~/.bashrc ]; then
-        mv ~/.bashrc ~/.bashrc.bak
-        ln -sf ~/projects/dotfiles/deb/bashrc.sh ~/.bashrc
-    fi
-}
-#}}}
-
-python() #{{{
-{
-	easy_install -U distribute
-    pip install jinja2
-	pip install jedi
-	pip install pyzmq
-	pip install numpy
-	pip install matplotlib
-	pip install scipy
-	pip install scikit-learn
-	pip install pylint
-	pip install pandas
-	pip install ipython
-	pip install sympy
-	pip install numexpr
-	pip install cython
-	pip install tables
-	pip install h5py
-	pip install pyyaml
-	pip install patsy
-	pip install statsmodels
-	pip install moviepy
-	pip install lxml
-    pip install seaborn
-    pip install mpld3
-    pip install prettyplotlib
-    pip install Theano
 }
 #}}}
 
