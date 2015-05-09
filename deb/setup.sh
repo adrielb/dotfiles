@@ -46,9 +46,7 @@ packages() #{{{
     source-highlight \
     encfs \
     flashplugin-nonfree \
-    iceweasel-flashblock \
     ffmpeg \
-    mpd \
     ncmpcpp \
     gcc-avr \
     binutils-avr \
@@ -57,7 +55,6 @@ packages() #{{{
     valgrind-mpi \
     flex \
     ctags \
-    lighttpd \
     cmakelibevent-dev \
     libgnutls-dev \
     libgsasl7 \
