@@ -14,6 +14,6 @@ cd $RFILE
 ./configure
 make -j
 make check
-ln -sf ${APPS}/R-cran/$RFile/bin/R ${APPS}/local/bin
+ln -sf ${APPS}/R-cran/$RFILE/bin/R ${APPS}/local/bin
 R CMD BATCH --no-init-file R-packages.R logs/R.log
 R --version
