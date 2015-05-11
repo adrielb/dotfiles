@@ -38,10 +38,6 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-if [ "$COLORTERM" == "gnome-terminal" ]; then
-  TERM=xterm-256color
-fi
-
 debug() { [ "$DEBUG" ] && echo ">>> $*"; }
 
 man() {
@@ -61,6 +57,10 @@ case $- in
     *i*) ;;
       *) return;;
 esac
+
+if [ -z $(readlink /proc/$PPID/exe | grep -q gnome-terminal) ]; then
+  TERM=xterm-256color
+fi
 
 function cl()
 {
