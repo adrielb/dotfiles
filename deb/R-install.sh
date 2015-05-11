@@ -12,7 +12,7 @@ wget http://watson.nci.nih.gov/cran_mirror/src/base/R-3/$RFILE.tar.gz
 tar -xf $RFILE.tar.gz
 cd $RFILE
 ./configure
-make -j
+make -j$NUM_PROCS
 make check
 ln -sf ${APPS}/R-cran/$RFILE/bin/R ${APPS}/local/bin
 R CMD BATCH --no-init-file R-packages.R logs/R.log

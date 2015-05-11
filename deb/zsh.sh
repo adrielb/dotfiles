@@ -15,6 +15,6 @@ git co zsh-5.0.7
 git cleanup
 ./Util/preconfig
 ./configure
-make -j 
+make -j$NUM_PROCS
 make check
 su -c 'make install'

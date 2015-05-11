@@ -13,6 +13,6 @@ cd git
 git fetch
 git co v2.4.0
 make clean
-make -j prefix=${APPS}/local all
+make -j$NUM_PROCS prefix=${APPS}/local all
 make -j prefix=${APPS}/local install
 

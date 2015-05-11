@@ -15,5 +15,5 @@ cmake \
   -DCMAKE_INSTALL_PREFIX:PREFIX=${APPS}/local \
   -DCMAKE_USE_OPENSSL=ON \
   .
-make -j all
+make -j$NUM_PROCS all
 make install

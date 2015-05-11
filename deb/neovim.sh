@@ -17,6 +17,6 @@ git log HEAD..origin --oneline
 git rebase
 rm -rf build/ .deps
 make clean
-make -j4 CMAKE_BUILD_TYPE=Release
+make -j$NUM_PROCS CMAKE_BUILD_TYPE=Release
 su -c 'make install'
 nvim +PlugUpdate
