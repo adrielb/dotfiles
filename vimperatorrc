@@ -5,6 +5,8 @@ noremap h <C-p>
 noremap l <C-n>
 noremap j 3j
 noremap k 3k
+noremap "+" zI
+noremap "-" zO
 set hintchars=fjdkslghtyrueiwovncm
 
 hi Hint -append font-size:125%;background-color:#0007FF; color: #FFBE00
