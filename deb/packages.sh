@@ -12,6 +12,9 @@ if [ ! $( id -u ) -eq 0 ]; then
 fi
 
 aptitude install \
+  build-essential \
+  dkms \
+  linux-headers-$(uname -r) \
   libcurl3 \
   gcc \
   git \
