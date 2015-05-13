@@ -3,6 +3,12 @@ set -o pipefail # exit status 0 only if all cmds 0
 set -e # exit immediately upon failure
 set -x # log all cmds before executing
 
+if [ ! $( id -u ) -eq 0 ]; then
+    echo "Please enter root's password."
+    exec su -c "${0}" # Call this prog as root
+    exit ${?}  # sice we're 'execing' above, we wont reach this exit
+               # unless something goes wrong.
+fi
 
 easy_install -U distribute
 pip install jinja2
