@@ -1,9 +1,5 @@
 #!/bin/bash
-set -o pipefail # exit status 0 only if all cmds 0
-set -e # exit immediately upon failure
-set -x # log all cmds before executing
-
-APPS=~/apps/
+. ./logger.sh
 
 NEOVIMDIR=${APPS}/neovim
 if [ ! -d "$NEOVIMDIR" ]; then
@@ -13,10 +9,13 @@ fi
 
 cd ${NEOVIMDIR}
 git fetch
+stopLog
 git log HEAD..origin --oneline
+startLog
 git rebase
 rm -rf build/ .deps
 make clean
 make -j$NUM_PROCS CMAKE_BUILD_TYPE=Release
 su -c 'make install'
+stopLog
 nvim +PlugUpdate
