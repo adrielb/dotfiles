@@ -15,5 +15,5 @@ cd $RFILE
 make -j$NUM_PROCS
 make check
 ln -sf ${APPS}/R-cran/$RFILE/bin/R ${APPS}/local/bin
-R CMD BATCH --no-init-file R-packages.R logs/R.log
+R CMD BATCH --no-init-file R-packages.R logs/R-`date '+%F-%T'`.log
 R --version
