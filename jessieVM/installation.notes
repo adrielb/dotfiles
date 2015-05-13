@@ -1,0 +1,47 @@
+Gnome desktop
+
+Privacy > Screen Lock > Automatic Screen Lock > Off
+Settings > Power > Power Saving > Blank Screen > Never
+Settings > Users > Unlock > Automatic Login > ON
+
+mkdir ~/projects
+mkdir -p ~/apps/local
+
+ssh-keygen
+ssh-copy-id abergman@192.168.1.2
+add .ssh/config Host g9x Hostname 192.168.1.2
+add public key to github
+git clone git@github.com:adrielb/dotfiles.git
+
+./packages.sh
+
+make links
+make root
+
+./bashrc-symlinks.sh
+
+Virtual Box Guest Addtions
+/ect/init.d/vboxadd setup
+
+* Gnome-terminal
+new profile: solarized
+font: Droid Sans Mono Slashed
+./font.sh
+
+export NUM_PROCS=1
+
+./solarized.sh
+
+./git.sh
+
+./ghclone.sh
+
+./python.sh
+
+./neovim.sh
+
+./R-install.sh
+
+./tmux.sh
+
+dotvim/ make links vim-plug
