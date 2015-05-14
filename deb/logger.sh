@@ -14,8 +14,8 @@ ln -sf $LOGFILE.stdout $LOGDIR/$0.stdout
 ln -sf $LOGFILE.stderr $LOGDIR/$0.stderr
 
 startLog() {
-  exec > >(tee $LOG.stdout) \
-      2> >(tee $LOG.stderr >&2)
+  exec > >(tee -a $LOG.stdout) \
+      2> >(tee -a $LOG.stderr >&2)
 }
 
 stopLog() {
