@@ -12,3 +12,22 @@ HISTSIZE=100000
 SAVEHIST=100000
 # End of lines configured by zsh-newuser-install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source "$HOME/.antigen/antigen.zsh"
+
+
+# antigen bundle git
+antigen bundle pip
+antigen bundle python
+antigen bundle rsync
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle olivierverdier/zsh-git-prompt
+PROMPT='%B%m%~%b$(git_super_status) %# '
+GIT_PROMPT_EXECUTABLE="haskell"
+
+antigen apply
+
+
+source ~/.bash_aliases
+
+alias -s pdf=zathura
