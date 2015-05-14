@@ -31,7 +31,7 @@ export PETSC_TMP=~/tmp
 
 export ACK_OPTIONS="-A 5"
 export ACK_PAGER_COLOR="less -R"
-export LESS="-R"
+export LESS="-RFX"
 export LESSOPEN="|/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
 if [ -f ~/.bash_aliases ]; then
