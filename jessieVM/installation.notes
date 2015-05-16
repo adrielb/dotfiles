@@ -3,6 +3,9 @@ Gnome desktop
 Privacy > Screen Lock > Automatic Screen Lock > Off
 Settings > Power > Power Saving > Blank Screen > Never
 Settings > Users > Unlock > Automatic Login > ON
+Tweaks > Desktop > Icons on Desktop > ON
+Tweaks > Extensions > System Monitor > ON
+Tweaks > Startup Apps > Terminal
 
 mkdir ~/projects
 mkdir -p ~/apps/local
