@@ -8,3 +8,5 @@ if [ ! -d "$BASHGITPROMPTDIR" ]; then
   git clone https://github.com/magicmonty/bash-git-prompt.git ${BASHGITPROMPTDIR}
 fi
 
+ln -sf ${BASHGITPROMPTDIR} ~/apps/bash-git-prompt
+
