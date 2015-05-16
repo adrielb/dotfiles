@@ -14,6 +14,7 @@
     undo = reset --hard
     cleanup = clean -fdx
     new = log HEAD..origin/master --pretty=\"%C(yellow)%cr %C(green)%s\"
+    wen = log origin/master..HEAD --pretty=\"%C(yellow)%cr %C(green)%s\"
     lg = log --pretty=format:\"%C(yellow)%h%C(reset) %C(bold red)%ar%C(reset): %C(green)%s%C(reset)\" --graph --decorate --branches=*
     ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
     this = !git init && git add . && git commit -m \"initial commit\"
