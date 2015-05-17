@@ -10,6 +10,10 @@ install.packages( c(
     , "coda"
     , "ggplot2"
     , "devtools"
+    , "lattice"
+    , "ggvis"
+    , "zoo"
+    , "stringr"
     ) )
 library(devtools)
 install_github( "jalvesaq/colorout" )
