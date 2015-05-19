@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e # exit immediately upon failure
+# set -x # log all cmds before executing
+
+clear
+# ROOT=~/projects
+ROOT=`pwd`
+REPOS=`find $ROOT/ -name .git`
+ALLSTATS='\e[1;37m'"repo,branch,remote,num_staged,num_conflicts,num_changed,num_untracked,num_stashed,clean"'\e[0m'"\n"
+for repo in $REPOS
+do
+    repo=$(dirname $repo)
+    cd $repo 
+    GitStatus=$(~/.bash-git-prompt/gitstatus.sh 2>/dev/null| tr '[:space:]' ',')
+    # GitStatus=${GitStatus// /\\t}
+    GitStatus=${GitStatus//0/ }
+
+    # echo $GitStatus$'\t' | od -a -w120
+
+    ALLSTATS+=$(basename $repo)$","$GitStatus$'\\n'
+    
+done
+
+echo -e $ALLSTATS | sort | column -t -s',' 
