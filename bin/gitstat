@@ -21,4 +21,5 @@ do
     
 done
 
-echo -e $ALLSTATS | sort | column -t -s',' 
+# filter out all clean repos '1,$'
+echo -e $ALLSTATS | grep -v '1,$' | sort | column -t -s',' 
