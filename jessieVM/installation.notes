@@ -3,6 +3,8 @@ Gnome desktop
 Privacy > Screen Lock > Automatic Screen Lock > Off
 Settings > Power > Power Saving > Blank Screen > Never
 Settings > Users > Unlock > Automatic Login > ON
+Settings > Date & Time > Automatic Date | Time zone > ON
+Settings > Date & Time > Time Format > AM / PM
 Tweaks > Desktop > Icons on Desktop > ON
 Tweaks > Extensions > System Monitor > ON
 Tweaks > Startup Apps > Terminal
