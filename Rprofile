@@ -8,3 +8,5 @@ options("repos" = c(CRAN = "http://watson.nci.nih.gov/cran_mirror"))
 if (grepl("256", Sys.getenv("TERM"))) {
     library("colorout")
 }
+
+library("setwidth")
