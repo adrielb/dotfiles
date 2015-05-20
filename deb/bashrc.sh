@@ -17,12 +17,15 @@ bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
 export EDITOR="nvim"
 export PATH=~/.cabal/bin:$PATH
-export PATH=~/apps/ghc/ghc-7.8.4/bin:$PATH
-export PATH=~/apps/local/bin:$PATH
+export    PATH=~/apps/ghc/ghc-7.8.4/bin:$PATH
+export MANPATH=~/apps/ghc/ghc-7.8.4/share/man:$MANPATH
+export    PATH=~/apps/local/bin:$PATH
+export MANPATH=~/apps/local/share/man:$MANPATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
 export PATH=~/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+
 
 export PYTHONPATH=~/VTK-OS/lib:~/VTK-OS/Wrapping/Python
 
