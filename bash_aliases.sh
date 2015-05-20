@@ -25,6 +25,7 @@ alias gti='git'
 alias R="R -q"
 alias rmux='tmux new "R -q"'
 alias pmux='tmux new "ipython --no-banner"'
+alias gmux='tmux new "ghci"'
 alias lvim='nvim -c "normal '\''0"'
 alias bc='bc -l'
 alias v='zathura --fork'
