@@ -1,12 +1,16 @@
 #!/bin/bash
-clear
+set -e # exit immediately upon failure
+
 ROOT=`pwd`
 REPOS=`find $ROOT/ -name .git`
-for repo in $REPOS
-do
-    repo=$(dirname $repo)
-    echo -e '\e[1;37m'$repo '\e[0m'
-    cd $repo 
-    git fetch &
-    sleep 1
-done
+
+fetchRepo() {
+  repo=$(dirname $1)
+  echo -e '\e[1;37m'$repo '\e[0m'
+  cd $repo 
+  git fetch
+}
+
+export -f fetchRepo
+
+parallel -k fetchRepo ::: $REPOS
