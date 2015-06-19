@@ -79,5 +79,6 @@ aptitude install \
   libio-pty-perl \
   libfile-next-perl \
   cmake \
+  parallel \
 
 
