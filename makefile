@@ -19,6 +19,7 @@ links:
 	-ln -sf ${DOT}/bash_profile.sh ~/.bash_profile
 	-ln -sf ${DOT}/git-prompt-colors.sh ~/.git-prompt-colors.sh
 	-ln -sf ${DOT}/zshrc ~/.zshrc
+	-ln -sf ${DOT}/emacs.el ~/.emacs
 	
 
 slime:

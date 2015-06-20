@@ -80,5 +80,7 @@ aptitude install \
   libfile-next-perl \
   cmake \
   parallel \
-
+  libXpm-dev \
+  libgif-dev \
+  libtiff-dev \
 
