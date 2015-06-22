@@ -10,6 +10,7 @@ install.packages( c(
     , "RColorBrewer"
     , "coda"
     , "ggplot2"
+    , "GGally"
     , "devtools"
     , "lattice"
     , "ggvis"
