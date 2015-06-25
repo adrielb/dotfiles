@@ -20,6 +20,7 @@ links:
 	-ln -sf ${DOT}/git-prompt-colors.sh ~/.git-prompt-colors.sh
 	-ln -sf ${DOT}/zshrc ~/.zshrc
 	-ln -sf ${DOT}/emacs.el ~/.emacs
+	-ln -sf ${DOT}/zathurarc ~/.config/zathura/zathurarc
 	
 
 slime:
