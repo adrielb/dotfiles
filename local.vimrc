@@ -1,4 +1,4 @@
-set autochdir
+setlocal autochdir
 
 augroup reload_tmuxconf " {
   autocmd!
