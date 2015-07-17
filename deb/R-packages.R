@@ -16,6 +16,7 @@ install.packages( c(
     , "ggvis"
     , "zoo"
     , "stringr"
+    , "caret"
     ) )
 library(devtools)
 install_github( "jalvesaq/colorout" )

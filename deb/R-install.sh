@@ -5,7 +5,7 @@ set -x # log all cmds before executing
 
 APPS=~/apps/
 
-RFILE=R-3.2.0
+RFILE=R-3.2.1
 mkdir -p ${APPS}/R-cran
 cd ${APPS}/R-cran
 wget http://watson.nci.nih.gov/cran_mirror/src/base/R-3/$RFILE.tar.gz
