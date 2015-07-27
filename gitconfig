@@ -19,6 +19,7 @@
     ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
     this = !git init && git add . && git commit -m \"initial commit\"
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+    edit = !nvim `git ls-files -m`
 [core]
     excludesfile = /home/abergman/projects/dotfiles/global.gitignore
     pager = less
