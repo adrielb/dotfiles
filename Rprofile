@@ -11,6 +11,8 @@ if (grepl("256", Sys.getenv("TERM"))) {
 
 if (system("hostname",intern=TRUE) == "Gigabyte") {
     Sys.setenv(DISPLAY=":0.2")
+    # https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started
+    options(mc.cores = 8)
 }
 
 library("setwidth")
