@@ -22,6 +22,7 @@ links:
 	-ln -sf ${DOT}/emacs.el ~/.emacs
 	-ln -sf ${DOT}/zathurarc ~/.config/zathura/zathurarc
 	-ln -sf ${DOT}/dircolors ~/.dircolors
+	-ln -sf ${DOT}/sqliterc ~/.sqliterc
 	
 
 slime:
