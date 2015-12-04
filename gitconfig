@@ -8,10 +8,11 @@
 [alias]
     st = status -sb
     cA = commit --amend --reuse-message=HEAD
-    ca = commit --amend 
-    cc = commit 
+    ca = commit --amend
+    cc = commit
     cva= commit --verbose --amend
     cvc= commit --verbose
+    ci = commit --verbose
     co = checkout
     unstage =  reset HEAD --
     cleanup = clean -fdx
