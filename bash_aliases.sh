@@ -23,6 +23,7 @@ alias gitpushstatusall='gitstatusall.sh |grep -B 2 "Your branch is ahead"'
 alias cdg='cd $(git rev-parse --show-toplevel)'
 alias gti='git'
 alias R="R -q"
+alias jmux='tmux new "~/apps/julia/julia"'
 alias rmux='tmux new "R -q"'
 alias pmux='tmux new "ipython --no-banner"'
 alias gmux='tmux new "ghci"'
