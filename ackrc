@@ -6,3 +6,6 @@ R=.R
 
 --type-set
 stan=.stan
+
+--type-set=julia=.jl
+--type-add=julia:firstlinematch:/^#!.*\bjulia/
