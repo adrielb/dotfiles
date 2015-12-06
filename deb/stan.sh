@@ -7,7 +7,7 @@ if [ ! -d "git" ]; then
 fi
 cd cmdstan/
 git fetch
-git co v2.8.0
+git co v2.9.0
 make clean
 make stan-update
 make -j$NUM_PROCS build
