@@ -29,3 +29,6 @@ using Sundials
 
 Pkg.add("Sims")
 using Sims
+
+Pkg.add("Winston")
+using Winston
