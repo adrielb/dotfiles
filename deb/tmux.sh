@@ -1,14 +1,13 @@
 #!/bin/bash
-set -o pipefail # exit status 0 only if all cmds 0
-set -e # exit immediately upon failure
-set -x # log all cmds before executing
+. ./logger.sh
 
-APPS=~/apps/
-if [ ! -d "${APPS}/tmux" ]; then
-  git clone git@github.com:ThomasAdam/tmux.git ${APPS}/tmux
+APPDIR=${APPS}/tmux
+if [ ! -d "$APPDIR" ]; then
+  git clone git@github.com:tmux/tmux.git ${APPDIR}
 fi
-cd $APPS/tmux
-git co 2.0
+
+cd $APPDIR
+git co 2.1
 git cleanup
 sh autogen.sh
 ./configure
