@@ -97,6 +97,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f ~/projects/dotfiles/scripts/tmux.completion.bash ]; then
+. ~/projects/dotfiles/scripts/tmux.completion.bash
+fi
+
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_THEME=Custom
 source ~/.bash-git-prompt/gitprompt.sh
