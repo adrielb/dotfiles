@@ -3,20 +3,24 @@
 
 APPDIR=${APPS}/sqlite
 
-mkdir ${APPDIR}
+mkdir -p ${APPDIR}
 
 cd ${APPDIR}
 
-SQLITE=sqlite-autoconf-3090200
+LINK=https://www.sqlite.org/2016/sqlite-autoconf-3100000.tar.gz
 
-wget http://www.sqlite.org/2015/${SQLITE}.tar.gz
+SQLITE=${LINK##*/}
 
-tar zxvf ${SQLITE}.tar.gz
+wget --no-check-certificate $LINK
 
-cd $SQLITE
+tar zxvf $SQLITE
 
-./configure --enable-fts5 --enable-json1
+cd ${SQLITE%.tar.gz}
+
+./configure --enable-fts5 --enable-json1 --prefix=/home/abergman/projects/docindexer/venv
 
 make clean
 
 make -j
+
+make install
