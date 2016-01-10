@@ -1,3 +1,4 @@
-map d set "pages-per-row 3"
-map e set "pages-per-row 1"
+map E set "pages-per-row 3"
+map e set "pages-per-row 2"
+map d set "pages-per-row 1"
 
