@@ -15,6 +15,7 @@ shopt -s histappend
 set -o vi  # enable vi editing mode
 bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
+export LD_LIBRARY_PATH=~/apps/local/lib:$LD_LIBRARY_PATH
 export EDITOR="nvim"
 export PATH=~/.cabal/bin:$PATH
 export    PATH=~/apps/ghc/ghc-7.8.4/bin:$PATH
