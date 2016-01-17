@@ -17,6 +17,8 @@ tar zxvf $SQLITE
 
 cd ${SQLITE%.tar.gz}
 
+export CFLAGS="-fPIC"
+
 ./configure --enable-fts5 --enable-json1 --prefix=/home/abergman/projects/docindexer/venv
 
 make clean
