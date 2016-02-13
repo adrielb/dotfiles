@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 . ./logger.sh
 
-APPSDIR=${APPS}/python27
+APPSDIR=${APPS}/python3
 
 mkdir $APPSDIR
 cd $APPSDIR
 
-LINK=https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tar.xz
+LINK=https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz
 
 PYTHON=${LINK##*/}
 
@@ -18,10 +18,9 @@ tar xf $PYTHON
 
 cd ${PYTHON%.tar.xz}
 
-./configure --prefix=${APPS}/local
-
+./configure
 make -j$NUM_PROCS
-
 make test
+su -c 'make install'
 
-make 
+pip install --upgrade pip
