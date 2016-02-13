@@ -83,4 +83,5 @@ aptitude install \
   libXpm-dev \
   libgif-dev \
   libtiff-dev \
+  libgpm-dev \
 
