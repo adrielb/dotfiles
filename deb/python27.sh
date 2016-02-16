@@ -18,10 +18,10 @@ tar xf $PYTHON
 
 cd ${PYTHON%.tar.xz}
 
-./configure --prefix=${APPS}/local
+./configure --prefix=${APPSDIR}/local
 
 make -j$NUM_PROCS
 
 make test
 
-make 
+make install
