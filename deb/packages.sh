@@ -12,76 +12,79 @@ if [ ! $( id -u ) -eq 0 ]; then
 fi
 
 aptitude install \
-  build-essential \
-  dkms \
-  linux-headers-$(uname -r) \
-  libcurl3 \
-  gcc \
-  git \
-  meld \
+  ack-grep \
+  autoconf \
+  automake \
+  avr-libc \
   awesome \
   awesome-extra \
-  libblas-dev \
-  liblapack-dev \
-  gfortran \
-  mercurial \
-  libncurses-dev \
+  binutils-avr \
+  build-essential \
+  cmake \
+  cmakelibevent-dev \
   cscope \
+  ctags \
+  dkms \
+  encfs \
+  ffmpeg \
+  flashplugin-nonfree \
+  flex \
+  gcc \
+  gcc-avr \
+  gfortran \
+  git \
+  latexmk \
+  libXpm-dev \
+  libblas-dev \
+  libcurl3 \
+  libcurl4-gnutls-dev \
+  libevent-dev \
+  libffi-dev \
+  libfile-next-perl \
+  libgif-dev \
+  libgnutls-dev \
+  libgpm-dev \
+  libgsasl7 \
+  libgsasl7-dev \
   libgtk2.0-dev \
-  libxt-dev \
-  ruby-dev \
-  tcl-dev \
-  ruby \
-  tcl \
+  libhdf5-dev \
+  libio-pty-perl \
+  libjson0-dev \
+  liblapack-dev \
   liblua5.2-dev \
-  lua5.2 \
+  liblzma-dev \
+  libncurses-dev \
   libqt4-core \
   libqt4-dev \
+  libssl-dev \
+  libstfl-dev \
+  libtiff-dev \
+  libxml2-dev \
+  libxslt1-dev \
+  libxt-dev \
   libzmq-dev \
-  libhdf5-dev \
+  linux-headers-$(uname -r) \
+  lua5.2 \
+  meld \
+  mercurial \
+  ncmpcpp \
+  ntp \
+  parallel \
+  pwgen \
   python-dev \
   python-pip \
   python-qt4 \
-  ack-grep \
-  pwgen \
+  ruby \
+  ruby-dev \
   smartmontools \
-  xclip \
-  texlive \
-  texlive-latex-extra \
-  texlive-fonts-extra \
-  latexmk \
   source-highlight \
-  encfs \
-  flashplugin-nonfree \
-  ffmpeg \
-  ncmpcpp \
-  gcc-avr \
-  binutils-avr \
-  avr-libc \
-  python3 \
+  tree \
+  tcl \
+  tcl-dev \
+  texlive \
+  texlive-fonts-extra \
+  texlive-latex-extra \
   valgrind-mpi \
-  flex \
-  ctags \
-  cmakelibevent-dev \
-  libgnutls-dev \
-  libgsasl7 \
-  libgsasl7-dev \
-  ntp \
-  sqlite3 \
-  libsqlite3-dev \
-  libcurl4-gnutls-dev \
-  libstfl-dev \
-  libjson0-dev \
-  autoconf \
-  automake \
-  libevent-dev \
-  liblzma-dev \
-  libio-pty-perl \
-  libfile-next-perl \
-  cmake \
-  parallel \
-  libXpm-dev \
-  libgif-dev \
-  libtiff-dev \
-  libgpm-dev \
+  xclip \
+  zlib1g-dev \
 
