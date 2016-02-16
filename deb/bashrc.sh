@@ -121,7 +121,7 @@ fe() {
 fp() {
   local file
   cd ~/projects
-  file=$(fzf --query="$1" --select-1 --exit-0)
+  file=$(ag -l|fzf --query="$1" --select-1 --exit-0)
   if [ -n "$file" ]
   then
     cd `dirname $file`
