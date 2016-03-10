@@ -4,8 +4,8 @@ set -e # exit immediately upon failure
 set -x # log all cmds before executing
 
 APPS=~/apps/
-OLDPWD=`pwd`
-RFILE=R-3.2.2
+LOGR=`pwd`
+RFILE=R-3.2.4
 mkdir -p ${APPS}/R-cran
 cd ${APPS}/R-cran
 wget http://watson.nci.nih.gov/cran_mirror/src/base/R-3/$RFILE.tar.gz
@@ -15,5 +15,5 @@ cd $RFILE
 make -j$NUM_PROCS
 make check
 ln -sf ${APPS}/R-cran/$RFILE/bin/R ${APPS}/local/bin
-R CMD BATCH --no-init-file ${OLDPWD}/R-packages.R ${OLDPWD}/logs/R-`date '+%F-%T'`.log
+R CMD BATCH --no-init-file ${LOGR}/R-packages.R ${LOGR}/logs/R-`date '+%F-%T'`.log
 R --version

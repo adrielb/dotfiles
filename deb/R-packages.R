@@ -1,7 +1,7 @@
 options("repos" = c(CRAN = "http://watson.nci.nih.gov/cran_mirror"))
 Sys.setenv( MAKEFLAGS="-j$NUM_PROCS" )
 install.packages( c(
-    , "setwidth"
+      "setwidth"
     , "lubridate"
     , "dplyr"
     , "tidyr"
