@@ -16,6 +16,6 @@ git rebase
 rm -rf build/ .deps
 make clean
 make -j$NUM_PROCS CMAKE_BUILD_TYPE=Release
-su -c 'make install'
+su -c 'make install && pip install --upgrade neovim'
 stopLog
 nvim +PlugUpdate
