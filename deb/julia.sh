@@ -7,7 +7,8 @@ if [ ! -d "$APPDIR" ]; then
 fi
 
 cd ${APPDIR}
-git co v0.4.3
+git fetch
+git co v0.4.5
 make -j$NUM_PROCS
 
-julia -e 'Pkg.update()'
+julia packages.jl
