@@ -15,7 +15,7 @@ statrepos() {
 # need to export function for gnu parallel to see it
 export -f statrepos
 
-ALLSTATS=$(find $ROOT/ -name .git | parallel statrepos {} | sort)
+ALLSTATS=$(find $ROOT/ -maxdepth 2 -name .git | parallel statrepos {} | sort)
 
 HEADER="repo,branch,remote,●,✖,✚,…,⚑,✔""\n"
 
