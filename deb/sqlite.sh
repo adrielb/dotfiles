@@ -7,7 +7,7 @@ mkdir -p ${APPDIR}
 
 cd ${APPDIR}
 
-LINK=https://www.sqlite.org/2016/sqlite-autoconf-3100000.tar.gz
+LINK=https://www.sqlite.org/2016/sqlite-autoconf-3120100.tar.gz
 
 SQLITE=${LINK##*/}
 
@@ -19,7 +19,10 @@ cd ${SQLITE%.tar.gz}
 
 export CFLAGS="-fPIC"
 
-./configure --enable-fts5 --enable-json1 --prefix=/home/abergman/projects/docindexer/venv
+./configure \
+  --enable-fts5 \
+  --enable-json1 \
+  --prefix=/home/abergman/projects/docindexer/venv
 
 make clean
 
