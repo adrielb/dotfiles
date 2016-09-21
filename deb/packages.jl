@@ -1,7 +1,22 @@
 Pkg.update()
 
+Pkg.add("ProfileView")
+using ProfileView
+
+Pkg.add("Gallium")
+using Gallium
+
+Pkg.add("Lint")
+using Lint
+
+Pkg.add("RCall")
+using RCall
+
 Pkg.add("DataFrames")
 using DataFrames
+
+Pkg.add("Distributions")
+using Distributions
 
 Pkg.add("Optim")
 using Optim
@@ -15,14 +30,8 @@ using Gadfly
 Pkg.add("Cairo")
 using Cairo
 
-Pkg.add("Immerse")
-using Immerse
-
 Pkg.add("Vega")
 using Vega
-
-Pkg.add("Distributions")
-using Distributions
 
 Pkg.add("Sundials")
 using Sundials
@@ -32,3 +41,7 @@ using Sims
 
 Pkg.add("Winston")
 using Winston
+
+Pkg.add("Immerse")
+using Immerse
+

@@ -6,9 +6,12 @@ if [ ! -d "$APPDIR" ]; then
   git clone git://github.com/JuliaLang/julia.git ${APPDIR}
 fi
 
+OLDPWD=`pwd`
+
 cd ${APPDIR}
 git fetch
-git co v0.4.5
+git co v0.5.0
 make -j$NUM_PROCS
 
+cd ${OLDPWD}
 julia packages.jl
