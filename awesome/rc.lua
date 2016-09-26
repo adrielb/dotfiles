@@ -12,7 +12,7 @@ require("debian.menu")
 
 -- Load user entries
 -- require("volume")
-require("vicious")
+-- require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -93,8 +93,8 @@ myawesomemenu = {
 
 -- /etc/xdg/awesome/debian/menu.lua
 mymainmenu = awful.menu({ items = {
-    { "Iceweasel"     , "iceweasel"                        , "/usr/share/pixmaps/iceweasel.xpm"}       ,
-    { "Google Chrome" , "/opt/google/chrome/google-chrome" , "/opt/google/chrome/product_logo_32.xpm"} ,
+    { "Firefox"       , "firefox"                          , "/usr/share/pixmaps/firefox-esr.png"}     ,
+    -- { "Google Chrome" , "/opt/google/chrome/google-chrome" , "/opt/google/chrome/product_logo_32.xpm"} ,
     { "awesome"       , myawesomemenu                      , beautiful.awesome_icon }                  ,
     { "Debian"        , debian.menu.Debian_menu.Debian }   ,
     { "open terminal" , terminal },
