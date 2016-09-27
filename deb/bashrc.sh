@@ -17,27 +17,21 @@ bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
 export LD_LIBRARY_PATH=~/apps/local/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=~/apps/R-cran/R-3.3.1/lib:$LD_LIBRARY_PATH
-export EDITOR="nvim"
-export PATH=~/.cabal/bin:$PATH
-export    PATH=~/apps/ghc/ghc-7.8.4/bin:$PATH
-export MANPATH=~/apps/ghc/ghc-7.8.4/share/man:$MANPATH
+export PATH=~/projects/dotfiles/bin:$PATH
 export    PATH=~/apps/local/bin:$PATH
 export MANPATH=~/apps/local/share/man:$MANPATH
-export PATH=~/projects/dotfiles/bin:$PATH
-export PATH=~/apps/llvm/llvm-3.4/build/bin:$PATH
-export PATH=~/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
 
-
-export PYTHONPATH=~/VTK-OS/lib:~/VTK-OS/Wrapping/Python
-
-export PETSC_DIR=~/apps/petsc
-export PETSC_TMP=~/tmp
-
+export EDITOR="nvim"
 export ACK_OPTIONS="-A 5"
 export ACK_PAGER_COLOR="less -R"
 export LESS="-RFX"
 export LESSOPEN="|/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
@@ -57,11 +51,6 @@ man() {
 			man "$@"
 }
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
 if [ -z $(readlink /proc/$PPID/exe | grep -q gnome-terminal) ]; then
   TERM=xterm-256color
