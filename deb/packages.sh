@@ -53,6 +53,7 @@ aptitude install \
   liblapack-dev \
   liblua5.2-dev \
   liblzma-dev \
+  libbz2-dev \
   libncurses-dev \
   libqt4-core \
   libqt4-dev \
