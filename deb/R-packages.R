@@ -23,3 +23,5 @@ install.packages( c(
     dependencies=TRUE )
 library(devtools)
 install_github( "jalvesaq/colorout" )
+
+# devtools::install_github("armgong/rjulia", ref="master")
