@@ -7,9 +7,10 @@ if [ ! -d "$APPDIR" ]; then
 fi
 
 cd $APPDIR
-git co 2.1
+git co 2.2
 git cleanup
 sh autogen.sh
 ./configure
 make -j$NUM_PROCS
 su -c 'make install'
+tmux -V
