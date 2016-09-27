@@ -7,7 +7,7 @@ mkdir -p ${APPDIR}
 
 cd ${APPDIR}
 
-LINK=https://www.sqlite.org/2016/sqlite-autoconf-3120100.tar.gz
+LINK=https://sqlite.org/2016/sqlite-autoconf-3140200.tar.gz
 
 SQLITE=${LINK##*/}
 
@@ -22,10 +22,12 @@ export CFLAGS="-fPIC"
 ./configure \
   --enable-fts5 \
   --enable-json1 \
-  --prefix=/home/abergman/projects/docindexer/venv
+  --prefix=/home/abergman/apps/local
 
 make clean
 
 make -j
 
 make install
+
+sqlite3 --verison
