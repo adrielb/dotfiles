@@ -24,6 +24,7 @@ links:
 	-ln -sf ${DOT}/dircolors ~/.dircolors
 	-ln -sf ${DOT}/sqliterc ~/.sqliterc
 	-ln -sf ${DOT}/juliarc.jl ~/.juliarc.jl
+	-ln -sf ${DOT}/ctags ~/.ctags
 	
 
 slime:
