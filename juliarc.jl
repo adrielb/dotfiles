@@ -1,9 +1,9 @@
 # isinteractive() test not working?
-ENV["DISPLAY"]=":0.2"
+ENV["DISPLAY"]=":0.1"
 
 if isinteractive()
-  println("INteractive!")
-  ENV["DISPLAY"]=":0.2"
+  println("Interactive!")
+  ENV["DISPLAY"]=":0.1"
   if isfile("init.jl")
     require("init.jl")
   end
