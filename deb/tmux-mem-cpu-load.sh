@@ -7,7 +7,7 @@ if [ ! -d "$APPDIR" ]; then
 fi
 
 cd ${APPDIR}
-git co v3.2.2
+git co v3.4.0
 cmake -DCMAKE_INSTALL_PREFIX:PREFIX=${APPS}/local .
 make
 make install
