@@ -5,6 +5,8 @@ set -x # log all cmds before executing
 
 APPS=~/apps/
 
+NUM_PROCS=`nproc`
+
 
 LOGDIR=$PWD/logs
 LOGFILE=$0-`date '+%F-%T'`
