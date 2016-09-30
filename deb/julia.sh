@@ -13,5 +13,7 @@ git fetch
 git co v0.5.0
 make -j$NUM_PROCS
 
+ctags-exuberant -R --languages=julia
+
 cd ${OLDPWD}
 julia packages.jl
