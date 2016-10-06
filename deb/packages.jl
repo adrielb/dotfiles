@@ -1,4 +1,15 @@
+include("/home/abergman/apps/julia/contrib/build_sysimg.jl")
+
+build_sysimg(force=true)
+
 Pkg.update()
+
+Pkg.add("Plots")
+Pkg.add("GR")
+Pkg.add("StatPlots")
+Pkg.add("PlotRecipes")
+
+using Plots, GR, StatPlots, PlotRecipes
 
 Pkg.add("ProfileView")
 using ProfileView
