@@ -8,6 +8,7 @@ Pkg.add("Plots")
 Pkg.add("GR")
 Pkg.add("StatPlots")
 Pkg.add("PlotRecipes")
+Pkg.add("PyPlot")
 
 using Plots, GR, StatPlots, PlotRecipes
 
