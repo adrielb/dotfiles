@@ -3,10 +3,12 @@
 
 APPSDIR=${APPS}/python3
 
-mkdir $APPSDIR
+mkdir -p $APPSDIR
 cd $APPSDIR
 
-LINK=https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz
+VERSION="3.5.2"
+
+LINK=https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.xz
 
 PYTHON=${LINK##*/}
 
@@ -20,7 +22,7 @@ cd ${PYTHON%.tar.xz}
 
 ./configure
 make -j$NUM_PROCS
-make test
+# make test
 su -c 'make install'
 
 pip install --upgrade pip
