@@ -12,15 +12,16 @@ fi
 
 easy_install -U distribute
 pip install jinja2
-pip install jedi
+pip install --user --upgrade jedi
 pip install pyzmq
 pip install numpy
-pip install matplotlib
+pip install --user --upgrade matplotlib
 pip install scipy
-pip install scikit-learn
+pip install --user --upgrade scikit-learn
 pip install pylint
 pip install pandas
-pip install ipython
+pip install --user --upgrade ipython
+pip install --user --upgrade pytest
 pip install sympy
 pip install numexpr
 pip install cython
@@ -36,3 +37,14 @@ pip install mpld3
 pip install prettyplotlib
 pip install Theano
 pip install neovim
+pip install keras
+
+pip install --user -U spacy
+python -m spacy.en.download all
+
+
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
+
+pip3 install --user --upgrade $TF_BINARY_URL
+
+
