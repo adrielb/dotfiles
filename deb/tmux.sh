@@ -7,7 +7,7 @@ if [ ! -d "$APPDIR" ]; then
 fi
 
 cd $APPDIR
-git co 2.2
+git co 2.3
 git cleanup
 sh autogen.sh
 ./configure
