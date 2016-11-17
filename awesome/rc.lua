@@ -273,9 +273,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "a", function () awful.util.spawn("xcalib -i -a -s 0") end),
     awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn("xcalib -i -a -s 1") end),
     awful.key({ modkey, "Shift"   }, "d", function () awful.util.spawn("xcalib -i -a -s 2") end),
-    awful.key({ modkey,           }, "a", function () awful.screen.focus(1) end),
-    awful.key({ modkey,           }, "s", function () awful.screen.focus(2) end),
-    awful.key({ modkey,           }, "d", function () awful.screen.focus(3) end),
+    awful.key({ modkey,           }, "a", function () awful.screen.focus(3) end),
+    awful.key({ modkey,           }, "s", function () awful.screen.focus(1) end),
+    awful.key({ modkey,           }, "d", function () awful.screen.focus(2) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
