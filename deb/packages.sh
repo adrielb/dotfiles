@@ -34,6 +34,8 @@ aptitude install \
   gfortran \
   git \
   latexmk \
+  libatlas-base-dev \
+  libopencv-dev \
   libXpm-dev \
   libblas-dev \
   libcurl3 \
