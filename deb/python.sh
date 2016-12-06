@@ -26,7 +26,6 @@ pip install --user --upgrade \
   statsmodels \
   moviepy \
   seaborn \
-  Theano \
   neovim \
   keras \
   spacy \
