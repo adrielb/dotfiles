@@ -22,6 +22,9 @@ export PATH=~/.local/bin:$PATH
 export    PATH=~/apps/local/bin:$PATH
 export MANPATH=~/apps/local/share/man:$MANPATH
 
+export PATH=~/apps/nodejs/node-v7.3.0-linux-x64/bin:$PATH
+export LD_LIBRARY_PATH=~/apps/nodejs/node-v7.3.0-linux-x64/lib:$LD_LIBRARY_PATH
+
 export EDITOR="nvim"
 export ACK_OPTIONS="-A 5"
 export ACK_PAGER_COLOR="less -R"
