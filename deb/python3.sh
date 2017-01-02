@@ -20,7 +20,8 @@ tar xf $PYTHON
 
 cd ${PYTHON%.tar.xz}
 
-./configure
+./configure \
+  --enable-shared
 make -j$NUM_PROCS
 # make test
 su -c 'make install'

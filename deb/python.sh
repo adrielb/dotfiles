@@ -14,6 +14,8 @@ pip install --user --upgrade \
   matplotlib \
   scipy \
   scikit-learn \
+  pylama \
+  flake8 \
   pylint \
   pandas \
   ipython \
@@ -29,8 +31,9 @@ pip install --user --upgrade \
   neovim \
   keras \
   spacy \
-  edward \
-  $TF_BINARY_URL
+  pyglet \
+  # edward \
+  # $TF_BINARY_URL
 
   # prettyplotlib \
   # mpld3 \
