@@ -6,7 +6,7 @@ APPSDIR=${APPS}/python3
 mkdir -p $APPSDIR
 cd $APPSDIR
 
-VERSION="3.5.2"
+VERSION="3.6.0"
 
 LINK=https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.xz
 
@@ -21,9 +21,10 @@ tar xf $PYTHON
 cd ${PYTHON%.tar.xz}
 
 ./configure \
-  --enable-shared
+  --enable-shared \
+  --enable-optimizations
 make -j$NUM_PROCS
 # make test
-su -c 'make install'
+su -c 'make install && ldconfig'
 
-pip install --upgrade pip
+
