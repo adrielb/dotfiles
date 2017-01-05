@@ -6,7 +6,7 @@ set -x # log all cmds before executing
 export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
 
 # easy_install -U distribute
-pip install --user --upgrade \
+pip3 install --user --upgrade \
   pip \
   jedi \
   pyzmq \
