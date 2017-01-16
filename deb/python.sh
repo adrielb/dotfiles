@@ -8,6 +8,7 @@ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorf
 # easy_install -U distribute
 pip3 install --user --upgrade \
   pip \
+  virtualenv \
   jedi \
   pyzmq \
   numpy \
