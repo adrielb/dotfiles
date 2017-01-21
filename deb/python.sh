@@ -3,8 +3,6 @@ set -o pipefail # exit status 0 only if all cmds 0
 set -e # exit immediately upon failure
 set -x # log all cmds before executing
 
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
-
 # easy_install -U distribute
 pip3 install --user --upgrade \
   pip \
@@ -33,8 +31,8 @@ pip3 install --user --upgrade \
   keras \
   spacy \
   pyglet \
+  tensorflow \
   # edward \
-  # $TF_BINARY_URL
 
   # prettyplotlib \
   # mpld3 \
