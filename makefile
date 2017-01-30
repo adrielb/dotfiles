@@ -25,6 +25,7 @@ links:
 	-ln -sf ${DOT}/sqliterc ~/.sqliterc
 	-ln -sf ${DOT}/juliarc.jl ~/.juliarc.jl
 	-ln -sf ${DOT}/ctags ~/.ctags
+	-ln -sf ${DOT}/matplotlibrc.py ~/.config/matplotlib/matplotlibrc
 	
 
 slime:
