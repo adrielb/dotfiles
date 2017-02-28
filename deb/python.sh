@@ -43,3 +43,5 @@ pip3 install --user --upgrade \
 
 # python -m spacy.en.download all
 
+cd ~/.local/lib/python3.6/site-packages
+ctags-exuberant -R --totals=yes --languages=python
