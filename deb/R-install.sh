@@ -5,10 +5,10 @@ set -x # log all cmds before executing
 
 APPS=~/apps/
 LOGR=`pwd`
-RFILE=R-3.3.1
+RFILE=R-3.3.3
 mkdir -p ${APPS}/R-cran
 cd ${APPS}/R-cran
-wget http://watson.nci.nih.gov/cran_mirror/src/base/R-3/$RFILE.tar.gz
+wget https://cran.r-project.org/src/base/R-3/$RFILE.tar.gz
 tar -xf $RFILE.tar.gz
 cd $RFILE
 ./configure --enable-R-shlib

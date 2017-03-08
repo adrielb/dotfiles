@@ -1,4 +1,4 @@
-options("repos" = c(CRAN = "http://watson.nci.nih.gov/cran_mirror"))
+options("repos" = c(CRAN = "https://mirrors.nics.utk.edu/cran"))
 Sys.setenv( MAKEFLAGS="-j$NUM_PROCS" )
 install.packages( c(
       "setwidth"
