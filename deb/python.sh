@@ -32,7 +32,11 @@ pip3 install --user --upgrade \
   spacy \
   pyglet \
   tensorflow \
-  # edward \
+  jupyter \
+  edward \
+
+pip3 install --user --upgrade http://download.pytorch.org/whl/cu75/torch-0.1.11.post5-cp36-cp36m-linux_x86_64.whl
+pip3 install --user --upgrade torchvision
 
   # prettyplotlib \
   # mpld3 \
