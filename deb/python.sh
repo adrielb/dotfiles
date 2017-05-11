@@ -34,9 +34,8 @@ pip3 install --user --upgrade \
   tensorflow \
   jupyter \
   edward \
-
-pip3 install --user --upgrade http://download.pytorch.org/whl/cu75/torch-0.1.11.post5-cp36-cp36m-linux_x86_64.whl
-pip3 install --user --upgrade torchvision
+  http://download.pytorch.org/whl/cu75/torch-0.1.12.post2-cp36-cp36m-linux_x86_64.whl \
+  torchvision
 
   # prettyplotlib \
   # mpld3 \
