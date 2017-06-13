@@ -4,6 +4,9 @@ build_sysimg(force=true)
 
 Pkg.update()
 
+Pkg.add("OhMyREPL")
+using OhMyREPL
+
 Pkg.add("Plots")
 Pkg.add("GR")
 Pkg.add("StatPlots")
