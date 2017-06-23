@@ -2,6 +2,8 @@ include("/home/abergman/apps/julia/contrib/build_sysimg.jl")
 
 build_sysimg(force=true)
 
+ENV["PYTHON"] = "python3"
+
 Pkg.update()
 
 Pkg.add("OhMyREPL")
