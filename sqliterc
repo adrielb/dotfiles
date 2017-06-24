@@ -1,6 +1,6 @@
 .mode column
 .headers on
-.eqp
+.eqp on
 .schema
 .tables
 
