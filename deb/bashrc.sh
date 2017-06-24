@@ -12,6 +12,8 @@ export HISTSIZE=1000000
 export HISTIGNORE=ls:ll:cd:fg:exit:ZZ
 # append to the history file, don't overwrite it
 shopt -s histappend
+# enable extended pattern matching
+shopt -s extglob
 set -o vi  # enable vi editing mode
 bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
