@@ -14,3 +14,72 @@ cmake ../path/to/source
 == nvidia ==
 304.88
 304.117
+
+== upgrading from jessie ==
+
+# https://www.debian.org/releases/stable/i386/release-notes/ch-upgrading.en.html
+
+aptitude update
+
+aptitude dist-upgrade
+
+# review pending actions
+aptitude 
+g
+# "No packages are scheduled to be installed, removed or upgraded"
+
+dpkg --audit
+
+dpkg -l
+
+aptitude search "~ahold"
+
+dpkg --get-selections "*"
+
+apt-get clean
+
+apt-get autoremove
+
+apt-get update
+
+apt-get -o APT::Get::Trivial-Only=true dist-upgrade
+
+apt-get upgrade
+
+apt-get dist-upgrade
+
+apt-get search libsigc++
+
+# After the upgrade
+# purge removed packages
+
+aptitude search '~c'
+aptitude purge '~c'
+
+
+apt --fix-broken install
+
+apt-mark showhold
+
+dpkg -l | grep "^hi"
+
+apt-get install -f
+
+dpkg --configure -a
+
+rm -rf /usr/local/lib/python*
+
+rm -rf /usr/local/bin/python*
+
+sed -i 's/jessie/stretch/g' /etc/apt/sources.list
+
+dpkg --purge --force-depends libsigc++-2.0-0c2a calibre-bin
+
+dpkg --purge --force-depends libcairomm-1.0-1 libpangomm-1.4-1:amd64 libgtkmm-3.0-1:amd64
+
+dpkg --purge --force-depends gnome-system-monitor libglibmm-2.4-1c2a:amd64
+
+apt --fix-broken install
+
+
+check sshd_conf

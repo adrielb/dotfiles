@@ -11,6 +11,28 @@ if [ ! $( id -u ) -eq 0 ]; then
                # unless something goes wrong.
 fi
 
+apt-get install \
+  linux-headers-4.9.0-3-amd64 \
+  git \
+  python-pip3 \
+  libssl-dev \
+  libtool \
+  libtool-bin \
+  autoconf \
+  automake \
+  cmake \
+  g++ \
+  pkg-config \
+  unzip \
+  sqlite3 \
+  libsqlite3-dev \
+  libevent-dev \
+  libncurses-dev \
+  zlib1g-dev \
+  xclip \
+  libreadline-dev \
+
+
 aptitude install \
   ack-grep \
   autoconf \

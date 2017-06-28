@@ -22,6 +22,7 @@ export CFLAGS="-fPIC"
 ./configure \
   --enable-fts5 \
   --enable-json1 \
+  --disable-static \
   --prefix=/home/abergman/apps/local
 
 make clean
@@ -30,4 +31,4 @@ make -j
 
 make install
 
-sqlite3 -verison
+sqlite3 --verison
