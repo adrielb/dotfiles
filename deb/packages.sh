@@ -31,6 +31,9 @@ apt-get install \
   zlib1g-dev \
   xclip \
   libreadline-dev \
+  gfortran \
+  libbz2-dev \
+  exuberant-ctags \
 
 
 aptitude install \
