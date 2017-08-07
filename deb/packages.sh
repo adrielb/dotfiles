@@ -34,6 +34,15 @@ apt-get install \
   gfortran \
   libbz2-dev \
   exuberant-ctags \
+  libatlas3-base \
+  latexmk \
+  texlive-latex-recommended \
+  texlive-science \
+  texlive-fonts-extra \
+  texlive-plain-extra \
+  texlive-extra-utils \
+  texlive-luatex \
+  texlive-xetex \
 
 
 aptitude install \
