@@ -17,6 +17,7 @@ pip3 install --user --upgrade \
   flake8 \
   pylint \
   pandas \
+  pandas-datareader \
   ipython \
   pytest \
   sympy \
@@ -28,13 +29,14 @@ pip3 install --user --upgrade \
   moviepy \
   seaborn \
   neovim \
+  gitpython \
   keras \
   spacy \
   pyglet \
   tensorflow \
   jupyter \
   edward \
-  # http://download.pytorch.org/whl/cu75/torch-0.1.12.post2-cp36-cp36m-linux_x86_64.whl \
+  http://download.pytorch.org/whl/cu75/torch-0.2.0.post1-cp36-cp36m-manylinux1_x86_64.whl \
   # torchvision
 
   # prettyplotlib \
