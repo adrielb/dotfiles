@@ -36,7 +36,8 @@ pip3 install --user --upgrade \
   tensorflow \
   jupyter \
   edward \
-  http://download.pytorch.org/whl/cu75/torch-0.2.0.post1-cp36-cp36m-manylinux1_x86_64.whl \
+  proselint \
+  # http://download.pytorch.org/whl/cu75/torch-0.2.0.post1-cp36-cp36m-manylinux1_x86_64.whl \
   # torchvision
 
   # prettyplotlib \
