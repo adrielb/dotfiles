@@ -7,7 +7,7 @@ if [ ! -d "git" ]; then
 fi
 cd git
 git fetch
-git co v2.13.2
+git co v2.14.2
 make clean
 make -j$NUM_PROCS prefix=${APPS}/local all
 make -j prefix=${APPS}/local install

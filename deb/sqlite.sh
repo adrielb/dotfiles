@@ -7,7 +7,7 @@ mkdir -p ${APPDIR}
 
 cd ${APPDIR}
 
-LINK=https://www.sqlite.org/2017/sqlite-autoconf-3190300.tar.gz
+LINK=http://sqlite.org/2017/sqlite-autoconf-3200100.tar.gz
 
 SQLITE=${LINK##*/}
 
