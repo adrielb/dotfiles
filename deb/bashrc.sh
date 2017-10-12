@@ -149,3 +149,7 @@ fkill() {
 ftime() {
   find -iname "$1" -type f -printf '%T@ \033[32m%Ca %Cb %Cd %CY %Cr \033[0m %p\n'|sort -n|sed 's/^[^ ]* //'
 }
+
+ft() {
+  $(find ~/projects -name tmux.sh|fzf)
+}
