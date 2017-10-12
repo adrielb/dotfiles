@@ -151,5 +151,9 @@ ftime() {
 }
 
 ft() {
-  $(find ~/projects -name tmux.sh|fzf)
+  local file
+  cd ~/projects
+  file=$(find . -name tmux.sh|fzf --query="$1")
+  cd `dirname $file`
+  ./tmux.sh
 }
