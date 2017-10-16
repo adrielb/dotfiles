@@ -43,6 +43,7 @@ apt-get install \
   texlive-extra-utils \
   texlive-luatex \
   texlive-xetex \
+  libboost-dev \
 
 
 aptitude install \
