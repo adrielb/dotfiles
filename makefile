@@ -26,6 +26,7 @@ links:
 	-ln -sf ${DOT}/juliarc.jl ~/.juliarc.jl
 	-ln -sf ${DOT}/ctags ~/.ctags
 	-ln -sf ${DOT}/matplotlibrc.py ~/.config/matplotlib/matplotlibrc
+	-ln -sf ${DOT}/pdbrc.py ~/.pdbrc
 	
 
 slime:
