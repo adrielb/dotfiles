@@ -39,6 +39,7 @@ pip3 install --user --upgrade \
   jupyter_contrib_nbextensions \
   edward \
   proselint \
+  youtube-dl \
   # http://download.pytorch.org/whl/cu75/torch-0.2.0.post3-cp36-cp36m-manylinux1_x86_64.whl \
   # torchvision
 
