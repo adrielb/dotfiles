@@ -40,7 +40,7 @@ pip3 install --user --upgrade \
   edward \
   proselint \
   youtube-dl \
-  # http://download.pytorch.org/whl/cu75/torch-0.2.0.post3-cp36-cp36m-manylinux1_x86_64.whl \
+  http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl \
   # torchvision
 
   # prettyplotlib \
