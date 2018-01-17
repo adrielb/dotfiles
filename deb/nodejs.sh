@@ -1,5 +1,6 @@
+npm install npm@latest -g
 
-VER="7.3.0"
+VER="8.9.4"
 NODEXZ="node-v"$VER"-linux-x64.tar.xz"
 
 cd ~/apps/nodejs
@@ -15,6 +16,9 @@ npm install --global tern
 npm install --global jshint
 
 npm install --global eslint
+
+npm install --global gulp
+npm install --global gulp-cli
 
 npm list --global
 
