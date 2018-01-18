@@ -13,7 +13,7 @@ git fetch
 stopLog
 git log HEAD..origin --oneline
 startLog
-git co v0.2.0
+git co v0.2.2
 rm -rf build/ .deps
 make clean
 make -j$NUM_PROCS CMAKE_BUILD_TYPE=Release
