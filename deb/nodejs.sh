@@ -1,5 +1,7 @@
 npm install npm@latest -g
 
+npm update -g .
+
 VER="8.9.4"
 NODEXZ="node-v"$VER"-linux-x64.tar.xz"
 
