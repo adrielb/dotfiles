@@ -10,7 +10,9 @@ OLDPWD=`pwd`
 
 cd ${APPDIR}
 git fetch
-git co v0.6.0
+git stash
+git co v0.6.2
+git stash pop
 make -j$NUM_PROCS
 
 ctags-exuberant -R --languages=julia
