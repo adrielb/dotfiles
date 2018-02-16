@@ -153,7 +153,7 @@ ftime() {
 ft() {
   local file
   cd ~/projects
-  file=$(find . -name tmux.sh|fzf --query="$1")
+  file=$(find .  -maxdepth 2 -name tmux.sh|fzf --query="$1")
   cd `dirname $file`
   ./tmux.sh
 }
