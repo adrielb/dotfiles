@@ -43,6 +43,7 @@ pip3 install --user --upgrade \
   beautifulsoup4 \
   jupyterlab \
   pyro-ppl \
+  python-language-server \
   # http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl \
   # torchvision
 
