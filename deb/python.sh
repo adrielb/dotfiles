@@ -44,6 +44,7 @@ pip3 install --user --upgrade \
   jupyterlab \
   pyro-ppl \
   python-language-server \
+  xlrd \
   # http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl \
   # torchvision
 
