@@ -44,6 +44,7 @@ apt-get install \
   texlive-luatex \
   texlive-xetex \
   libboost-dev \
+  gettext \
 
 
 aptitude install \
