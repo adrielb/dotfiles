@@ -45,6 +45,7 @@ apt-get install \
   texlive-xetex \
   libboost-dev \
   gettext \
+  xorg-dev \
 
 
 aptitude install \
