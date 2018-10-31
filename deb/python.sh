@@ -21,7 +21,6 @@ pip3 install --user --upgrade \
   pandas-datareader \
   ipython \
   pytest \
-  sympy \
   numexpr \
   cython \
   tables \
@@ -31,18 +30,11 @@ pip3 install --user --upgrade \
   seaborn \
   neovim \
   gitpython \
-  keras \
-  spacy \
-  pyglet \
-  tensorflow \
   jupyter \
   jupyter_contrib_nbextensions \
-  edward \
   proselint \
   youtube-dl \
   beautifulsoup4 \
-  jupyterlab \
-  pyro-ppl \
   python-language-server \
   xlrd \
   joblib \
@@ -58,6 +50,14 @@ pip3 install --user --upgrade \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
   # torchvision
 
+  # jupyterlab \
+  # pyglet \
+  # tensorflow \
+  # pyro-ppl \
+  # edward \
+  # keras \
+  # spacy \
+  # sympy \
   # prettyplotlib \
   # mpld3 \
   # lxml \
