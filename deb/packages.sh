@@ -46,6 +46,7 @@ apt-get install \
   libboost-dev \
   gettext \
   xorg-dev \
+  libffi-dev \
 
 
 aptitude install \
