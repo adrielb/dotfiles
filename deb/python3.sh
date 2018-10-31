@@ -28,3 +28,4 @@ make -j$NUM_PROCS
 su -c 'make install && ldconfig'
 
 
+# edit ~/.local/bin/pip3 to #!/usr/local/bin/python3.7
