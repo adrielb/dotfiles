@@ -27,6 +27,7 @@ links:
 	-ln -sf ${DOT}/ctags ~/.ctags
 	-ln -sf ${DOT}/matplotlibrc.py ~/.config/matplotlib/matplotlibrc
 	-ln -sf ${DOT}/pdbrc.py ~/.pdbrc
+	-ln -sf ${DOT}/jupyter_notebook_config.py ~/.jupyter/jupyter_notebook_config.py
 	
 
 slime:
