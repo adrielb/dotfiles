@@ -10,6 +10,7 @@ pip3 install --user --upgrade \
   jedi \
   pyzmq \
   numpy \
+  PyQt5 \
   matplotlib \
   scipy \
   scikit-learn \
@@ -23,8 +24,6 @@ pip3 install --user --upgrade \
   pytest \
   numexpr \
   cython \
-  tables \
-  h5py \
   statsmodels \
   moviepy \
   seaborn \
@@ -50,6 +49,8 @@ pip3 install --user --upgrade \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
   # torchvision
 
+  # h5py \
+  # tables \
   # jupyterlab \
   # pyglet \
   # tensorflow \
