@@ -11,3 +11,12 @@ cd ~/apps/local/bin
 ln -sf ~/apps/julia-bin/$JULIA/bin/julia
 
 julia
+
+ctags-exuberant \
+  --recurse \
+  --languages=julia \
+  --totals=yes \
+  -f ~/.julia/tags \
+  ~/.julia/packages
+
+
