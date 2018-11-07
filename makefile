@@ -23,7 +23,9 @@ links:
 	-ln -sf ${DOT}/zathurarc ~/.config/zathura/zathurarc
 	-ln -sf ${DOT}/dircolors ~/.dircolors
 	-ln -sf ${DOT}/sqliterc ~/.sqliterc
-	-ln -sf ${DOT}/juliarc.jl ~/.juliarc.jl
+	-mkdir -p ~/.julia/config
+	-ln -sf ${DOT}/juliarc.jl ~/.julia/config/startup.jl
+	-ln -sf ${DOT}/startup_ijulia.jl ~/.julia/config/startup_ijulia.jl
 	-ln -sf ${DOT}/ctags ~/.ctags
 	-ln -sf ${DOT}/matplotlibrc.py ~/.config/matplotlib/matplotlibrc
 	-ln -sf ${DOT}/pdbrc.py ~/.pdbrc
