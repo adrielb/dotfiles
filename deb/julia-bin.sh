@@ -19,4 +19,10 @@ ctags-exuberant \
   -f ~/.julia/tags \
   ~/.julia/packages
 
+ctags-exuberant \
+  --recurse \
+  --languages=julia \
+  --totals=yes \
+  -f ~/apps/julia-bin/tags \
+  ~/apps/julia-bin/$JULIA/share/julia/base
 
