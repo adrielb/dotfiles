@@ -523,6 +523,9 @@ c.NotebookApp.contents_manager_class = "jupytext.TextFileContentsManager"
 # ContentsManager(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 c.ContentsManager.default_jupytext_formats = "ipynb,auto"
+c.ContentsManager.freeze_metadata = True
+c.ContentsManager.default_notebook_metadata_filter = "-all"
+c.ContentsManager.default_cell_metadata_filter = "-all"
 
 ## Base class for serving files and directories.
 #  
