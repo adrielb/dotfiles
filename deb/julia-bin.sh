@@ -24,5 +24,6 @@ ctags-exuberant \
   --languages=julia \
   --totals=yes \
   -f ~/apps/julia-bin/tags \
-  ~/apps/julia-bin/$JULIA/share/julia/base
+  ~/apps/julia-bin/$JULIA/share/julia/base \
+  ~/apps/julia-bin/$JULIA/share/julia/stdlib
 
