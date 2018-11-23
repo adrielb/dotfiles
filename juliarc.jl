@@ -1,16 +1,25 @@
 # ENV["DISPLAY"]=":0.1"
+push!(LOAD_PATH, pwd())
+
+if isfile("init.jl")
+  @warn "Loading ./init.jl"
+  include(joinpath(pwd(),"init.jl"))
+end
 
 atreplinit() do repl
     try
-        @eval push!(LOAD_PATH, pwd())
         @eval using Revise
         @async Revise.wait_steal_repl_backend()
-        @eval using OhMyREPL
     catch
+        @warn "Could not load Revise."
     end
-    if isfile("init.jl")
-      include(joinpath(pwd(),"init.jl"))
-    end
+end
+
+try
+    @eval using OhMyREPL
+    enable_autocomplete_brackets(false)
+catch err
+    @warn "Could not load OhMyREPL."
 end
 
 
