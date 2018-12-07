@@ -1,17 +1,17 @@
 # ENV["DISPLAY"]=":0.1"
 push!(LOAD_PATH, pwd())
 
-if isfile("init.jl")
-  @warn "Loading ./init.jl"
-  include(joinpath(pwd(),"init.jl"))
-end
-
 atreplinit() do repl
     try
         @eval using Revise
         @async Revise.wait_steal_repl_backend()
     catch
         @warn "Could not load Revise."
+    end
+
+    if isfile("init.jl")
+      @warn "Loading ./init.jl"
+      @async include(joinpath(pwd(),"init.jl"))
     end
 end
 
