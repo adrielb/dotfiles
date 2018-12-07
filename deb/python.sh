@@ -27,7 +27,7 @@ pip3 install --user --upgrade \
   statsmodels \
   moviepy \
   seaborn \
-  neovim \
+  pynvim \
   gitpython \
   jupyter \
   jupyter_contrib_nbextensions \
@@ -68,5 +68,5 @@ pip3 install --user --upgrade \
 
 # python -m spacy.en.download all
 
-cd ~/.local/lib/python3.6/site-packages
+cd ~/.local/lib/python3.7/site-packages
 ctags-exuberant -R --totals=yes --languages=python
