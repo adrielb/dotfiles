@@ -1,4 +1,10 @@
+### windows 
+* https://old.reddit.com/r/sysadmin/comments/9oqsd5/mini_rant_windows_when_i_say_update_shutdown_i/
+	* GPO -> Computer Configuration -> Administrative Templates -> System [Scroll to the bottom] -> Display highly detailed status messages.
 
+
+
+### linux
 yum install lua lua-devel tcl tcl-devel ruby ruby-devel
 
 
