@@ -1,6 +1,6 @@
-JULIA=julia-1.0.3
+JULIA=julia-1.1.0
 cd ~/apps/julia-bin/
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.0/$JULIA-linux-x86_64.tar.gz
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.1/$JULIA-linux-x86_64.tar.gz
 tar zxvf $JULIA-linux-x86_64.tar.gz
 ln -sf $JULIA current
 julia
@@ -24,3 +24,5 @@ ctags-exuberant \
   ~/apps/julia-bin/$JULIA/share/julia/base \
   ~/apps/julia-bin/$JULIA/share/julia/stdlib
 
+
+add OhMyREPL Revise JuMP Cbc
