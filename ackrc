@@ -9,3 +9,6 @@ stan=.stan
 
 --type-set=julia=.jl
 --type-add=julia:firstlinematch:/^#!.*\bjulia/
+
+--type-set=picat=.pi
+
