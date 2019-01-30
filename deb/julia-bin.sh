@@ -25,4 +25,4 @@ ctags-exuberant \
   ~/apps/julia-bin/$JULIA/share/julia/stdlib
 
 
-add OhMyREPL Revise JuMP Cbc
+add OhMyREPL Revise JuMP Cbc POMDPs POMDPSimulators POMDPPolicies OnlineStats
