@@ -1,12 +1,13 @@
-JULIA=julia-1.1.0
+JULIA=julia-1.1.1
 cd ~/apps/julia-bin/
 wget https://julialang-s3.julialang.org/bin/linux/x64/1.1/$JULIA-linux-x86_64.tar.gz
 tar zxvf $JULIA-linux-x86_64.tar.gz
-ln -sf $JULIA current
+rm current
+ln -sfv $JULIA current
 julia
 
 cd ~/apps/local/bin
-ln -sf ~/apps/julia-bin/current/bin/julia
+ln -sfv ~/apps/julia-bin/current/bin/julia
 
 
 ctags-exuberant \
@@ -25,12 +26,13 @@ ctags-exuberant \
   ~/apps/julia-bin/$JULIA/share/julia/stdlib
 
 
-add \
-Distributions \
-OhMyREPL \
-Revise \
-JuMP \
-Cbc \
+] add
+Distributions
+OhMyREPL
+Revise
+JuMP
+Cbc
+
 POMDPs \
 POMDPSimulators \
 POMDPPolicies \
