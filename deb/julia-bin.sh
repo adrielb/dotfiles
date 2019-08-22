@@ -1,6 +1,6 @@
-JULIA=julia-1.1.1
+JULIA=julia-1.2.0
 cd ~/apps/julia-bin/
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.1/$JULIA-linux-x86_64.tar.gz
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.2/$JULIA-linux-x86_64.tar.gz
 tar zxvf $JULIA-linux-x86_64.tar.gz
 rm current
 ln -sfv $JULIA current
