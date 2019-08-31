@@ -26,18 +26,21 @@ ctags-exuberant \
   ~/apps/julia-bin/$JULIA/share/julia/stdlib
 
 
-] add
+using Pkg
+Pkg.add(split("
 Distributions
 OhMyREPL
 Revise
 JuMP
 Cbc
-
-POMDPs \
-POMDPSimulators \
-POMDPPolicies \
-OnlineStats \
-Parameters \
-StatsPlots \
-Plots \
+POMDPs
+POMDPSimulators 
+POMDPPolicies 
+OnlineStats 
+Parameters 
+StatsPlots 
+Plots 
 Formatting
+"))
+Pkg.gc()
+] precompile
