@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+OPEN="xdg-open {} &"
 
-pdf=$(locate '*.pdf'| fzf --query="$1" --select-1 --exit-0)
+cd ~/Downloads
 
-if [ -n "$pdf" ]; then
-  zathura --fork "$pdf"
-fi
+fzf --bind "enter:execute-silent($OPEN),double-click:execute-silent($OPEN)" --border
+
