@@ -6,7 +6,7 @@ APPSDIR=${APPS}/python3
 mkdir -p $APPSDIR
 cd $APPSDIR
 
-VERSION="3.7.3"
+VERSION="3.7.4"
 
 LINK=https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.xz
 

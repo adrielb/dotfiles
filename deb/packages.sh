@@ -17,6 +17,7 @@ apt-get install \
   python-pip3 \
   libssl-dev \
   libtool \
+  liblzma-dev \
   libtool-bin \
   autoconf \
   automake \
