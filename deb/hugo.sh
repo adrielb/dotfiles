@@ -1,6 +1,10 @@
+# https://github.com/gohugoio/hugo/releases
+
 cd /tmp
 
-wget https://github.com/gohugoio/hugo/releases/download/v0.38.2/hugo_0.38.2_Linux-64bit.tar.gz
+URL=https://github.com/gohugoio/hugo/releases/download/v0.58.1/hugo_0.58.1_Linux-64bit.tar.gz
+
+wget $URL
 
 tar zxvf *.tar.gz
 
