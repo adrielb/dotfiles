@@ -48,6 +48,7 @@ apt-get install \
   gettext \
   xorg-dev \
   libffi-dev \
+  wayland-protocols \
 
 
 aptitude install \
