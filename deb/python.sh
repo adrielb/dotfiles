@@ -28,6 +28,7 @@ pip3 install --user --upgrade \
   moviepy \
   seaborn \
   pynvim \
+  neovim-remote \
   gitpython \
   jupyter \
   jupyter_contrib_nbextensions \
