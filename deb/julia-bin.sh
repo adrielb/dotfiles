@@ -36,6 +36,7 @@ Cbc
 POMDPs
 POMDPSimulators 
 POMDPPolicies 
+BeliefUpdaters
 OnlineStats 
 Parameters 
 StatsPlots 
