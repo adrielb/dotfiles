@@ -32,6 +32,8 @@ pip3 install --user --upgrade \
   gitpython \
   jupyter \
   jupyter_contrib_nbextensions \
+  jupyterlab \
+  jupytext \
   proselint \
   youtube-dl \
   beautifulsoup4 \
@@ -46,7 +48,6 @@ pip3 install --user --upgrade \
   attrs \
   cvxpy \
   julia \
-  jupytext \
   yamllint \
   flask \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
