@@ -4,5 +4,12 @@ URL=$1
 #YT=/home/abergman/Videos/youtube-dl
 YT=youtube-dl
 
-$YT --format "bestaudio" --audio-quality 0 --verbose --no-mtime --title --extract-audio --restrict-filenames "$URL"
+$YT --format "bestaudio" \
+  --audio-quality 0 \
+  --verbose \
+  --no-mtime \
+  --output "%(title)s-%(id)s.%(ext)s" \
+  --extract-audio \
+  --audio-format "mp3" \
+  --restrict-filenames "$URL"
 
