@@ -89,6 +89,7 @@ aptitude install \
   libgsasl7 \
   libgsasl7-dev \
   libgtk2.0-dev \
+  libgtk-3-dev \
   libhdf5-dev \
   libio-pty-perl \
   libjson0-dev \
