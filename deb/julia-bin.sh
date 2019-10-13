@@ -42,6 +42,9 @@ Parameters
 StatsPlots 
 Plots 
 Formatting
+LanguageServer
+SymbolServer
+StaticLint
 "))
 Pkg.gc()
 ] precompile
