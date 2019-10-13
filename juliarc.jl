@@ -1,4 +1,3 @@
-# ENV["DISPLAY"]=":0.1"
 push!(LOAD_PATH, pwd())
 
 atreplinit() do repl
