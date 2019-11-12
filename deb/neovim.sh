@@ -17,6 +17,6 @@ git co v0.4.3
 rm -rf build/ .deps
 make clean
 make -j$NUM_PROCS CMAKE_BUILD_TYPE=Release
-su -c 'make install && pip install --upgrade neovim && pip3 install --upgrade neovim'
+su -c 'make install && pip install --upgrade pynvim && pip3 install --upgrade pynvim'
 stopLog
 nvim +PlugUpdate
