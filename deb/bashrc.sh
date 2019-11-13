@@ -18,14 +18,12 @@ set -o vi  # enable vi editing mode
 bind -m vi-insert "\C-l":clear-screen # ^l clear screen
 
 export LD_LIBRARY_PATH=~/apps/local/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=~/apps/R-cran/R-3.3.1/lib:$LD_LIBRARY_PATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/.local/bin:$PATH
-export    PATH=~/apps/local/bin:$PATH
+export PATH=~/apps/local/bin:$PATH
+export PATH=/usr/sbin:$PATH
 export MANPATH=~/apps/local/share/man:$MANPATH
 
-export PATH=~/apps/nodejs/node-v8.9.4-linux-x64/bin:$PATH
-export LD_LIBRARY_PATH=~/apps/nodejs/node-v8.9.4-linux-x64/lib:$LD_LIBRARY_PATH
 
 export EDITOR="nvim"
 export ACK_OPTIONS="-A 5"
