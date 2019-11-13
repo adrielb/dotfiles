@@ -7,7 +7,7 @@ mkdir -p ${APPDIR}
 
 cd ${APPDIR}
 
-LINK=http://sqlite.org/2017/sqlite-autoconf-3200100.tar.gz
+LINK=https://www.sqlite.org/2019/sqlite-autoconf-3300100.tar.gz
 
 SQLITE=${LINK##*/}
 
@@ -31,4 +31,4 @@ make -j
 
 make install
 
-sqlite3 --verison
+sqlite3 -verison
