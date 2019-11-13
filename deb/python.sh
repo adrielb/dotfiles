@@ -43,8 +43,6 @@ pip3 install --user --upgrade \
   bokeh \
   holoviews \
   fastparquet \
-  mypy \
-  dask[complete] \
   attrs \
   cvxpy \
   julia \
