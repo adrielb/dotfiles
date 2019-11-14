@@ -12,4 +12,6 @@ git pull
 
 make -j${NUM_PROCS}
 
+cd ${APPS}/local/bin
 
+ln -sf ../../unison/src/unison .
