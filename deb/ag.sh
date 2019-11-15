@@ -1,4 +1,7 @@
+#!/bin/bash
+source ./logger.sh
 
+# apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 
 APPDIR=~/apps/the_silver_searcher
 if [ ! -d "$APPDIR" ]; then
