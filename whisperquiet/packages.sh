@@ -60,3 +60,4 @@ apt-get install \
  zlib
  zlib1g
  zlib1g-dev
+ gawk
