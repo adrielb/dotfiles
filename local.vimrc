@@ -1,7 +1,7 @@
 let b:auBufEnter='autocmd BufEnter ' . expand('<sfile>:p:h')
 augroup switchtmux-dotfiles
   au!
-  " exe b:auBufEnter . '/app.py let b:tmux_window="web"'
+  exe b:auBufEnter . '/whisperquiet/root-repl.sh let b:tmux_window="bashr"'
   exe b:auBufEnter . '/** call functions#SwitchTmux("dotfiles")'
 augroup END
 
