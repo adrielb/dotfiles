@@ -10,8 +10,8 @@ links:
 	-ln -sf ${DOT}/xmodmap ~/.xmodmap
 	-ln -sf ${DOT}/xsession ~/.xsession
 	-chmod 700 ~/.xsession
-	-if [ ! -h ~/.config/awesome ]; then ln -sf ${DOT}/awesome ~/.config/awesome; fi
-	-ln -sf ${DOT}/home.gitignore ~/.gitignore
+	# -if [ ! -h ~/.config/awesome ]; then ln -sf ${DOT}/awesome ~/.config/awesome; fi
+	# -ln -sf ${DOT}/home.gitignore ~/.gitignore
 	-ln -sf ${DOT}/inputrc.sh ~/.inputrc
 	-ln -sf ${DOT}/bash_aliases.sh ~/.bash_aliases
 	-ln -sf ${DOT}/Rprofile ~/.Rprofile
