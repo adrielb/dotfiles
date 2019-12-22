@@ -55,6 +55,8 @@ StaticArrays
 LearningStrategies
 RecursiveArrayTools
 BSON
+SQLite
+DataFrames
 "))
 Pkg.gc()
 ] precompile

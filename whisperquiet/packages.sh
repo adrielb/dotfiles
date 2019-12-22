@@ -61,3 +61,5 @@ apt-get install \
  zlib1g
  zlib1g-dev
  gawk
+ net-tools
+ source-highlight
