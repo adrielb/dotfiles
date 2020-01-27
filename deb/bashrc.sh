@@ -105,6 +105,8 @@ source ~/.bash-git-prompt/gitprompt.sh
 # fzf - Fuzzy finder for your shell
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all"
+
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
