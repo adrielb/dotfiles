@@ -8,6 +8,7 @@ ROOT=`pwd`
 statrepos() {
   repo=$(dirname $1)
   cd $repo
+  git fetch
   STATUS=$(~/.bash-git-prompt/gitstatus.sh 2>/dev/null | tr '[:space:]' ',' | tr '0' ' ')
   echo $(basename $repo),$STATUS$"\\n"
 }
