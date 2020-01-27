@@ -4,7 +4,7 @@ git clone https://github.com/kovidgoyal/kitty
 
 cd kitty
 
-git co v0.14.4
+git co v0.15.0
 
 make
 
