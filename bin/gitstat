@@ -21,6 +21,7 @@ ALLSTATS=$(find $ROOT/ -maxdepth 2 -name .git -printf "%T@ %p\n" | \
   parallel --keep-order statrepos {} \
   )
 
-HEADER="repo,branch,remote,●,✖,✚,…,⚑,✔""\n"
+# HEADER="repo,branch,remote,●,✖,✚,…,⚑,✔""\n"
+HEADER="repo,branch,remote,remote_url,upstream,staged,conflicts,changed,untracked,stashed,clean\n"
 
 echo -e $HEADER$ALLSTATS | column -t -s','
