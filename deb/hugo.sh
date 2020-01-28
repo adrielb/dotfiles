@@ -6,19 +6,19 @@ set -x # log all cmds before executing
 
 # https://github.com/gohugoio/hugo/releases
 
-VERSION=0.62.2
+VERSION=0.63.2
 
-cd /tmp
+mkdir -p /tmp/hugo
+cd /tmp/hugo
 
 URL=https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz
 
-wget $URL
+wget --no-clobber $URL
 
-tar zxvf *.tar.gz
+tar zxvf hugo*.tar.gz
 
-hugo version
+hash hugo && hugo version || echo 'new install'
 
 mv hugo ~/.local/bin
 
 hugo version
-
