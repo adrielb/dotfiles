@@ -12,3 +12,4 @@ stan=.stan
 
 --type-set=picat=.pi
 
+--type-add=markdown:ext:md
