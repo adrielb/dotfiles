@@ -26,7 +26,7 @@ export MANPATH=~/apps/local/share/man:$MANPATH
 
 
 export EDITOR="nvim"
-export ACK_OPTIONS="-A 5"
+# export ACK_OPTIONS="-A 5"
 export ACK_PAGER_COLOR="less -R"
 export LESS="-RFX"
 export LESSOPEN="|/usr/share/source-highlight/src-hilite-lesspipe.sh %s"
