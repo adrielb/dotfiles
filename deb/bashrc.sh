@@ -157,3 +157,8 @@ ft() {
   cd `dirname $file`
   ./tmux.sh
 }
+
+todo() {
+  cd ~/projects
+  nvim -c Todo
+}
