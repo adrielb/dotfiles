@@ -50,6 +50,8 @@ pip3 install --user --upgrade \
   flask \
   websockets \
   argcomplete \
+  requests_oauthlib \
+  asyncio-nats-client \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
   # torchvision
 
