@@ -15,4 +15,6 @@ gpg --verify borg-linux64.asc borg-linux64
 
 mv borg-linux64 borg
 
+chmod u+x borg
+
 rm borg-linux64.asc
