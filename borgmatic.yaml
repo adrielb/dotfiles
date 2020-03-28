@@ -1,0 +1,25 @@
+---
+location:
+    source_directories:
+        - projects
+        - Downloads/books
+    repositories:
+        - abergman@wg:/data/borg
+    local_path: /home/abergman/apps/local/bin/borg
+storage:
+    encryption_passcommand: cat /home/abergman/.borg_pass
+retention:
+    keep_hourly: 72
+    keep_daily: 90
+hooks:
+    on_error:
+        - echo "Error during prune/create/check."
+        - notify-send --urgency=critical "Error in borgmatic backup"
+    before_everything:
+        - echo "Starting actions."
+    after_everything:
+        - echo "Completed actions."
+    # healthchecks: https://hc-ping.com/your-uuid-here
+    # cronitor: https://cronitor.link/d3x0c1
+    # pagerduty: a177cad45bd374409f78906a810a3074
+    # cronhub: https://cronhub.io/start/1f5e3410-254c-11e8-b61d-55875966d031

@@ -1,0 +1,15 @@
+[Unit]
+Description=Run borgmatic backup
+
+[Timer]
+Persistent=true
+# OnCalendar=daily
+OnCalendar=hourly
+
+# Intervals shorter than 1min need better AccuracySec
+# OnCalendar=*:*:0/5
+# OnCalendar=*:*:*
+# AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

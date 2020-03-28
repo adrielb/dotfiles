@@ -1,0 +1,39 @@
+[Unit]
+Description=borgmatic backup
+Wants=network-online.target
+After=network-online.target
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+
+# Lower CPU and I/O priority.
+Nice=19
+CPUSchedulingPolicy=batch
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+IOWeight=100
+
+Restart=no
+# Prevent rate limiting of borgmatic log events. If you are using an older
+# version of systemd that doesn't support this (pre-240 or so), you may have to
+# remove this option.
+# #$systemd --version
+# #systemd 232
+# LogRateLimitIntervalSec=0
+
+# Since Persistent=True in .timer,
+# Delay start to prevent backups running during boot.
+ExecStartPre=sleep 1m
+
+# inhibit shutdown requests before command is executed
+# --who - human readable description of the program taking the lock
+# --why - human readable description of the reason for taking the lock
+ExecStart=/bin/systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" /home/abergman/.local/bin/borgmatic --log-file-verbosity 1 --log-file=/home/abergman/log/borgmatic.log
+# ExecStart=/bin/systemd-inhibit /home/abergman/.local/bin/hello-world.sh
+
+# OnFailure=/tmp/fail.sh
+# StandardOutput=tty
+
+[Install]
+WantedBy=default.target

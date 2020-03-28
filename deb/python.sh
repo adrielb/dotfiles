@@ -52,6 +52,7 @@ pip3 install --user --upgrade \
   argcomplete \
   requests_oauthlib \
   asyncio-nats-client \
+  borgmatic \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
   # torchvision
 
