@@ -3,6 +3,7 @@ location:
     source_directories:
         - projects
         - Downloads/books
+        - .mozilla
     repositories:
         - abergman@wg:/data/borg
     local_path: /home/abergman/apps/local/bin/borg
