@@ -24,7 +24,7 @@ Restart=no
 
 # Since Persistent=True in .timer,
 # Delay start to prevent backups running during boot.
-ExecStartPre=sleep 1m
+ExecStartPre=/bin/sleep 1m
 
 # inhibit shutdown requests before command is executed
 # --who - human readable description of the program taking the lock
