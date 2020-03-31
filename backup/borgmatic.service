@@ -1,7 +1,7 @@
 [Unit]
 Description=borgmatic backup
-Wants=network-online.target
-After=network-online.target
+Requires=network-online.target graphical.target
+After=network-online.target graphical.target
 ConditionACPower=true
 
 [Service]
@@ -29,7 +29,12 @@ ExecStartPre=/bin/sleep 1m
 # inhibit shutdown requests before command is executed
 # --who - human readable description of the program taking the lock
 # --why - human readable description of the reason for taking the lock
-ExecStart=/bin/systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" /home/abergman/.local/bin/borgmatic --log-file-verbosity 1 --log-file=/home/abergman/log/borgmatic.log
+ExecStart=/bin/systemd-inhibit \
+--who="borgmatic" \
+--why="Prevent interrupting scheduled backup" \
+/home/abergman/.local/bin/borgmatic \
+--log-file-verbosity 1 \
+--log-file=/home/abergman/log/borgmatic.log
 # ExecStart=/bin/systemd-inhibit /home/abergman/.local/bin/hello-world.sh
 
 # OnFailure=/tmp/fail.sh
