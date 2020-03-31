@@ -28,6 +28,15 @@ systemctl --user start borgmatic.service
 systemctl --user start borgmatic.timer
 
 systemctl --user status borgmatic
+# || ● borgmatic.service - borgmatic backup                            
+# ||    Loaded: loaded (/home/abergman/projects/dotfiles/backup/borgmatic.service; enabled; vendor preset: enabled)                       
+# ||    Active: inactive (dead) since Tue 2020-03-31 18:07:57 EDT; 36min ago                                                              
+# ||  Main PID: 2285 (code=exited, status=0/SUCCESS)                   
+# || 
+# || Mar 31 18:00:47 Gigabyte systemd[878]: Starting borgmatic backup...                                                                  
+# || Mar 31 18:01:48 Gigabyte systemd-inhibit[2285]: Starting actions. 
+# || Mar 31 18:07:57 Gigabyte systemd-inhibit[2285]: Completed actions.                                                                   
+# || Mar 31 18:07:57 Gigabyte systemd[878]: Started borgmatic backup.  
 
 systemctl --user status
 
