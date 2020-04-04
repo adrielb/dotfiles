@@ -1,11 +1,11 @@
 [Unit]
 Description=borgmatic backup
-Requires=network-online.target graphical.target
-After=network-online.target graphical.target
+Requires=default.target
+After=default.target
 ConditionACPower=true
 
 [Service]
-Type=oneshot
+Type=simple
 
 # Lower CPU and I/O priority.
 Nice=19
@@ -24,7 +24,8 @@ Restart=no
 
 # Since Persistent=True in .timer,
 # Delay start to prevent backups running during boot.
-ExecStartPre=/bin/sleep 1m
+# ExecStartPre=/bin/sleep 1m
+# ExecStartPre=/usr/bin/ssh wg hostname
 
 # inhibit shutdown requests before command is executed
 # --who - human readable description of the program taking the lock
@@ -40,5 +41,5 @@ ExecStart=/bin/systemd-inhibit \
 # OnFailure=/tmp/fail.sh
 # StandardOutput=tty
 
-[Install]
-WantedBy=default.target
+# [Install]
+# WantedBy=default.target

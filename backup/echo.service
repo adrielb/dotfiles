@@ -1,0 +1,6 @@
+[Unit]
+Description=borgmatic backup
+
+[Service]
+Type=simple
+ExecStart=/home/abergman/.local/bin/hello-world.sh

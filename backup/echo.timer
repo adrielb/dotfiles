@@ -1,0 +1,9 @@
+[Unit]
+Description=Run echo
+
+[Timer]
+OnCalendar=*:*:*
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
