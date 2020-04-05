@@ -1,0 +1,8 @@
+[Unit]
+Description=Run borgmatic prune create check
+
+[Timer]
+OnCalendar=Sat *-*-* 05:00:00
+
+[Install]
+WantedBy=timers.target

@@ -1,5 +1,5 @@
 [Unit]
-Description=Run borgmatic backup
+Description=Run borgmatic create
 
 [Timer]
 # Persistent=true

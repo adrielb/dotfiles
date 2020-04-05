@@ -12,6 +12,7 @@ wget https://projects.torsion.org/witten/borgmatic/raw/branch/master/sample/syst
 
 systemctl --user list-timers --no-pager --all
 
+
 cd /home/abergman/projects/dotfiles/backup
 systemctl --user enable `pwd`/borgmatic.timer
 systemctl --user enable `pwd`/borgmatic.service
@@ -193,6 +194,20 @@ systemctl --user show-environment
 
 
 #
+# borgmatic-weekly
+cd /home/abergman/projects/dotfiles/backup
+systemctl --user enable `pwd`/borgmatic-weekly.timer
+systemctl --user enable `pwd`/borgmatic-weekly.service
+systemctl --user daemon-reload
+systemd-analyze verify borgmatic-weekly.service
+systemd-analyze verify borgmatic-weekly.timer
+systemctl --user start borgmatic-weekly.timer
+systemctl --user status borgmatic-weekly.timer
+systemctl --user status borgmatic-weekly
+journalctl --user --follow --unit borgmatic-weekly
+journalctl --user --follow --unit borgmatic-weekly.timer
+
+#
 # echo timer/service
 
 cd /home/abergman/projects/dotfiles/backup
@@ -216,3 +231,7 @@ systemctl --user stop echo.timer
 
 systemctl --user disable echo.timer
 systemctl --user disable echo.service
+
+#
+# run
+systemd-run --user --timer-property=AccuracySec=1ms --on-calendar='*:*:*/3' /home/abergman/.local/bin/hello-world.sh

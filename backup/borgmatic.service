@@ -33,9 +33,10 @@ Restart=no
 ExecStart=/bin/systemd-inhibit \
 --who="borgmatic" \
 --why="Prevent interrupting scheduled backup" \
-/home/abergman/.local/bin/borgmatic \
---log-file-verbosity 1 \
---log-file=/home/abergman/log/borgmatic.log
+/home/abergman/.local/bin/borgmatic create \
+--verbosity 1 \
+# --log-file-verbosity 1 \
+# --log-file=/home/abergman/log/borgmatic.log
 # ExecStart=/bin/systemd-inhibit /home/abergman/.local/bin/hello-world.sh
 
 # OnFailure=/tmp/fail.sh
