@@ -1,5 +1,5 @@
 [Unit]
-Description=borgmatic backup
+Description=echo service
 
 [Service]
 Type=simple
