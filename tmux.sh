@@ -11,6 +11,8 @@ else
     new-window -n 'bashr' \; \
       send-keys 'su -' C-m \; \
     new-window -n 'borgmatic.log' \; \
-      send-keys 'tail -F ~/log/borgmatic.log' C-m \;
+      send-keys 'journalctl --user --follow --unit borgmatic' C-m \; \
+      split-window \; \
+      send-keys 'journalctl --user --follow --unit borgmatic-weekly' C-m \;
 fi
 
