@@ -16,3 +16,5 @@ cd redis-$VERSION
 make
 
 cp src/redis-* ~/apps/local/bin
+
+redis-server --version
