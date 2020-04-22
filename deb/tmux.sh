@@ -7,6 +7,7 @@ if [ ! -d "$APPDIR" ]; then
 fi
 
 cd $APPDIR
+git fetch
 git co 3.1
 git cleanup
 sh autogen.sh
