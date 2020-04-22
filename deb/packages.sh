@@ -37,13 +37,13 @@ apt-get install \
   exuberant-ctags \
   libatlas3-base \
   latexmk \
-  texlive-latex-recommended \
-  texlive-science \
-  texlive-fonts-extra \
-  texlive-plain-extra \
-  texlive-extra-utils \
-  texlive-luatex \
-  texlive-xetex \
+  # texlive-latex-recommended \
+  # texlive-science \
+  # texlive-fonts-extra \
+  # texlive-plain-extra \
+  # texlive-extra-utils \
+  # texlive-luatex \
+  # texlive-xetex \
   libboost-dev \
   gettext \
   xorg-dev \
