@@ -30,4 +30,10 @@ su -c 'make install && ldconfig'
 python3 --version
 
 
+cd Lib
+ctags-exuberant \
+  --recurse \
+  --totals=yes \
+  --languages=python
+
 # edit ~/.local/bin/pip3 to #!/usr/local/bin/python3.7
