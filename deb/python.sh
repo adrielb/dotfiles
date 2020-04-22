@@ -4,7 +4,7 @@ set -e # exit immediately upon failure
 set -x # log all cmds before executing
 
 # easy_install -U distribute
-pip3 install --user --upgrade \
+python3 -m pip install --user --upgrade \
   pip \
   virtualenv \
   jedi \
@@ -80,5 +80,12 @@ activate-global-python-argcomplete --user
 
 # python -m spacy.en.download all
 
-cd ~/.local/lib/python3.7/site-packages
-ctags-exuberant -R --totals=yes --languages=python
+cd ~/.local/lib/python3.8/site-packages
+ctags-exuberant \
+  --recurse \
+  --totals=yes \
+  --languages=python \
+  --exclude='Cython/Utility/*' \
+  --exclude='Cython/Runtime/*' \
+  --exclude='lxml/includes/*'
+
