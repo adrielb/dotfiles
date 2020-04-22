@@ -6,7 +6,7 @@ APPSDIR=${APPS}/python3
 mkdir -p $APPSDIR
 cd $APPSDIR
 
-VERSION="3.7.5"
+VERSION="3.8.2"
 
 LINK=https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.xz
 
@@ -26,6 +26,8 @@ cd ${PYTHON%.tar.xz}
 make -j$NUM_PROCS
 # make test
 su -c 'make install && ldconfig'
+
+python3 --version
 
 
 # edit ~/.local/bin/pip3 to #!/usr/local/bin/python3.7
