@@ -49,7 +49,8 @@ rm -i /etc/systemd/system/wg-quick@wg0*
 systemctl daemon-reload
 systemctl reset-failed
 
-# pihole
+# pihole reconfigure
+pihole -r
 # Do you want to use your current network settings as a static address?
 #  <NO>
 # Enter your desired IPv4 address   (wireguard ip)
