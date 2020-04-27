@@ -37,9 +37,9 @@ case $- in
       *) return;;
 esac
 
-if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+[ -f ~/.tokens ] && source ~/.tokens
 
 debug() { [ "$DEBUG" ] && echo ">>> $*"; }
 
