@@ -1,0 +1,11 @@
+[Unit]
+Description=InfluxDB 2.0 service file.
+Documentation=https://v2.docs.influxdata.com/v2.0/get-started/
+After=network-online.target
+
+[Service]
+ExecStart=/home/abergman/apps/local/bin/influxd --reporting-disabled
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
