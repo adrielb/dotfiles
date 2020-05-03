@@ -1,0 +1,7 @@
+[Unit]
+Description=ssh to wg 
+
+[Service]
+ExecStart=/bin/sh -c "/usr/bin/ssh wg date"
+Restart=on-failure
+RestartSec=5s

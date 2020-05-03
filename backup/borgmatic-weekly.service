@@ -1,7 +1,7 @@
 [Unit]
 Description=borgmatic backup
-Requires=default.target
-After=default.target
+Requires=default.target sshwgdate.service
+After=default.target sshwgdate.service
 ConditionACPower=true
 
 [Service]

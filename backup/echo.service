@@ -1,5 +1,7 @@
 [Unit]
 Description=echo service
+Requires=sshwgdate.service
+After=sshwgdate.service
 
 [Service]
 Type=simple
