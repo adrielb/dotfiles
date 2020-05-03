@@ -1,11 +1,13 @@
 [Unit]
 Description=borgmatic backup
-Requires=default.target sshwgdate.service
-After=default.target sshwgdate.service
+Requires=default.target
+After=default.target
 ConditionACPower=true
 
 [Service]
 Type=simple
+Restart=on-failure
+RestartSec=1min
 
 # Lower CPU and I/O priority.
 Nice=19
@@ -14,7 +16,6 @@ IOSchedulingClass=best-effort
 IOSchedulingPriority=7
 IOWeight=100
 
-Restart=no
 
 # inhibit shutdown requests before command is executed
 # --who - human readable description of the program taking the lock

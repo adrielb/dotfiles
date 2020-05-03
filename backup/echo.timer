@@ -2,7 +2,7 @@
 Description=Run echo
 
 [Timer]
-OnCalendar=*:*:10
+OnCalendar=*:*:0/10
 AccuracySec=1s
 
 [Install]
