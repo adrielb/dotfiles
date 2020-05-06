@@ -49,6 +49,8 @@ apt-get install \
   xorg-dev \
   libffi-dev \
   wayland-protocols \
+  tcl-dev \
+  tk-dev
 
 
 aptitude install \

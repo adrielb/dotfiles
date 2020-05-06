@@ -22,7 +22,8 @@ cd ${PYTHON%.tar.xz}
 
 ./configure \
   --enable-shared \
-  --enable-optimizations
+  --enable-optimizations \
+  --with-lto
 make -j$NUM_PROCS
 # make test
 su -c 'make install && ldconfig'
