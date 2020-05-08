@@ -1,8 +1,14 @@
-RELEASE='3.29.0-r1'
+#!/bin/bash
+set -o pipefail # exit status 0 only if all cmds 0
+set -e # exit immediately upon failure
+set -x # log all cmds before executing
+
+
+RELEASE='3.31.1-r1'
 
 cd /tmp
 
-wget https://github.com/rogerbinns/apsw/releases/download/$RELEASE/apsw-$RELEASE.zip
+wget --no-clobber https://github.com/rogerbinns/apsw/releases/download/$RELEASE/apsw-$RELEASE.zip
 
 unzip apsw-$RELEASE.zip
 
