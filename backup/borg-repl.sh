@@ -27,3 +27,8 @@ borg list abergman@wg:/data/borg
 
 borg create --debug --show-rc abergman@wg:/data/borg::g9x-1 projects/wiki
 
+REPO=abergman@wg:/data/borg
+export BORG_PASSCOMMAND="cat /home/abergman/.borg_pass"
+borg list $REPO
+
+borg break-lock $REPO
