@@ -15,7 +15,7 @@ retention:
 hooks:
     on_error:
         - echo "Error during prune/create/check."
-        - notify-send --urgency=critical "Error in borgmatic backup"
+        - notify-send --urgency=critical "Error in borgmatic backup $(date)"
     before_everything:
         - echo "Starting actions."
     after_everything:
