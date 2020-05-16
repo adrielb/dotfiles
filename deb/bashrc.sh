@@ -119,12 +119,10 @@ fe() {
 fp() {
   local file
   cd ~/projects
-  file=$(ag -l --ignore docindexer/static | fzf --query="$1" --select-1 --exit-0)
+  file=$(find -name .git -prune -o -type f -printf '%T@ %p\n'|sort -n|sed 's/^[^ ]* //' | fzf --no-sort --tac --multi)
   if [ -n "$file" ]
   then
-    cd `dirname $file`
-    cdg
-    ${EDITOR:-nvim} ~/projects/"$file"
+    ${EDITOR:-nvim} -O $file
   fi
 }
 
@@ -147,7 +145,7 @@ fkill() {
 }
 
 ftime() {
-  find -iname "$1" -type f -printf '%T@ \033[32m%Ca %Cb %Cd %CY %Cr \033[0m %p\n'|sort -n|sed 's/^[^ ]* //'
+  find -iname "$1" -type f -printf '%T@ \033[32m%Ca %Cb %Cd %CY %Cr \033[0m %p\n'|sort -n|sed 's/^[^ ]* //' | fzf --no-sort --tac --ansi
 }
 
 ft() {
