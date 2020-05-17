@@ -22,6 +22,7 @@ python3 -m pip install --user --upgrade \
   pandas-datareader \
   ipython \
   pytest \
+  pytest-benchmark \
   numexpr \
   cython \
   statsmodels \
