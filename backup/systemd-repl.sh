@@ -235,3 +235,10 @@ systemctl --user disable echo.service
 #
 # run
 systemd-run --user --timer-property=AccuracySec=1ms --on-calendar='*:*:*/3' /home/abergman/.local/bin/hello-world.sh
+
+
+# current boot
+journalctl --boot --pager-end
+
+# previous boot
+journalctl --boot=-1  --pager-end
