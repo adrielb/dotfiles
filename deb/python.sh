@@ -23,6 +23,7 @@ python3 -m pip install --user --upgrade \
   ipython \
   pytest \
   pytest-benchmark \
+  pytest-cov \
   numexpr \
   cython \
   statsmodels \
