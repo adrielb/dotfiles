@@ -119,10 +119,11 @@ fe() {
 fp() {
   local file
   cd ~/projects
-  file=$(find -name .git -prune -o -type f -printf '%T@ %p\n'|sort -n|sed 's/^[^ ]* //' | fzf --no-sort --tac --multi)
+  file=$(fd --type file --exec-batch ls --sort=time | \
+         fzf --no-sort --multi)
   if [ -n "$file" ]
   then
-    ${EDITOR:-nvim} -O $file
+    ${EDITOR:-nvim} -O4 $file
   fi
 }
 
