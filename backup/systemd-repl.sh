@@ -238,7 +238,10 @@ systemd-run --user --timer-property=AccuracySec=1ms --on-calendar='*:*:*/3' /hom
 
 
 # current boot
-journalctl --boot --pager-end
+sudo journalctl --boot --pager-end
 
 # previous boot
-journalctl --boot=-1  --pager-end
+sudo journalctl --boot=-1  --pager-end
+
+# show only critical errors
+sudo journalctl -b -1 -p "emerg".."crit"                                                             
