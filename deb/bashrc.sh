@@ -146,7 +146,11 @@ fkill() {
 }
 
 ftime() {
-  find -iname "$1" -type f -printf '%T@ \033[32m%Ca %Cb %Cd %CY %Cr \033[0m %p\n'|sort -n|sed 's/^[^ ]* //' | fzf --no-sort --tac --ansi
+  find . -type f -printf '%T@ \033[32m%Ca %Cb %Cd %CY %Cr \033[0m %p\n' \
+    | sort -n \
+    | sed 's/^[^ ]* //' \
+    | fzf --no-sort --tac --ansi --multi --nth 7.. \
+    | xclip -f
 }
 
 ft() {
