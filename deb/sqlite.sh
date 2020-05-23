@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://sqlite.org/download.html
 . ./logger.sh
 
 APPDIR=${APPS}/sqlite
@@ -7,11 +8,11 @@ mkdir -p ${APPDIR}
 
 cd ${APPDIR}
 
-LINK=https://www.sqlite.org/2019/sqlite-autoconf-3300100.tar.gz
+LINK=https://sqlite.org/2020/sqlite-autoconf-3320000.tar.gz
 
 SQLITE=${LINK##*/}
 
-wget --no-check-certificate $LINK
+wget --no-clobber --no-check-certificate $LINK
 
 tar zxvf $SQLITE
 
@@ -31,4 +32,4 @@ make -j
 
 make install
 
-sqlite3 -verison
+sqlite3 --verison
