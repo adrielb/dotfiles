@@ -6,10 +6,10 @@ set -x # log all cmds before executing
 mkdir /tmp/iosevka
 cd /tmp/iosevka
 
-wget --no-clobber https://github.com/be5invis/Iosevka/releases/download/v3.0.0/ttf-iosevka-term-3.0.0.zip
+wget --no-clobber https://github.com/be5invis/Iosevka/releases/download/v3.0.1/ttf-iosevka-fixed-3.0.1.zip
 
 unzip ttf-iosevka*.zip
 
-cp ttf/iosevka-term-regular.ttf ~/.fonts/
+cp ttf/iosevka-fixed-regular.ttf ~/.fonts/
 
 fc-cache --force --verbose
