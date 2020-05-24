@@ -41,3 +41,5 @@ borgmatic umount --mount-point /tmp/bb
 
 /bin/systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" /home/abergman/.local/bin/borgmatic --log-file-verbosity 2 --log-file=/home/abergman/log/borgmatic.log
 
+
+

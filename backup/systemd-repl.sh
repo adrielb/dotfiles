@@ -208,6 +208,15 @@ journalctl --user --follow --unit borgmatic-weekly
 journalctl --user --follow --unit borgmatic-weekly.timer
 
 #
+# breaking lock after crash
+REPO=abergman@wg:/data/borg
+export BORG_PASSCOMMAND="cat /home/abergman/.borg_pass"
+borg list $REPO
+
+borg break-lock $REPO
+systemctl --user start borgmatic-weekly.service
+
+#
 # echo timer/service
 
 cd /home/abergman/projects/dotfiles/backup
