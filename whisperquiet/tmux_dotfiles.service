@@ -1,0 +1,12 @@
+[Unit]
+Description=tmux dotfiles
+
+[Service]
+Type=forking
+Environment="DETACH=1"
+WorkingDirectory=/home/abergman/projects/dotfiles
+ExecStart=/home/abergman/projects/dotfiles/tmux.sh
+Restart=always
+
+[Install]
+WantedBy=default.target
