@@ -60,6 +60,7 @@ python3 -m pip install --user --upgrade \
   arq \
   datasette \
   livereload \
+  uvloop \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
   # torchvision
 
