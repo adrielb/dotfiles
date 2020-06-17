@@ -24,6 +24,7 @@
     this = !git init && git add . && git commit -m \"initial commit\"
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
     edit = !nvim -O4 `git ls-files -m`
+    undocommit = reset --soft HEAD~
 [core]
     excludesfile = /home/abergman/projects/dotfiles/global.gitignore
     pager = less
