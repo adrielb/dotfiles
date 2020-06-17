@@ -58,6 +58,7 @@ python3 -m pip install --user --upgrade \
   redis \
   huey \
   arq \
+  rich \
   datasette \
   livereload \
   uvloop \
