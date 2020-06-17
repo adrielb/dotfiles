@@ -33,10 +33,15 @@ borgmatic info
 cd /tmp/bb
 borgmatic extract --archive latest
 
-
+#
+# mount backups
 mkdir -p /tmp/bb
 borgmatic mount --mount-point /tmp/bb
+cd /tmp/bb 
 
+#
+# unmount
+cd
 borgmatic umount --mount-point /tmp/bb
 
 /bin/systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" /home/abergman/.local/bin/borgmatic --log-file-verbosity 2 --log-file=/home/abergman/log/borgmatic.log
