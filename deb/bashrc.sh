@@ -21,6 +21,7 @@ export LD_LIBRARY_PATH=~/apps/local/lib:$LD_LIBRARY_PATH
 export PATH=~/projects/dotfiles/bin:$PATH
 export PATH=~/.local/bin:$PATH
 export PATH=~/apps/local/bin:$PATH
+export PATH=/snap/bin:$PATH
 export PATH=/usr/sbin:$PATH
 export MANPATH=~/apps/local/share/man:$MANPATH
 
