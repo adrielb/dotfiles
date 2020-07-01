@@ -3,7 +3,7 @@ set -o pipefail # exit status 0 only if all cmds 0
 set -e # exit immediately upon failure
 set -x # log all cmds before executing
 
-VERSION=v2.1.6
+VERSION=v2.1.7
 
 mkdir -p /tmp/nats
 cd /tmp/nats
