@@ -3,5 +3,5 @@ OPEN="xdg-open {} &"
 
 cd ~/Downloads
 
-fzf --bind "enter:execute-silent($OPEN),double-click:execute-silent($OPEN)" --border
-
+fd --type file --exec-batch ls -u | \
+fzf --bind "enter:execute-silent($OPEN),double-click:execute-silent($OPEN)" --border --no-sort
