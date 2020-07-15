@@ -13,7 +13,7 @@ stopLog
 git new
 startLog
 
-git co v0.7.3
+git co v0.8.5
 
 sh autogen.sh
 ./configure --prefix=${APPS}/local
