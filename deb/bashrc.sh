@@ -121,7 +121,7 @@ fp() {
   local file
   cd ~/projects
   file=$(fd --type file --exec-batch ls --sort=time | \
-         fzf --no-sort --multi)
+         fzf --no-sort --multi | tac)
   if [ -n "$file" ]
   then
     ${EDITOR:-nvim} -O4 $file
