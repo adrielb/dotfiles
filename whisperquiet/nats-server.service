@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/home/abergman/apps/local/bin/nats-server
+ExecStart=/home/abergman/apps/local/bin/nats-server --http_port 8222
 Restart=on-failure
 
 [Install]
