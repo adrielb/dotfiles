@@ -3,12 +3,12 @@ source ./logger.sh
 cd ~/apps/local/bin
 ln -sfv ~/apps/julia-bin/current/bin/julia
 
-JULIA=julia-1.4.1
+JULIA=julia-1.5.0
 mkdir -p ~/apps/julia-bin/
 cd ~/apps/julia-bin/
 TARGZ=$JULIA-linux-x86_64.tar.gz
 if [ ! -f "$TARGZ" ]; then
-  wget https://julialang-s3.julialang.org/bin/linux/x64/1.4/$TARGZ
+  wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/$TARGZ
 fi
 tar zxvf $TARGZ
 rm -f current
