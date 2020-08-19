@@ -124,7 +124,7 @@ fp() {
          fzf --no-sort --multi | tac)
   if [ -n "$file" ]
   then
-    ${EDITOR:-nvim} -O4 $file
+    ${EDITOR:-nvim} -O $file
   fi
 }
 
