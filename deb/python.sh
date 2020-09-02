@@ -44,6 +44,7 @@ python3 -m pip install --user --upgrade \
   joblib \
   bokeh \
   holoviews \
+  hvplot \
   fastparquet \
   attrs \
   cvxpy \
@@ -56,8 +57,6 @@ python3 -m pip install --user --upgrade \
   asyncio-nats-client \
   borgmatic \
   redis \
-  huey \
-  arq \
   rich \
   datasette \
   livereload \
