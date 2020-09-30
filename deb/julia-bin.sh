@@ -13,6 +13,7 @@ fi
 tar zxvf $TARGZ
 rm -f current
 ln -sfv $JULIA current
+chmod -R a=rX current
 julia
 
 ctags-exuberant \
