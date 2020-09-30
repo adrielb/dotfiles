@@ -8,3 +8,7 @@ cd /tmp
 git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 cd gnome-terminal-colors-solarized
 ./install.sh
+
+
+echo "Need to change pallate color #9 since it's too black vs background"
+echo "#5B6264"
