@@ -6,7 +6,7 @@ APPSDIR=${APPS}/python3
 mkdir -p $APPSDIR
 cd $APPSDIR
 
-VERSION="3.8.2"
+VERSION="3.8.6"
 
 LINK=https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.xz
 
@@ -37,4 +37,4 @@ ctags-exuberant \
   --totals=yes \
   --languages=python
 
-# edit ~/.local/bin/pip3 to #!/usr/local/bin/python3.7
+# edit ~/.local/bin/pip3 to #!/usr/local/bin/python3.8
