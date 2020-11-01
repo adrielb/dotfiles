@@ -3,7 +3,7 @@ source ./logger.sh
 cd ~/apps/local/bin
 ln -sfv ~/apps/julia-bin/current/bin/julia
 
-JULIA=julia-1.5.1
+JULIA=julia-1.5.2
 mkdir -p ~/apps/julia-bin/
 cd ~/apps/julia-bin/
 TARGZ=$JULIA-linux-x86_64.tar.gz
