@@ -25,6 +25,7 @@
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
     edit = !nvim -O4 `git status --porcelain=2|awk '{print $NF}'`
     undocommit = reset --soft HEAD~
+    tags = log --tags --simplify-by-decoration --pretty=\"format:%<(40)%D %ar\" -8
 [core]
     excludesfile = /home/abergman/projects/dotfiles/global.gitignore
     pager = less
