@@ -19,3 +19,4 @@ exit 0
 
 # add to ~/.profile:
 export PATH="/usr/local/go/bin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
