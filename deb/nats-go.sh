@@ -9,3 +9,4 @@ go get github.com/nats-io/nats.go/@latest
 
 go get github.com/nats-io/nats.go/examples/nats-sub
 
+go get github.com/nats-io/nats.go/examples/nats-pub
