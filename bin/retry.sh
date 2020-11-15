@@ -3,6 +3,7 @@
 while true
 do
   $@
-  echo "sleeping"
+  echo -n "sleeping..."
   sleep 1
+  echo "awoken"
 done
