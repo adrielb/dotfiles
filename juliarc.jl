@@ -15,6 +15,16 @@ atreplinit() do repl
         @warn "Could not load Revise."
     end
 
+    try
+        @eval begin
+            import REPL
+            REPL.GlobalOptions.auto_indent = false
+            REPL.LineEdit.options(s::REPL.LineEdit.PromptState) = REPL.GlobalOptions
+        end
+    catch err
+        @warn "Disabling auto_indent: " err
+    end
+
     if isfile("init.jl")
       @eval initfile = joinpath(pwd(),"init.jl")
       @warn "Loading " * initfile
