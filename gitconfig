@@ -26,6 +26,7 @@
     edit = !nvim -O4 `git status --porcelain=2|awk '{print $NF}'`
     undocommit = reset --soft HEAD~
     tags = log --tags --simplify-by-decoration --pretty=\"format:%<(40)%D %ar\" -8
+    taglatest = !git checkout $(git rev-list --tags --max-count=1)
 [core]
     excludesfile = /home/abergman/projects/dotfiles/global.gitignore
     pager = less
