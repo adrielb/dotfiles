@@ -1,11 +1,17 @@
 cd ~/apps
 
-git clone https://github.com/kovidgoyal/kitty
+if [ ! -d "kitty" ]; then
+  git clone https://github.com/kovidgoyal/kitty
+fi
 
 cd kitty
 
-git co v0.15.0
+git co v0.19.2
+
+sudo apt-get install liblcms2-dev
 
 make
 
-python3 .
+ln -sfrv ./kitty/launcher/kitty ~/apps/local/bin
+
+kitty --version
