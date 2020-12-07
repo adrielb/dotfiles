@@ -27,6 +27,7 @@
     undocommit = reset --soft HEAD~
     tags = log --tags --simplify-by-decoration --pretty=\"format:%<(40)%D %ar\" -8
     taglatest = !git checkout $(git rev-list --tags --max-count=1)
+    wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
 [core]
     excludesfile = /home/abergman/projects/dotfiles/global.gitignore
     pager = less
