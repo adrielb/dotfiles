@@ -13,10 +13,9 @@ body {
 
   line-height: 1.5rem !important;
   background-image: repeating-linear-gradient(
-    gainsboro,             gainsboro      1.5rem,
-    dimgray        1.5rem, dimgray        3.0rem,
-    silver         3.0rem, silver         4.5rem,
-    lightslategrey 6.0rem, lightslategrey 6.0rem
+    gainsboro,                     gainsboro 1.5rem,
+    silver           1.5rem,  silver         3.0rem,
+    lightslategrey   3.0rem, lightslategrey  4.5rem
   );
 
 }
