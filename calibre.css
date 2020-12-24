@@ -1,0 +1,38 @@
+body {
+  color: rgb(0, 0, 0);
+  background-color: hsl(0, 0, 0);
+  text-align: justify;
+  line-spacing: 1.8;
+  max-width: 650px;
+  margin: 40px auto;
+  margin-top: 0px;
+  margin-bottom: 4px;
+  margin-right: 50px;
+  margin-left: 50px;
+  text-indent: 4em;
+
+  line-height: 1.5rem !important;
+  background-image: repeating-linear-gradient(
+    gainsboro,             gainsboro      1.5rem,
+    dimgray        1.5rem, dimgray        3.0rem,
+    silver         3.0rem, silver         4.5rem,
+    lightslategrey 6.0rem, lightslategrey 6.0rem
+  );
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: black;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+p,div {
+  page-break-after: always !important
+}
+
+.footnotes {
+  font-size: 2em;
+  width: 90vw;
+}
