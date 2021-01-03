@@ -1,5 +1,11 @@
 push!(LOAD_PATH, pwd())
 
+try
+    using Revise
+catch e
+    @warn "Error initializing Revise" exception=(e, catch_backtrace())
+end
+
 atreplinit() do repl
     try
         @eval using OhMyREPL
@@ -8,12 +14,6 @@ atreplinit() do repl
         @warn "Could not load OhMyREPL." err
     end
 
-    try
-        @eval using Revise
-        @async Revise.wait_steal_repl_backend()
-    catch
-        @warn "Could not load Revise."
-    end
 
     try
         @eval begin
