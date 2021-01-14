@@ -6,12 +6,10 @@ set -x # log all cmds before executing
 
 cd /tmp
 
-wget --no-clobber https://github.com/svenstaro/miniserve/releases/download/v0.8.0/miniserve-v0.8.0-linux-x86_64
+wget --no-clobber https://github.com/svenstaro/miniserve/releases/download/v0.10.4/miniserve-v0.10.4-linux-x86_64
 
 m=(miniserve-*)
 m="${m[0]}"
-
-chmod u+x
 
 mv $m ~/apps/local/bin/miniserve
 
