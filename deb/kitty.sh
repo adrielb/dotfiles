@@ -1,3 +1,9 @@
+#!/bin/bash
+set -o pipefail # exit status 0 only if all cmds 0
+set -e # exit immediately upon failure
+set -x # log all cmds before executing
+
+
 cd ~/apps
 
 if [ ! -d "kitty" ]; then
@@ -6,9 +12,9 @@ fi
 
 cd kitty
 
-git co v0.19.2
+git co v0.19.3
 
-sudo apt-get install liblcms2-dev
+# sudo apt-get install liblcms2-dev
 
 make
 
