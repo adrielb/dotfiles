@@ -10,7 +10,6 @@ python3 -m pip install --user --upgrade \
   jedi \
   pyzmq \
   numpy \
-  PyQt5 \
   matplotlib \
   scipy \
   scikit-learn \
@@ -59,10 +58,14 @@ python3 -m pip install --user --upgrade \
   redis \
   rich \
   datasette \
+  sqlite-utils \
+  csv-to-sqlite \
+  csv-diff \
   livereload \
   uvloop \
   urwid \
   visidata \
+  apache-superset \
   # http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
   # torchvision
 
