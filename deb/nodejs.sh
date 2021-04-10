@@ -1,15 +1,39 @@
-npm install npm@latest -g
+#!/bin/bash
+set -o pipefail # exit status 0 only if all cmds 0
+set -e # exit immediately upon failure
+set -x # log all cmds before executing
 
-npm update -g .
 
-VER="8.9.4"
+VER="14.16.1"
 NODEXZ="node-v"$VER"-linux-x64.tar.xz"
 
 cd ~/apps/nodejs
 
-wget https://nodejs.org/dist/v$VER/$NODEXZ
+wget --no-clobber https://nodejs.org/dist/v$VER/$NODEXZ
 
-tar xvf $NODEXZ
+tar xf $NODEXZ --skip-old-files
+
+ln -sfv ${NODEXZ%.tar.xz} current
+
+ln -sfv --relative current/bin/npm ~/apps/local/bin
+ln -sfv --relative current/bin/npx ~/apps/local/bin
+ln -sfv --relative current/bin/node ~/apps/local/bin
+
+exit 0
+
+
+npm install --global npm
+
+npm update --global
+
+
+
+
+npm install npm@latest -g
+
+npm update -g .
+
+
 
 npm update --global
 
