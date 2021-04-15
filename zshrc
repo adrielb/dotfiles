@@ -31,3 +31,6 @@ antigen apply
 source ~/.bash_aliases
 
 alias -s pdf=zathura
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/abergman/apps/local/bin/nomad nomad

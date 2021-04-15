@@ -168,3 +168,5 @@ todo() {
   cd ~/projects
   nvim -c Todo
 }
+
+complete -C /home/abergman/apps/local/bin/nomad nomad
