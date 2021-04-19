@@ -12,7 +12,7 @@ fi
 
 cd kitty
 
-git co v0.19.3
+git taglatest
 
 # sudo apt-get install liblcms2-dev
 
