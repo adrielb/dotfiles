@@ -26,9 +26,9 @@ atreplinit() do repl
     end
 
     if isfile("init.jl")
-      @eval initfile = joinpath(pwd(),"init.jl")
-      @warn "Loading " * initfile
-      @async include(initfile)
+        @eval initfile = joinpath(pwd(),"init.jl")
+        @warn "Loading " * initfile
+        @eval include(initfile)
     end
 end
 
