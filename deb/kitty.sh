@@ -12,6 +12,7 @@ fi
 
 cd kitty
 
+git fetch
 git taglatest
 
 # sudo apt-get install liblcms2-dev
