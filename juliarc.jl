@@ -27,7 +27,7 @@ atreplinit() do repl
 
     if isfile("init.jl")
         @eval initfile = joinpath(pwd(),"init.jl")
-        @warn "Loading " * initfile
+        @warn "Loading $initfile\n$(read(initfile, String))"
         @eval include(initfile)
     end
 end
