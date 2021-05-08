@@ -10,10 +10,11 @@ fi
 
 cd ${TWDIR}
 git fetch
-git co master
+git taglatest
 cmake \
   -DCMAKE_BUILD_TYPE=release . \
   -DCMAKE_INSTALL_PREFIX:PREFIX=${APPS}/local
 make -j$NUM_PROCS
 make install
 
+task --version
