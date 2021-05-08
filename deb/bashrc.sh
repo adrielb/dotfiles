@@ -97,6 +97,11 @@ if [ -f ~/projects/dotfiles/scripts/tmux.completion.bash ]; then
 . ~/projects/dotfiles/scripts/tmux.completion.bash
 fi
 
+if [ -f ~/apps/timewarrior/completion/timew-completion.bash ]; then
+. ~/apps/timewarrior/completion/timew-completion.bash
+fi
+
+
 source ~/apps/git/contrib/completion/git-completion.bash
 
 GIT_PROMPT_ONLY_IN_REPO=1
