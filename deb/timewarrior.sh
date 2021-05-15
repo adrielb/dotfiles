@@ -36,3 +36,71 @@ make -j
 make install
 
 timew --version
+
+exit 0
+
+#######################################################################
+#                                REPL                                 #
+#######################################################################
+
+
+tree ~/.timewarrior
+
+bat ~/.timewarrior/timewarrior.cfg
+
+timew
+# There is no active time tracking.                           
+
+timew continue   # restarts previous tracking
+
+timew summary
+
+timew help summary
+
+timew summary :lastweek
+
+timew summary :lastweek :ids
+
+timew tags
+
+# Historical (ex post facto)
+timew track 
+
+timew help interval
+
+timew help date
+
+timew help hints
+
+timew help delete
+
+# charts
+timew day 8th
+
+timew day 7th - now
+
+timew day yesterday
+
+timew week
+
+timew help day
+
+# extensions
+timew extensions
+
+timew diagnostics
+
+timew :lastweek totals
+
+timew help report
+
+wget -P ~/.timewarrior/extensions \
+  https://raw.githubusercontent.com/GothenburgBitFactory/timewarrior/dev/ext/totals.py
+chmod u+x ~/.timewarrior/extensions/totals.py
+
+timew show
+
+# export
+timew help export
+
+timew export 1wks
