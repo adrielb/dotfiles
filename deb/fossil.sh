@@ -19,3 +19,28 @@ tar zxvf $FOSSIL_GZ
 cp fossil ~/apps/local/bin
 
 fossil version
+
+exit 0
+
+
+#######################################################################
+#                                repl                                 #
+#######################################################################
+
+mkdir ~/fossil
+cd ~/fossil
+
+fossil init fossil.sqlite
+
+fossil ui fossil.sqlite
+# 8081
+
+fossil serve fossil.sqlite
+# 8080
+
+datasette fossil.sqlite
+# 8001
+
+
+# Admin --> users --> abergman --> [make stronger password]
+# Admin --> Security Audit --> Take it private

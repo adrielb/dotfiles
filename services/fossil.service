@@ -1,0 +1,11 @@
+[Unit]
+Description=Fossil user server
+After=network.target
+
+[Service]
+ExecStart=/home/abergman/apps/local/bin/fossil server --port 8081 /home/abergman/fossil/fossil.sqlite
+# Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
