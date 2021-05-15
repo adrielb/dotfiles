@@ -1,0 +1,18 @@
+[Unit]
+Description=Caddy
+Documentation=https://caddyserver.com/docs/
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/abergman/apps/local/bin/caddy run --environ --config /home/abergman/.config/caddy/Caddyfile --watch
+ExecReload=/home/abergman/apps/local/bin/caddy reload --config /home/abergman/.config/caddy/Caddyfile --watch
+TimeoutStopSec=5s
+LimitNOFILE=1048576
+LimitNPROC=512
+PrivateTmp=true
+ProtectSystem=full
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=default.target
