@@ -44,3 +44,17 @@ datasette fossil.sqlite
 
 # Admin --> users --> abergman --> [make stronger password]
 # Admin --> Security Audit --> Take it private
+# Admin --> Access --> 
+#   * Login expiration time = 87660 (10 years)
+# Admin --> Chat -->
+#   * Minimum Number Of Historical Messages To Retain = 9999999
+#   * Maximum Message Age In Days = 9999999
+# Admin --> Configuration --> Project Name = Home3011
+
+mkdir work
+
+fossil open ../fossil.sqlite
+
+fossil add *
+
+fossil commit
